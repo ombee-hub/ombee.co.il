@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>OMBee - חנות דיגיטלית | עבודות</title>
+<link rel="icon" type="image/svg+xml" href="images/סמל OMBee.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#0D1B2A;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+input,textarea,select,button{font-family:'Heebo',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+.cursor{width:8px;height:8px;background:#00B3DD;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cursor-f{width:32px;height:32px;border:1.5px solid rgba(0,179,221,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s}
+body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate(-50%,-50%) scale(1.7);background:rgba(0,179,221,.08)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:72px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#00B3DD;margin-bottom:18px}
+.eyebrow::before,.eyebrow::after{content:'';width:28px;height:1.5px;background:#00B3DD;opacity:.5}
+.section-title{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#0D1B2A}
+.title-out{-webkit-text-stroke:1.5px #00B3DD;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
+.btn-cy{background:#00B3DD;color:#fff}
+.btn-cy:hover{background:#33C5E8;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,179,221,.3)}
+.btn-white{background:#fff;color:#00B3DD;border:none}
+.btn-white:hover{background:#F2FBFD;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:#fff;border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(0,179,221,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.header-logo-nav{display:flex;align-items:center;gap:28px}
+.logo img{height:38px;width:auto}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:14px;font-weight:600;color:#6B7280;padding:8px 16px;border-radius:50px;transition:all .3s}
+.nav-link:hover,.nav-link.active{color:#00B3DD;background:rgba(0,179,221,.07)}
+.nav-cta{background:#00B3DD;color:#fff!important;font-weight:700;padding:10px 22px}
+.nav-cta:hover{background:#33C5E8;box-shadow:0 8px 24px rgba(0,179,221,.3);transform:translateY(-1px)}
+.nav-dropdown{position:relative}
+.nav-dropdown::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-link-drop{display:flex;align-items:center;gap:6px}
+.nav-link-drop svg{transition:transform .3s}
+.nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + 12px);right:auto;left:0;background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:12px;min-width:300px;box-shadow:0 16px 48px rgba(0,179,221,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:none}
+.dropdown-header{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;padding:6px 12px 12px;border-bottom:1px solid rgba(0,179,221,.1);margin-bottom:8px}
+.dropdown-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;transition:all .2s;color:#0D1B2A}
+.dropdown-item:hover{background:rgba(0,179,221,.07)}
+.dropdown-item:hover .dropdown-icon{background:#00B3DD;color:#fff}
+.dropdown-icon{width:44px;height:44px;border-radius:12px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0;transition:all .2s}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.dropdown-item span{font-size:12px;color:#6B7280}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:24px;height:2px;background:#0D1B2A;border-radius:2px;display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu ul{display:flex;flex-direction:column;align-items:center;gap:32px}
+.mob-link{font-size:34px;font-weight:800;color:#0D1B2A;transition:color .3s}
+.mob-link:hover{color:#00B3DD}
+@media(max-width:840px){.nav{display:none}.hamburger{display:flex}}
+
+/* PAGE HERO */
+.page-hero{padding:160px 0 90px;background:#fff;position:relative;overflow:hidden;text-align:center}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,179,221,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,179,221,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AECDD7;margin-bottom:24px}
+.breadcrumb a{color:#00B3DD}
+.breadcrumb-sep{opacity:.4}
+.page-hero h1{font-size:clamp(44px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#0D1B2A;margin-bottom:20px}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 36px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero-tag{padding:8px 18px;background:rgba(0,179,221,.08);border:1px solid rgba(0,179,221,.25);border-radius:50px;font-size:13px;font-weight:600;color:#00B3DD}
+
+/* PROJECT SHOWCASE */
+.project-showcase{background:#F2FBFD;padding:80px 0;text-align:center}
+.project-showcase-img{max-width:960px;margin:0 auto;border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(0,179,221,.15)}
+.project-showcase-img img{width:100%;display:block}
+
+/* PROJECT OVERVIEW */
+.overview-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:60px;align-items:start}
+.overview-text h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;line-height:1.2;letter-spacing:-.02em;color:#0D1B2A;margin-bottom:20px}
+.overview-text p{font-size:16px;color:#6B7280;line-height:1.85;margin-bottom:16px}
+.project-meta{background:#fff;border:1.5px solid rgba(0,179,221,.15);border-radius:20px;padding:32px;box-shadow:0 8px 32px rgba(0,179,221,.06)}
+.project-meta h3{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#AECDD7;margin-bottom:24px}
+.project-meta-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,179,221,.1)}
+.project-meta-row:last-child{border-bottom:none}
+.project-meta-row .label{font-size:14px;font-weight:600;color:#6B7280}
+.project-meta-row .value{font-size:14px;font-weight:700;color:#0D1B2A}
+
+/* CHALLENGE & SOLUTION */
+.challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.cs-card{background:#fff;border:1.5px solid rgba(0,179,221,.12);border-radius:24px;padding:40px;transition:all .3s}
+.cs-card:hover{box-shadow:0 16px 48px rgba(0,179,221,.1);transform:translateY(-4px)}
+.cs-card .cs-icon{width:56px;height:56px;border-radius:16px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;margin-bottom:20px}
+.cs-card h3{font-size:22px;font-weight:800;color:#0D1B2A;margin-bottom:14px}
+.cs-card p{font-size:15px;color:#6B7280;line-height:1.85}
+
+/* DELIVERABLES */
+.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.del-card{background:#fff;border:1.5px solid rgba(0,179,221,.12);border-radius:20px;padding:32px 28px;text-align:center;transition:all .3s}
+.del-card:hover{box-shadow:0 12px 36px rgba(0,179,221,.1);transform:translateY(-4px)}
+.del-card .del-icon{width:52px;height:52px;border-radius:14px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;margin:0 auto 18px}
+.del-card h4{font-size:16px;font-weight:700;color:#0D1B2A;margin-bottom:6px}
+.del-card p{font-size:13px;color:#6B7280;line-height:1.7}
+
+/* TOOLS */
+.tools-wrap{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.tool-pill{padding:10px 24px;background:rgba(0,179,221,.07);border:1.5px solid rgba(0,179,221,.2);border-radius:50px;font-size:14px;font-weight:600;color:#00B3DD;transition:all .3s}
+.tool-pill:hover{background:#00B3DD;color:#fff;transform:translateY(-2px)}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;position:relative}
+.process-grid::before{content:'';position:absolute;top:36px;right:12.5%;left:12.5%;height:2px;background:linear-gradient(90deg,rgba(0,179,221,.2),rgba(0,179,221,.4),rgba(0,179,221,.2));z-index:0}
+.pitem{text-align:center;position:relative;z-index:1}
+.pitem-num{width:72px;height:72px;border-radius:50%;background:#00B3DD;color:#fff;font-size:24px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(0,179,221,.25)}
+.pitem h4{font-size:16px;font-weight:700;color:#0D1B2A;margin-bottom:8px}
+.pitem p{font-size:13px;color:#6B7280;line-height:1.7}
+
+/* PROJECT NAV */
+.project-nav{display:flex;justify-content:space-between;align-items:center;padding:40px 0;border-top:1.5px solid rgba(0,179,221,.12);border-bottom:1.5px solid rgba(0,179,221,.12)}
+.pnav-link{display:flex;align-items:center;gap:14px;padding:16px 24px;border-radius:16px;transition:all .3s}
+.pnav-link:hover{background:rgba(0,179,221,.06)}
+.pnav-link .pnav-arrow{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(0,179,221,.25);display:flex;align-items:center;justify-content:center;color:#00B3DD;transition:all .3s;flex-shrink:0}
+.pnav-link:hover .pnav-arrow{background:#00B3DD;color:#fff;border-color:transparent}
+.pnav-label{font-size:12px;color:#AECDD7;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.pnav-title{font-size:16px;font-weight:700;color:#0D1B2A}
+
+/* CTA STRIP */
+.cta-strip{background:#00B3DD;padding:80px 0;text-align:center}
+.cta-strip h2{font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
+.cta-strip p{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:36px}
+
+/* FOOTER */
+.footer{background:#fff;border-top:1px solid rgba(0,179,221,.12)}
+.footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:64px 0 56px;border-bottom:1px solid rgba(0,179,221,.1)}
+.footer-brand img{height:34px;width:auto;margin-bottom:14px}
+.footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AECDD7;margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{font-size:14px;color:#6B7280;transition:color .3s}
+.footer-col a:hover{color:#00B3DD}
+.footer-bottom{padding:20px 0}
+.footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
+.footer-bottom span{font-size:13px;color:#AECDD7}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .overview-grid{grid-template-columns:1fr;gap:36px}
+  .challenge-grid{grid-template-columns:1fr;gap:20px}
+  .del-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .process-grid{grid-template-columns:1fr 1fr;gap:24px}
+  .process-grid::before{display:none}
+  .project-nav{flex-direction:column;gap:16px}
+  .footer-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 36px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+}
+@media(max-width:480px){
+  .del-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-f" id="cursorFollower"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <div class="header-logo-nav">
+    <a href="index.html" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">איך אוכל לעזור לך?</div>
+            <a href="website-design.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><strong>בניית אתרים</strong><span>WordPress & Figma — מהרעיון לאוויר</span></div></a>
+            <a href="website-redesign.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div><div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div></a>
+            <a href="app-design.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div><div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div></a>
+          </div>
+        </li>
+        <li><a href="services.html" class="nav-link">שירותים</a></li>
+        <li><a href="portfolio.html" class="nav-link">עבודות</a></li>
+        <li><a href="clients.html" class="nav-link">לקוחות</a></li>
+        <li><a href="about.html" class="nav-link">מי אני</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobileMenu">
+  <ul>
+    <li><a href="services.html" class="mob-link">שירותים</a></li>
+    <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
+    <li><a href="clients.html" class="mob-link">לקוחות</a></li>
+    <li><a href="about.html" class="mob-link">מי אני</a></li>
+    <li><a href="contact.html" class="mob-link">יצירת קשר</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb reveal"><a href="index.html">דף הבית</a><span class="breadcrumb-sep">/</span><a href="portfolio.html">עבודות</a><span class="breadcrumb-sep">/</span><span>חנות דיגיטלית</span></div>
+    <h1 class="reveal">חנות דיגיטלית</h1>
+    <p class="reveal">עיצוב ופיתוח חנות אונליין מבוססת WooCommerce עבור יבולי הכפר, עם דגש על חוויית קנייה נוחה והמרות גבוהות</p>
+    <div class="hero-tags reveal">
+      <span class="hero-tag">WooCommerce</span>
+      <span class="hero-tag">UX</span>
+      <span class="hero-tag">WordPress</span>
+      <span class="hero-tag">E-Commerce</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT SHOWCASE -->
+<section class="project-showcase reveal">
+  <div class="container">
+    <div class="project-showcase-img">
+      <img src="images/yevulei-hakfar_Web.png" alt="יבולי הכפר Website Mockup"/>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT OVERVIEW -->
+<section class="section reveal">
+  <div class="container">
+    <div class="overview-grid">
+      <div class="overview-text">
+        <div class="eyebrow">סקירת הפרויקט</div>
+        <h2>חנות אונליין שמוכרת בשבילך</h2>
+        <p>יבולי הכפר פנו אליי עם צורך ברור: להקים חנות אונליין שתאפשר ללקוחות להזמין תוצרת חקלאית טרייה ישירות מהחקלאי. הם חיפשו פלטפורמה שתהיה קלה לתפעול ותספק חוויית קנייה מעולה.</p>
+        <p>בניתי חנות דיגיטלית מבוססת WooCommerce עם ממשק משתמש אינטואיטיבי, תהליך רכישה מהיר וחלק, ועיצוב שמשדר טריות ואמינות. התוצאה היא חנות שממירה מבקרים לקונים ומגדילה את המכירות באופן משמעותי.</p>
+      </div>
+      <div class="project-meta">
+        <h3>פרטי הפרויקט</h3>
+        <div class="project-meta-row"><span class="label">לקוח</span><span class="value">יבולי הכפר</span></div>
+        <div class="project-meta-row"><span class="label">קטגוריה</span><span class="value">אתר &middot; e-Commerce</span></div>
+        <div class="project-meta-row"><span class="label">שנה</span><span class="value">2023</span></div>
+        <div class="project-meta-row"><span class="label">תחום</span><span class="value">מזון ותוצרת חקלאית</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE & SOLUTION -->
+<section class="section reveal" style="background:#F2FBFD">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">אתגר ופתרון</div>
+      <h2 class="section-title">מהבעיה <span class="title-out">לפתרון</span></h2>
+    </div>
+    <div class="challenge-grid">
+      <div class="cs-card">
+        <div class="cs-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <h3>האתגר</h3>
+        <p>יבולי הכפר רצו למכור את התוצרת שלהם אונליין אבל לא היה להם פלטפורמה מתאימה. הם חיפשו חנות דיגיטלית שתהיה קלה לתפעול, תציג את המוצרים בצורה מזמינה, ותספק תהליך רכישה פשוט שיגרום ללקוחות לחזור שוב ושוב. האתגר העיקרי היה ליצור חוויית קנייה שממירה מבקרים ללקוחות משלמים.</p>
+      </div>
+      <div class="cs-card">
+        <div class="cs-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>הפתרון</h3>
+        <p>בניתי חנות אונליין מבוססת WooCommerce על גבי WordPress עם חוויית משתמש מעולה. עיצבתי תהליך רכישה פשוט ואינטואיטיבי, דפי מוצר מזמינים עם תמונות איכותיות, וניווט קל בין הקטגוריות. החנות כוללת מערכת ניהול הזמנות, תשלומים מאובטחים, ותאימות מלאה למובייל לחוויית קנייה חלקה מכל מכשיר.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">תוצרים</div>
+      <h2 class="section-title">מה <span class="title-out">סופק</span></h2>
+    </div>
+    <div class="del-grid">
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg>
+        </div>
+        <h4>UX Research</h4>
+        <p>מחקר משתמשים, ניתוח מתחרים ומיפוי מסע לקוח</p>
+      </div>
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h4>עיצוב Figma</h4>
+        <p>עיצוב ממשק מלא ב-Figma כולל מערכת עיצוב וקומפוננטות</p>
+      </div>
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h4>פיתוח WordPress</h4>
+        <p>פיתוח אתר מלא על WordPress עם Elementor</p>
+      </div>
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg>
+        </div>
+        <h4>עיצוב רספונסיבי</h4>
+        <p>התאמה מלאה לכל המכשירים - מובייל, טאבלט ודסקטופ</p>
+      </div>
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <h4>אינטגרציית WooCommerce</h4>
+        <p>הקמת חנות מלאה עם ניהול מוצרים, הזמנות ותשלומים מאובטחים</p>
+      </div>
+      <div class="del-card">
+        <div class="del-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>הדרכה והעברה</h4>
+        <p>הדרכה מלאה לצוות הלקוח על ניהול תוכן ועדכונים שוטפים</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="section reveal" style="background:#F2FBFD">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">כלים</div>
+      <h2 class="section-title">הטכנולוגיות <span class="title-out">שבשימוש</span></h2>
+    </div>
+    <div class="tools-wrap">
+      <span class="tool-pill">Figma</span>
+      <span class="tool-pill">WordPress</span>
+      <span class="tool-pill">Elementor</span>
+      <span class="tool-pill">Photoshop</span>
+      <span class="tool-pill">Illustrator</span>
+      <span class="tool-pill">WooCommerce</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">תהליך עבודה</div>
+      <h2 class="section-title">מהרעיון <span class="title-out">לתוצאה</span></h2>
+    </div>
+    <div class="process-grid">
+      <div class="pitem">
+        <div class="pitem-num">1</div>
+        <h4>פגישת גילוי</h4>
+        <p>הבנת הצרכים, המטרות וקהל היעד של הלקוח לבניית אסטרטגיה מדויקת</p>
+      </div>
+      <div class="pitem">
+        <div class="pitem-num">2</div>
+        <h4>עיצוב ב-Figma</h4>
+        <p>עיצוב wireframes ומוקאפים מפורטים עם דגש על חוויית משתמש אופטימלית</p>
+      </div>
+      <div class="pitem">
+        <div class="pitem-num">3</div>
+        <h4>פיתוח WordPress</h4>
+        <p>הקמת האתר על WordPress עם התאמה מלאה לעיצוב ואופטימיזציה לביצועים</p>
+      </div>
+      <div class="pitem">
+        <div class="pitem-num">4</div>
+        <h4>השקה והדרכה</h4>
+        <p>בדיקות סופיות, העלאה לאוויר והדרכה מקיפה לצוות על ניהול האתר</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<section class="section reveal" style="padding:0">
+  <div class="container">
+    <div class="project-nav">
+      <a href="project-hofit.html" class="pnav-link">
+        <div class="pnav-arrow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div>
+          <div class="pnav-label">הפרויקט הקודם</div>
+          <div class="pnav-title">Hofit</div>
+        </div>
+      </a>
+      <a href="project-oren.html" class="pnav-link" style="flex-direction:row-reverse;text-align:left">
+        <div class="pnav-arrow" style="transform:rotate(180deg)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div>
+          <div class="pnav-label">הפרויקט הבא</div>
+          <div class="pnav-title">אורן תיקונים</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip reveal">
+  <div class="container">
+    <h2>רוצה חנות אונליין שמוכרת?</h2>
+    <p>בואו נדבר על הפרויקט הבא שלכם</p>
+    <a href="contact.html" class="btn btn-white">יצירת קשר</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+        <p>עיצוב גרפי ו-UI/UX<br/>מאז 2014</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+        <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">מי אני</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
+        <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="padding:0">
+        <span>© כל הזכויות שמורות ל-OMBee Graphic Design And UI/UX 2014-2026</span>
+        <span>עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</span>
+        <span><a href="accessibility-statement.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">מדיניות פרטיות</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="accessibility.js"></script>
+</body>
+</html>

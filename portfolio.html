@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>OMBee - עבודות | פורטפוליו</title>
+<link rel="icon" type="image/svg+xml" href="images/סמל OMBee.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#0D1B2A;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+input,textarea,select,button{font-family:'Heebo',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+.cursor{width:8px;height:8px;background:#00B3DD;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cursor-f{width:32px;height:32px;border:1.5px solid rgba(0,179,221,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s}
+body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate(-50%,-50%) scale(1.7);background:rgba(0,179,221,.08)}
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.section{padding:100px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#00B3DD;margin-bottom:18px}
+.eyebrow::before,.eyebrow::after{content:'';width:28px;height:1.5px;background:#00B3DD;opacity:.5}
+.section-title{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#0D1B2A}
+.title-out{-webkit-text-stroke:1.5px #00B3DD;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
+.btn-cy{background:#00B3DD;color:#fff}
+.btn-cy:hover{background:#33C5E8;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,179,221,.3)}
+.btn-white{background:#fff;color:#00B3DD;border:none}
+.btn-white:hover{background:#F2FBFD;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:#fff;border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(0,179,221,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.header-logo-nav{display:flex;align-items:center;gap:28px}
+
+
+.logo img{height:38px;width:auto}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:14px;font-weight:600;color:#6B7280;padding:8px 16px;border-radius:50px;transition:all .3s}
+.nav-link:hover,.nav-link.active{color:#00B3DD;background:rgba(0,179,221,.07)}
+.nav-cta{background:#00B3DD;color:#fff!important;font-weight:700;padding:10px 22px}
+.nav-cta:hover{background:#33C5E8;box-shadow:0 8px 24px rgba(0,179,221,.3);transform:translateY(-1px)}
+.nav-dropdown{position:relative}
+.nav-dropdown::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-link-drop{display:flex;align-items:center;gap:6px}
+.nav-link-drop svg{transition:transform .3s}
+.nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + 12px);right:auto;left:0;background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:12px;min-width:300px;box-shadow:0 16px 48px rgba(0,179,221,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:none}
+.dropdown-header{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;padding:6px 12px 12px;border-bottom:1px solid rgba(0,179,221,.1);margin-bottom:8px}
+.dropdown-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;transition:all .2s;color:#0D1B2A}
+.dropdown-item:hover{background:rgba(0,179,221,.07)}
+.dropdown-item:hover .dropdown-icon{background:#00B3DD;color:#fff}
+.dropdown-icon{width:44px;height:44px;border-radius:12px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0;transition:all .2s}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.dropdown-item span{font-size:12px;color:#6B7280}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:24px;height:2px;background:#0D1B2A;border-radius:2px;display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu ul{display:flex;flex-direction:column;align-items:center;gap:32px}
+.mob-link{font-size:34px;font-weight:800;color:#0D1B2A;transition:color .3s}
+.mob-link:hover{color:#00B3DD}
+@media(max-width:840px){.nav{display:none}.hamburger{display:flex}}
+
+/* PAGE HERO */
+.page-hero{padding:160px 0 90px;background:#fff;position:relative;overflow:hidden;text-align:center}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,179,221,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,179,221,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AECDD7;margin-bottom:24px}
+.breadcrumb a{color:#00B3DD}
+.breadcrumb-sep{opacity:.4}
+.page-hero h1{font-size:clamp(44px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#0D1B2A;margin-bottom:20px}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 40px}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:56px}
+.ftab{padding:10px 22px;border-radius:50px;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid rgba(0,179,221,.2);background:#fff;color:#6B7280;transition:all .3s}
+.ftab:hover,.ftab.active{background:#00B3DD;color:#fff;border-color:transparent}
+
+/* PORTFOLIO GRID */
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:280px;gap:16px}
+.wcard{border-radius:24px;overflow:hidden;position:relative;cursor:pointer;display:block;text-decoration:none;color:inherit}
+.wcard:nth-child(1){grid-column:span 7}
+.wcard:nth-child(2){grid-column:span 5}
+.wcard:nth-child(3){grid-column:span 5}
+.wcard:nth-child(4){grid-column:span 7}
+.wcard:nth-child(5){grid-column:span 12;height:240px}
+.wcard:nth-child(6){grid-column:span 4}
+.wcard:nth-child(7){grid-column:span 4}
+.wcard:nth-child(8){grid-column:span 4}
+.wcard:nth-child(9){grid-column:span 5}
+.wcard:nth-child(10){grid-column:span 7}
+.wcard:nth-child(11){grid-column:span 5}
+.wcard:nth-child(12){grid-column:span 12;height:240px}
+.wcard:nth-child(13){grid-column:span 7}
+.wcard:nth-child(14){grid-column:span 5}
+.wcard:nth-child(15){grid-column:span 12;height:240px}
+.wcard:nth-child(16){grid-column:span 7}
+.wcard:nth-child(17){grid-column:span 5}
+.wcard-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.wcard:hover .wcard-bg{transform:scale(1.05)}
+.wcard-bg-1{background:url('images/Mockup_Web_New Agrosoft.png') center/cover no-repeat}
+.wcard-bg-2{background:url('images/Mockup_Hofit Dala 2022.jpeg') center/cover no-repeat}
+.wcard-bg-3{background:url('images/yevulei-hakfar_Web.png') center/cover no-repeat}
+.wcard-bg-4{background:url('images/Mockup_Oren.png') center/cover no-repeat}
+.wcard-bg-5{background:url('images/AgroTalk.png') center/cover no-repeat}
+.wcard-bg-6{background:url('images/Mockup_Or_Logo.png') center/cover no-repeat}
+.wcard-bg-7{background:url('images/Mockup_Source Music Rebranding 2022.png') center/cover no-repeat}
+.wcard-bg-8{background:url('images/Mockup_NimrodGrisaru.png') center/cover no-repeat}
+.wcard-bg-9{background:url('images/Mockup_Shay Reshef 2023.png') center/cover no-repeat}
+.wcard-bg-10{background:url('images/AgroSmart.png') center/cover no-repeat}
+.wcard-bg-11{background:url('images/Mockup_Agrosoft_Service Calls System.png') center/cover no-repeat}
+.wcard-bg-12{background:url("images/Mockup_Boys' Student Union_Hemdat HaDrom.png") center/cover no-repeat}
+.wcard-bg-13{background:url('images/Mockup_Buzzz Cycle - Wings Preparatory School South Sderot.png') center/cover no-repeat}
+.wcard-bg-14{background:url("images/Mockup_Moti's House 2022.png") center/cover no-repeat}
+.wcard-bg-15{background:url('images/Mockup_Obvious stutterer 2022.png') center/cover no-repeat}
+.wcard-bg-16{background:url('images/Mockup_Female approach 2022.png') center/cover no-repeat}
+.wcard-bg-17{background:url('images/Mockup_The hysteria of a family 2022.png') center/cover no-repeat}
+.wcard-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+.wcat{position:absolute;top:20px;right:20px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,179,221,.35);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:50px;opacity:0;transform:translateY(-8px);transition:all .3s}
+.wcard:hover .wcat{opacity:1;transform:none}
+.wcard-content{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;z-index:2}
+.wtags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:all .3s}
+.wcard:hover .wtags{opacity:1;transform:none}
+.wtags span{font-size:11px;font-weight:600;padding:4px 12px;border-radius:50px;background:rgba(0,179,221,.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff}
+.wcard-content h3{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em}
+@media(max-width:900px){
+  .work-grid{grid-template-columns:1fr;grid-auto-rows:220px}
+  .wcard:nth-child(n){grid-column:span 1;height:auto}
+}
+
+/* CTA STRIP */
+.cta-strip{background:#00B3DD;padding:80px 0;text-align:center}
+.cta-strip h2{font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
+.cta-strip p{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:36px}
+
+/* FOOTER */
+.footer{background:#fff;border-top:1px solid rgba(0,179,221,.12)}
+.footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:64px 0 56px;border-bottom:1px solid rgba(0,179,221,.1)}
+.footer-brand img{height:34px;width:auto;margin-bottom:14px}
+.footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AECDD7;margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{font-size:14px;color:#6B7280;transition:color .3s}
+.footer-col a:hover{color:#00B3DD}
+.footer-bottom{padding:20px 0}
+.footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
+.footer-bottom span{font-size:13px;color:#AECDD7}
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 36px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-f" id="cursorFollower"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <div class="header-logo-nav">
+    <a href="index.html" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">איך אוכל לעזור לך?</div>
+            <a href="website-design.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div><strong>בניית אתרים</strong><span>WordPress & Figma — מהרעיון לאוויר</span></div>
+            </a>
+            <a href="website-redesign.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+              <div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div>
+            </a>
+            <a href="app-design.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
+              <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
+            </a>
+          </div>
+        </li>
+        <li><a href="services.html" class="nav-link">שירותים</a></li>
+        <li><a href="portfolio.html" class="nav-link active">עבודות</a></li>
+        <li><a href="clients.html" class="nav-link">לקוחות</a></li>
+        <li><a href="about.html" class="nav-link">מי אני</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mob-menu" id="mobileMenu">
+  <ul>
+    <li><a href="services.html" class="mob-link">שירותים</a></li>
+    <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
+    <li><a href="clients.html" class="mob-link">לקוחות</a></li>
+    <li><a href="about.html" class="mob-link">מי אני</a></li>
+    <li><a href="contact.html" class="mob-link">יצירת קשר</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb reveal"><a href="index.html">דף הבית</a><span class="breadcrumb-sep">/</span><span>עבודות</span></div>
+    <h1 class="reveal">עבודות <span style="-webkit-text-stroke:2px rgba(0,179,221,.5);color:transparent">נבחרות</span></h1>
+    <p class="reveal">לוגואים, אתרים, אפליקציות — כל פרויקט עם אישיות משלו</p>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" style="background:#fff;padding-top:40px">
+  <div class="container">
+    <div class="filter-tabs reveal">
+      <button class="ftab active" data-filter="all">הכל</button>
+      <button class="ftab" data-filter="אתרים">אתרים</button>
+      <button class="ftab" data-filter="לוגו ומיתוג">לוגו ומיתוג</button>
+      <button class="ftab" data-filter="UI/UX">UI/UX</button>
+      <button class="ftab" data-filter="אפליקציות">אפליקציות</button>
+      <button class="ftab" data-filter="דפי נחיתה">דפי נחיתה</button>
+    </div>
+    <div class="work-grid">
+      <a href="project-agrosoft.html" class="wcard reveal" data-cat="אתרים,UI/UX"><div class="wcard-bg wcard-bg-1"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>WordPress</span><span>Figma</span><span>UI/UX</span></div><h3>Agrosoft</h3></div></a>
+      <a href="project-hofit.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit</h3></div></a>
+      <a href="project-yevulei-hakfar.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>חנות דיגיטלית</h3></div></a>
+      <a href="project-oren.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>אורן תיקונים</h3></div></a>
+      <a href="project-agrotalk.html" class="wcard reveal" data-cat="אפליקציות,UI/UX"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk — פרויקט דגל 2024</h3></div></a>
+      <a href="project-dj-or.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-6"></div><div class="wcat">לוגו</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>זהות</span></div><h3>DJ Or</h3></div></a>
+      <a href="project-source-music.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-7"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>מקור המוזיקה</h3></div></a>
+      <a href="project-nimrod-grisaru.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-8"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>דר' נמרוד גריסרו</h3></div></a>
+      <a href="project-colorful-heart.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-9"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Colorful Heart</h3></div></a>
+      <a href="project-agrosmart.html" class="wcard reveal" data-cat="אפליקציות"><div class="wcard-bg wcard-bg-10"></div><div class="wcat">אפליקציה</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Figma</span></div><h3>AgroSmart</h3></div></a>
+      <a href="project-agrosoft-service-calls.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-11"></div><div class="wcat">אתר</div><div class="wcard-content"><div class="wtags"><span>WordPress</span><span>UI/UX</span></div><h3>Agrosoft Service Calls</h3></div></a>
+      <a href="project-hemdat-hadrom.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-12"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>אגודת הסטודנטים חמדת הדרום</h3></div></a>
+      <a href="project-buzz.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-13"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>קבוצת באז</h3></div></a>
+      <a href="project-motis-house.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-14"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>הבית של מוטי</h3></div></a>
+      <a href="project-obvious-stutterer.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-15"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>מגמגם ברור</h3></div></a>
+      <a href="project-female-approach.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-16"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>גישה נשית</h3></div></a>
+      <a href="project-family-history.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-17"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>ההיסטוריה של משפחה</h3></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip" style="margin-top:80px">
+  <div class="container">
+    <h2 class="reveal">רוצה שהפרויקט שלך יצטרף לרשימה?</h2>
+    <p class="reveal">בואו נדבר על מה שאתה צריך</p>
+    <a href="contact.html" class="btn btn-white reveal">התחל פרויקט <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+        <p>עיצוב גרפי ו-UI/UX<br/>מאז 2014</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+        <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">מי אני</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
+        <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="padding:0">
+        <span>© כל הזכויות שמורות ל-OMBee Graphic Design And UI/UX 2014-2026</span>
+        <span>עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</span>
+        <span><a href="accessibility-statement.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">מדיניות פרטיות</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="accessibility.js"></script>
+<script>
+// Filter tabs
+document.querySelectorAll('.ftab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const filter = tab.dataset.filter;
+    document.querySelectorAll('.wcard').forEach(card => {
+      if (filter === 'all' || (card.dataset.cat && card.dataset.cat.includes(filter))) {
+        card.style.display = '';
+        card.classList.add('visible');
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

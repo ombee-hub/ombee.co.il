@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>OMBee - מדיניות פרטיות</title>
+<link rel="icon" type="image/svg+xml" href="images/סמל OMBee.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+/* ── RESET ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#0D1B2A;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:none}
+@media(max-width:768px){body{cursor:auto}}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+input,textarea,select,button{font-family:'Heebo',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* ── CURSOR ── */
+.cursor{width:8px;height:8px;background:#00B3DD;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+.cursor-f{width:32px;height:32px;border:1.5px solid rgba(0,179,221,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s}
+body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate(-50%,-50%) scale(1.7);background:rgba(0,179,221,.08)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── SECTION ── */
+.section{padding:100px 0}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
+.btn-cy{background:#00B3DD;color:#fff}
+.btn-cy:hover{background:#33C5E8;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,179,221,.3)}
+
+/* ══════════ HEADER ══════════ */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:#fff;border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(0,179,221,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.header-logo-nav{display:flex;align-items:center;gap:28px}
+.logo img{height:38px;width:auto}
+.nav-list{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:14px;font-weight:600;color:#6B7280;padding:8px 16px;border-radius:50px;transition:all .3s}
+.nav-link:hover,.nav-link.active{color:#00B3DD;background:rgba(0,179,221,.07)}
+.nav-cta{background:#00B3DD;color:#fff!important;font-weight:700;padding:10px 22px}
+.nav-cta:hover{background:#33C5E8;box-shadow:0 8px 24px rgba(0,179,221,.3);transform:translateY(-1px)}
+.nav-dropdown{position:relative}
+.nav-dropdown::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
+.nav-link-drop{display:flex;align-items:center;gap:6px}
+.nav-link-drop svg{transition:transform .3s}
+.nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
+.dropdown-menu{position:absolute;top:calc(100% + 12px);right:auto;left:0;background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:12px;min-width:300px;box-shadow:0 16px 48px rgba(0,179,221,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:none}
+.dropdown-header{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;padding:6px 12px 12px;border-bottom:1px solid rgba(0,179,221,.1);margin-bottom:8px}
+.dropdown-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;transition:all .2s;color:#0D1B2A}
+.dropdown-item:hover{background:rgba(0,179,221,.07)}
+.dropdown-item:hover .dropdown-icon{background:#00B3DD;color:#fff}
+.dropdown-icon{width:44px;height:44px;border-radius:12px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0;transition:all .2s}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.dropdown-item span{font-size:12px;color:#6B7280}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:24px;height:2px;background:#0D1B2A;border-radius:2px;display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-menu{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999}
+.mob-menu.open{opacity:1;pointer-events:all}
+.mob-menu ul{display:flex;flex-direction:column;align-items:center;gap:32px}
+.mob-link{font-size:34px;font-weight:800;color:#0D1B2A;transition:color .3s}
+.mob-link:hover{color:#00B3DD}
+@media(max-width:840px){.nav{display:none}.hamburger{display:flex}}
+
+/* ══════════ PAGE HERO ══════════ */
+.page-hero{padding:160px 0 90px;background:#fff;position:relative;overflow:hidden;text-align:center}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,179,221,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,179,221,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AECDD7;margin-bottom:24px}
+.breadcrumb a{color:#00B3DD;transition:opacity .2s}
+.breadcrumb a:hover{opacity:.7}
+.breadcrumb-sep{opacity:.4}
+.page-hero h1{font-size:clamp(44px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#0D1B2A;margin-bottom:20px}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto}
+
+/* ══════════ PRIVACY CONTENT ══════════ */
+.prv-content{background:#F2FBFD}
+.prv-inner{max-width:800px;margin:0 auto}
+.prv-block{background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 36px;margin-bottom:24px;transition:all .3s}
+.prv-block:hover{border-color:#00B3DD;box-shadow:0 12px 40px rgba(0,179,221,.08)}
+.prv-block h2{font-size:22px;font-weight:800;color:#0D1B2A;margin-bottom:16px;display:flex;align-items:center;gap:12px;letter-spacing:-.02em}
+.prv-block h2 .prv-icon{width:40px;height:40px;background:rgba(0,179,221,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0}
+.prv-block p{font-size:15px;color:#6B7280;line-height:1.9;margin-bottom:12px}
+.prv-block p:last-child{margin-bottom:0}
+.prv-block ul{padding-right:20px;margin-bottom:12px}
+.prv-block ul li{font-size:15px;color:#6B7280;line-height:1.9;list-style:disc;margin-bottom:4px}
+.prv-block a{color:#00B3DD;font-weight:600;transition:opacity .2s}
+.prv-block a:hover{opacity:.7}
+.prv-date{text-align:center;font-size:13px;color:#AECDD7;margin-top:16px;margin-bottom:0}
+
+/* ══════════ FOOTER ══════════ */
+.footer{background:#fff;border-top:1px solid rgba(0,179,221,.12)}
+.footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:64px 0 56px;border-bottom:1px solid rgba(0,179,221,.1)}
+.footer-brand img{height:34px;width:auto;margin-bottom:14px}
+.footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AECDD7;margin-bottom:18px}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{font-size:14px;color:#6B7280;transition:color .3s}
+.footer-col a:hover{color:#00B3DD}
+.footer-bottom{padding:20px 0}
+.footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
+.footer-bottom span{font-size:13px;color:#AECDD7}
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 36px}
+  .footer-links{grid-template-columns:repeat(2,1fr)}
+  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+  .prv-block{padding:28px 22px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-f" id="cursorFollower"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="container header-inner">
+    <div class="header-logo-nav">
+    <a href="index.html" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-dropdown">
+          <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <div class="dropdown-menu">
+            <div class="dropdown-header">איך אוכל לעזור לך?</div>
+            <a href="website-design.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+              <div><strong>בניית אתרים</strong><span>WordPress & Figma — מהרעיון לאוויר</span></div>
+            </a>
+            <a href="website-redesign.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+              <div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div>
+            </a>
+            <a href="app-design.html" class="dropdown-item">
+              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
+              <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
+            </a>
+          </div>
+        </li>
+        <li><a href="services.html" class="nav-link">שירותים</a></li>
+        <li><a href="portfolio.html" class="nav-link">עבודות</a></li>
+        <li><a href="clients.html" class="nav-link">לקוחות</a></li>
+        <li><a href="about.html" class="nav-link">אודות</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר</a></li>
+      </ul>
+    </nav>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mob-menu" id="mobileMenu">
+  <ul>
+    <li><a href="services.html" class="mob-link">שירותים</a></li>
+    <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
+    <li><a href="clients.html" class="mob-link">לקוחות</a></li>
+    <li><a href="about.html" class="mob-link">מי אני</a></li>
+    <li><a href="contact.html" class="mob-link">יצירת קשר</a></li>
+  </ul>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="breadcrumb reveal"><a href="index.html">דף הבית</a><span class="breadcrumb-sep">/</span><span>מדיניות פרטיות</span></div>
+    <h1 class="reveal">מדיניות <span style="color:#00B3DD">פרטיות</span></h1>
+    <p class="reveal">כך אנחנו שומרים על המידע שלך</p>
+  </div>
+</section>
+
+<!-- PRIVACY CONTENT -->
+<section class="prv-content section">
+  <div class="container prv-inner">
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+        מהי מדיניות הפרטיות?
+      </h2>
+      <p>OMBee – Graphic Design And UI/UX (להלן: "האתר") מתייחס בכבוד לפרטיות המשתמשים באתר האיגוד, הפועל בכתובת האינטרנט https://ombee.co.il ובכל כתובת נוספת בהתאם לשיקול דעתו של הOMBee, ובכלל זה בכתובות: OMBee – Graphic Design And UI/UX (להלן: "האתר").</p>
+      <p>תנאים אלה ילמדו אותך מהי מדיניות הפרטיות הנהוגה באתר. הם סוקרים, בין השאר, את האופן שבו משתמש OMBee במידע שתמסור לו ובמידע שייאסף על אודותייך בעת שתשתמש באתר. במדיניות זו, הביטוי "מידע אישי" פירושו כל מידע שניתן לעשות בו שימוש באופן סביר על-מנת לזהות אותך, לרבות שמך הפרטי ושם משפחתך, כתובתך, מספר הטלפון שלך ועוד.</p>
+      <p>מדיניות זו מהווה חלק בלתי נפרד מתנאי השימוש באתר. המדיניות מנוסחת בלשון זכר מטעמי נוחות בלבד, והיא חלה באופן זהה עבור כל המינים. בנוסף, מדיניות זו חלה גם על פעילותך והשתתפותך באילו מהקהילות המקוונות, הפורומים המקצועיים ורשימות הדיוור והתפוצה של הOMBee (להלן: "הקהילות המקוונות"), בשינויים המחויבים לפי העניין.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        דיווח על פגיעה בפרטיות
+      </h2>
+      <p>אם אתה חושב שפרטיותך נפגעה במהלך השימוש באתר, או אילו מהקהילות המקוונות, אנא פנה לOMBee באמצעות כתובת הדוא"ל: <a href="mailto:hello@ombee.co.il">hello@ombee.co.il</a> או באמצעות מכתב שתשלח לכתובת OMBee עמק האלה 9 דירה 4, מודיעין 7174787. נציג OMBee עומד לרשותך לצורך כל בקשה, תגובה, שאלה או תלונה.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        מסירת פרטים ומידע אישי לOMBee
+      </h2>
+      <p>השימוש באתר אינו כרוך ברישום או במסירת פרטים ומידע אישי. עם זאת, אזורים ומדורים שונים באתר, כגון רישום לחברות בOMBee, רישום לאירועים שונים שעורך הOMBee, רישום לרשימות התפוצה של OMBee ולקהילות המקוונות, יצירת קשר עם הOMBee באמצעות טפסי קשר מקוונים המצויים באתר ועוד – עשויים להיות כרוכים ברישום ומסירת פרטים ומידע אישי, כגון שם מלא, כתובת, טלפון, כתובת דוא"ל פעילה, שיוך ארגוני ופרטים נוספים לפי הצורך ונסיבות העניין.</p>
+      <p>השדות שחובה למלא יסומנו במפורש. ללא מסירת הפרטים המתבקשים בשדות החובה לא תוכל להירשם באזור הרלבנטי באתר או לקהילה המקוונת בה אתה מעוניין להשתתף. עליך למסור רק פרטים נכונים, מדויקים ומלאים ואתה מאשר בזאת את נכונות הפרטים שמסרת. הפרטים והמידע האישי שתמסור, וכן פרטים נוספים אודות שימושך באתר (כמפורט בהמשך מדיניות זו), יישמרו על-ידי הOMBee.</p>
+      <p>אינך חייב על-פי חוק למסור את הפרטים והמידע האישי. מסירתם תלויה בהסכמתך וברצונך החופשי – אולם מסירת פרטים שגויים, או אי מסירת מלוא הפרטים הנדרשים, עלולים למנוע ממך את האפשרות להשלים את הרישום או להשתמש בחלק משירותי האתר, לפגוע באיכות השירות הניתן לך וכן לפגוע ביכולת ליצור איתך קשר, במידת הצורך.</p>
+      <p>אנו עשויים לאסוף מידע נוסף בעת יצירת קשר ותכתובת שלך מול האיגוד, למשל בעת שאתה מגיש בקשות או פניות כלשהן לOMBee.</p>
+      <p>כאשר אתה מוסר מידע אישי של צד שלישי, אתה מצהיר כי קיבלת את הסכמתו המפורשת למסירת המידע לOMBee, לשם השימוש במידע זה בהתאם למדיניות זו.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        מידע שנאסף במהלך השימוש באתר
+      </h2>
+      <p>בעת שתשתמש באתר, או באילו מהקהילות המקוונות, עשוי הOMBee לאסוף מידע על נוהגיך ביחס לשימוש באתר או השירות הרלבנטי, לרבות תכנים שטענת או פרסמת, מידע שקראת, העמודים שבהם צפית, השירותים שעניינו אותך, מקום המחשב ונתוני כתובת האינטרנט (IP address) שבאמצעותם ניגשת לאתר או לשירות הרלבנטי, סוג מערכת ההפעלה המשמשת אותך, סוג מכשיר הקצה שברשותך ועוד. בנוסף, הOMBee רשאי לאסוף ולהסתייע בשירותיהם של צדדים שלישיים כדי לאסוף ולנתח מידע אנונימי, סטטיסטי, או מצרפי (אגרגטיבי) בקשר עם השימוש כאמור, לרבות מידע הנוגע לפעילותך באתר.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></div>
+        רשתות חברתיות ומידע אישי שאתה משתף
+      </h2>
+      <p>הOMBee מעמיד לרשות משתמשי האתר כלים לשיתוף וקישור תכנים מהאתר באמצעות רשתות חברתיות ושירותים מקוונים שונים. אף חלק מקהילותיו המקוונות של האיגוד עשויות להתנהל באמצעות פלטפורמות מקוונות של צדדים שלישיים. תשומת ליבך כי השימוש ברשתות חברתיות ושירותים מקוונים כאמור הוא חיצוני ונפרד לאתר וכפוף לנוהגי הפרטיות של אותם שירותים. מדיניות זו אינו חלה על פעילותן של רשתות חברתיות אלו או כל שירות מקוון המופעל על-ידי צד שלישי.</p>
+      <p>האתר וכן הקהילות המקוונות עשויים לכלול גם תכנים הנמסרים לפרסום מטעם משתמשי האתר והמשתתפים השונים. תכנים אלה עשויים לכלול גם מידע אישי. דע כי התכנים שאתה טוען לאתר או לקהילה הרלבנטית אינם פרטיים או חסויים וכי לא צריכה להיות לך כל ציפייה לפרטיות בנוגע אליהם. עליך לנקוט משנה זהירות ולהפעיל שיקול דעת בעת שהנך מוסר מידע אישי שעלול לזהות אותך או אחרים.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        השימוש במידע
+      </h2>
+      <p>בפרטים ובמידע האישי שתמסור ובפרטים שיאסוף הOMBee במהלך השימוש שתעשה באתר או אילו משירותיו, ייעשה שימוש בהתאם להוראות מדיניות זו או על פי הוראות כל דין, למטרות הבאות:</p>
+      <ul>
+        <li>כדי לאפשר לך להשתמש באתר, בתכנים הכלולים בו ובשירותים שהוא מציע, לרבות רישום והשתתפות פעילה במדורי האתר והקהילות המקוונות</li>
+        <li>כדי לזהות אותך במהלך כניסות חוזרות שלך לאזורים הטעונים הרשמה וכדי לחסוך ממך להזין בכל פעם את פרטיך</li>
+        <li>כדי לשפר ולהעשיר את השירותים והתכנים באתר ובכלל זה ליצור שירותים ותכנים חדשים המתאימים לדרישות המשתמשים וציפיותיהם וכן לשנות או לבטל שירותים ותכנים קיימים</li>
+        <li>כדי לאפשר לך להתאים את השירותים באתר להעדפותיך</li>
+        <li>כדי לשלוח אליך מעת לעת מידע בדבר שירותיו ותכניו של האתר, פעילויות בקשר אליו ואל הOMBee, סקרים, עלוני מידע וכיו"ב</li>
+        <li>ליצירת קשר איתך כשהאיגוד סבור שקיים צורך בכך</li>
+        <li>לצורך ניתוח, בקרה ומסירת מידע סטטיסטי לצדדים שלישיים. מידע זה לא יזהה אותך אישית</li>
+        <li>לשם תפעולו התקין ופיתוחו של האתר וקהילותיו המקוונות של הOMBee</li>
+        <li>כדי לאכוף את תנאי השימוש באתר, על-מנת למלא אחר דרישות כל חוק, תקנה או דבר חקיקה אחר וכן על-מנת לסייע לרשויות מוסמכות ולכל צד שלישי, כשהOMBee סבור בתום-לב כי עליו לעשות כן</li>
+        <li>לכל מטרה אחרת, המפורטת במדיניות פרטיות זו או בתנאי השימוש</li>
+      </ul>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        מסירת מידע לצדדים שלישיים
+      </h2>
+      <p>הOMBee לא יעביר לצדדים שלישיים את המידע האישי שמסרת והפרטים שנאספו על פעילותך, אלא במקרים שלהלן:</p>
+      <ul>
+        <li>ככל שהדבר דרוש לצורך אספקה תקינה של שירותי האתר או הקהילה המקוונת</li>
+        <li>אם תפר את הוראות תנאי השימוש באתר, או אם תבצע באמצעות האתר, או בקשר עמו, פעולות הנחזות על ידי הOMBee כמנוגדות לדין או ניסיון לבצע פעולות כאלה</li>
+        <li>אם יתקבל בידי האיגוד צו שיפוטי, או דרישה של רשות המוסמכת לכך, המורה לו למסור את פרטיך או את המידע אודותיך לצד שלישי</li>
+        <li>בכל מחלוקת, טענה, תביעה, דרישה או הליכים משפטיים, אם יהיו, בינך לבין האיגוד ו/או מי מטעמו</li>
+        <li>בכל מקרה שהאיגוד יסבור כי מסירת המידע נחוצה כדי למנוע נזק חמור לגופך או לרכושך או לגופו או לרכושו של צד שלישי</li>
+        <li>הOMBee יהיה רשאי להעביר את פרטיך והמידע שנאסף בעקבות השימוש שעשית באתר לחברות או לארגונים אחרים הקשורים לאיגוד ובלבד שהם ישתמשו במידע זה רק על-פי הוראות מדיניות זו</li>
+        <li>לצורך מסירת ושיתוף מידע אנונימי, מצרפי וסטטיסטי עם חברות או ארגונים אחרים הקשורים באיגוד וכן עם ספקים, שותפים עסקיים, מפרסמים וכל צד שלישי, בהתאם לשיקול דעתו הבלעדי של האיגוד</li>
+        <li>אם האיגוד יארגן את פעילותו או את פעילות האתר במסגרת אחרת וכן במקרה שישנה את מבנהו המשפטי – הוא יהיה זכאי להעביר לגוף החדש העתק מן המידע שנאגר אודותיך ובלבד שגוף זה יקבל על עצמו כלפיך את הוראות מדיניות זו</li>
+        <li>על-פי בקשתך המפורשת</li>
+      </ul>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        היכן נשמר המידע?
+      </h2>
+      <p>המידע שהOMBee אוסף נשמר במאגר המידע שלו, המאוחסן אצל ספקי אירוח שרתים וגיבוי מידע, שעשויים להימצא גם מחוץ לגבולות ישראל. מידע נוסף, כפי שמפורט במדיניות זו נאסף ונשמר על ידי חברות אחרות (כדוגמת חברות סטטיסטיקה וכיו"ב). אף הן יכולות לשמור את המידע מחוץ לגבולות המדינה. הסכמתך למדיניות זו, מהווה גם הסכמה לשמירת המידע בחו"ל ולהעברתו מחוץ לגבולות ישראל.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+        Cookies
+      </h2>
+      <p>הOMBee עשוי להשתמש באתר ב'עוגיות' (Cookies) לצורך תפעולו השוטף והתקין, לרבות כדי לאסוף נתונים סטטיסטיים אודות השימוש באתר, לאימות פרטים, כדי להתאים את האתר להעדפותיך האישיות, לצרכי אבטחת מידע ועוד.</p>
+      <p>'עוגיות' (Cookies) הן קבצי טקסט, שהדפדפן שלך יוצר לפי פקודה ממחשבי האתר. חלק מהעוגיות יפקעו כאשר תסגור את הדפדפן ואחרות נשמרות על גבי הכונן הקשיח במכשיר הקצה המשמש אותך. ה-Cookies יכולים להכיל מידע מגוון כדוגמת הדפים שבהם ביקרת, משך הזמן ששהית באתר, מהיכן הגעת אל האתר, מדורים, מידע שאתה מבקש לראות בעת הכניסה לאתר ועוד.</p>
+      <p>הOMBee נעזר בנוסף גם ב-Cookies שמקורם בצדדים שלישיים, בהם Google Analytics, שירותי הפרסום של חברת גוגל, ורשתות חברתיות כגון פייסבוק. קבצי העוגיות נועדו עבור הצגת מודעות בדבר מוצרים או שירותים בהתבסס על פעילויותיך השונות ברחבי האינטרנט ואתרים ושירותים אחרים בהם ביקרת (בשיטה המכונה Retargeting). בנוסף, קבצי ה-Cookies שמקורם בפייסבוק נועדו להציג לך מידע באתר שמקורו בפייסבוק, לסמן תכנים ש'אהבת', להמליץ לך על תכנים אחרים שעשויים לעניין אותך ועוד.</p>
+      <p>אם אינך רוצה לקבל Cookies, תוכל להימנע מכך על ידי שינוי ההגדרות בדפדפן שלך. לשם כך נא היוועץ בקובץ העזרה של הדפדפן. בחלק מהשירותים המוזכרים לעיל, תוכל לבקש את הסרתך מאיסוף קבצי Cookies אודותיך (באמצעות "Opt-Out").</p>
+      <p>זכור, עם זאת, שנטרול העוגיות עלול לגרום לכך שלא תוכל להשתמש בחלק מהשירותים והתכונות באתר או באתרי אינטרנט אחרים. בנוסף לכך, אתה יכול למחוק את ה-Cookies במחשבך בכל רגע. מוצע שתעשה כן, רק אם אתה משוכנע שאינך רוצה שהאתר יותאם להעדפותיך או ישתף עם צדדים שלישיים מידע אודות פעילותך באתר.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        אבטחת מידע
+      </h2>
+      <p>הOMBee מייחס חשיבות עליונה לאבטחת המידע במערכותיו. לשם שמירת המידע, הוא מפעיל מערכות, יישומים ונהלים לאבטחת המידע, המיועדים למזער את הסיכונים מפני גניבה, פגיעה, אובדן או גישה בלתי מורשית למידע.</p>
+      <p>עם זה, אין וודאות שיישומים אלה מבטיחים באופן מוחלט שמידע אישי לא ייחשף או ייגנב ממאגרי המידע. לכן, הOMBee אינו מתחייב, ואינך יכול באופן סביר לצפות לכך, שהשירותים ומערכות המידע המשמשות באיגוד יהיו חסינים מפני גישה בלתי-מורשית למידע המאוחסן בהם. בעצם השימוש באתר ובשירותיו, אתה מודע ומסכים למגבלות אלו.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        זכות לעיין במידע
+      </h2>
+      <p>על-פי חוק הגנת הפרטיות, התשמ"א – 1981, כל אדם זכאי לעיין בעצמו, או על ידי בא-כוחו שהרשהו בכתב או על ידי אפוטרופוס, במידע שעליו המוחזק במאגר מידע. אדם שעיין במידע שעליו ומצא שאינו נכון, שלם, ברור או מעודכן, רשאי לפנות לבעל מאגר המידע בבקשה לתקן את המידע או למוחקו. אם בעל המאגר סירב, עליו להודיע על כך למבקש באופן ובדרך שנקבעו בתקנות שמכוח חוק הגנת הפרטיות. על סירובו של בעל מאגר מידע לאפשר עיון ועל הודעת סירוב לתקן או למחוק מידע, רשאי מבקש המידע לערער באופן ובדרך שנקבעו בתקנות.</p>
+      <p>שים לב כי מחיקת מידע עלולה למנוע ממך להמשיך ולקבל שירותים מהאתר ולהביא לביטול רישומך לאתר. מידע הדרוש לOMBee – לרבות תיעוד פעולות שביצעת באתר – יוסיף להישמר על ידי האיגוד על-פי דין, אך לא ישמש עוד לצורך פניות אליך. אם בתוך 30 יום לא תקבל הודעה כי המידע שנתבקש האיגוד למחוק אכן נמחק על-פי סעיף זה, תהיה זכאי לפנות לבית משפט באופן הקבוע בתקנות שמכוח חוק הגנת הפרטיות, כדי שיורה לOMBee לפעול כאמור.</p>
+    </div>
+
+    <div class="prv-block reveal">
+      <h2>
+        <div class="prv-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        שינויים במדיניות הפרטיות
+      </h2>
+      <p>הOMBee רשאי לשנות מעת לעת את תנאי מדיניות הפרטיות. אם יבוצעו במדיניות שינויים מהותיים, תפורסם על-כך הודעה בעמוד הבית של האתר 30 ימים לפני כניסת השינויים לתוקף. אם יבוצעו במדיניות שינויים אחרים שאינם מהותיים, תפורסם על-כך הודעה בעמוד הבית של האתר 7 ימים לפני כניסתם לתוקף – זאת אלא אם יבוצעו שינויים במדיניות בהתאם להוראות כל דין, או דרישת רשות מוסמכת, שאז השינויים ייכנסו לתוקף בהתאם להוראות הדין או לדרישה כאמור. המשך השימוש באתר לאחר השינוי במדיניות מעיד על הסכמתך למדיניות המתוקנת. אם אינך מסכים עם הנוסח המעודכן של המדיניות, עליך לחדול מלעשות שימוש נוסף באתר.</p>
+      <p>בכל עת תוכל לעיין במדיניות העדכנית באמצעות לחיצה על הקישור המתאים באתר.</p>
+    </div>
+
+    <p class="prv-date reveal">עודכן לאחרונה: 07/04/2026 | מדיניות הפרטיות מנוסחת בלשון זכר מטעמי נוחות בלבד.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+        <p>עיצוב גרפי ו-UI/UX<br/>מאז 2014</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+        <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">מי אני</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
+        <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="padding:0">
+        <span>© כל הזכויות שמורות ל-OMBee Graphic Design And UI/UX 2014-2026</span>
+        <span>עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</span>
+        <span><a href="accessibility-statement.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">מדיניות פרטיות</a></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="accessibility.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "OMBee Web",
+      "runtimeExecutable": "cmd.exe",
+      "runtimeArgs": [
+        "/c",
+        "C:\\My Files\\Omri Ben Eliyahu - Graphic Designer\\OMBee Web\\serve.cmd"
+      ],
+      "port": 9123,
+      "autoPort": false
+    }
+  ]
+}
