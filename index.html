@@ -83,13 +83,22 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-.mob-menu{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999}
-.mob-menu.open{opacity:1;pointer-events:all}
-.mob-menu ul{display:flex;flex-direction:column;align-items:center;gap:32px}
-.mob-link{font-size:34px;font-weight:800;color:#0D1B2A;transition:color .3s}
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:998}
+.mob-overlay.open{opacity:1;pointer-events:all}
+.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:999;overflow-y:auto;padding:90px 32px 40px;display:block}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu>ul{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.mob-link{font-size:17px;font-weight:700;color:#0D1B2A;transition:color .3s;display:block;padding:12px 0;border-bottom:1px solid rgba(0,179,221,.08);width:100%}
 .mob-link:hover{color:#00B3DD}
+.mob-link-drop{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
+.mob-link-drop.open svg{transform:rotate(180deg)}
+.mob-submenu{display:none;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px;padding:8px 16px 12px;background:rgba(0,179,221,.04);border-radius:12px}
+.mob-submenu.open{display:flex}
+.mob-sub-link{font-size:15px;font-weight:600;color:#6B7280;padding:8px 0;border-bottom:none}
+.mob-sub-link:hover{color:#00B3DD}
 
 @media(max-width:840px){.nav{display:none}.hamburger{display:flex}}
+@media(min-width:841px){.mob-menu,.mob-overlay{display:none!important}}
 
 /* ══════════ HERO ══════════ */
 .hero{min-height:100vh;background:#fff;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 80px}
@@ -154,7 +163,21 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,#00B3DD,transparent);animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%{opacity:0;transform:scaleY(0);transform-origin:top}60%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
 
-@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.hero-right{display:none}}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-right{display:flex;order:2;margin:0 auto}
+  .orbit-wrap{width:240px;height:240px}
+  .orbit-ring-circle{width:200px;height:200px}
+  .orbit-center{width:64px;height:64px}
+  .orbit-center img{width:42px}
+  .orbit-item{width:52px;height:52px;margin:-26px}
+  @keyframes o0{from{transform:rotate(0deg) translate(100px) rotate(0deg)}to{transform:rotate(360deg) translate(100px) rotate(-360deg)}}
+  @keyframes o1{from{transform:rotate(72deg) translate(100px) rotate(-72deg)}to{transform:rotate(432deg) translate(100px) rotate(-432deg)}}
+  @keyframes o2{from{transform:rotate(144deg) translate(100px) rotate(-144deg)}to{transform:rotate(504deg) translate(100px) rotate(-504deg)}}
+  @keyframes o3{from{transform:rotate(216deg) translate(100px) rotate(-216deg)}to{transform:rotate(576deg) translate(100px) rotate(-576deg)}}
+  @keyframes o4{from{transform:rotate(288deg) translate(100px) rotate(-288deg)}to{transform:rotate(648deg) translate(100px) rotate(-648deg)}}
+  .orbit-stats,.hero-tools{display:none}
+}
 
 /* ══════════ MARQUEE ══════════ */
 .marquee-wrap{background:#00B3DD;overflow:hidden;padding:14px 0}
@@ -331,6 +354,66 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   .footer-links{grid-template-columns:repeat(2,1fr)}
   .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
 }
+
+/* ══════════ TABLET (769px – 1024px) ══════════ */
+@media(min-width:768px) and (max-width:1024px){
+  /* general */
+  .section{padding:80px 0}
+  .section-header{margin-bottom:52px}
+  .section-title{font-size:clamp(28px,4.5vw,44px)}
+
+  /* hero */
+  .hero{min-height:auto;padding:100px 0 60px}
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-right{display:flex;order:2;margin:0 auto}
+  .orbit-stats,.hero-tools{display:none}
+  .hero-tag{margin:0 auto 24px}
+  .hero-title{font-size:clamp(44px,7vw,64px)}
+  .hero-sub{margin:0 auto 36px;text-align:center}
+  .hero-actions{justify-content:center}
+  .hero-profile{margin:0 auto 24px}
+  .hero-scroll{display:none}
+
+  /* services */
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .svc-card{padding:32px 28px}
+
+  /* work */
+  .work-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px;gap:14px}
+  .wcard:nth-child(n){grid-column:span 1;height:auto}
+  .wcard:nth-child(5){grid-column:span 2;height:220px}
+
+  /* process */
+  .process-grid{grid-template-columns:repeat(2,1fr);gap:32px}
+  .process-grid::before{display:none}
+  .pitem{text-align:center}
+
+  /* client logos */
+  .clogos{grid-template-columns:repeat(3,1fr)}
+  .clogo:nth-child(4n+1){border-left:1px solid rgba(0,179,221,.12)}
+  .clogo:nth-child(3n+1){border-left:none}
+  .clogo:nth-child(n){border-bottom:1px solid rgba(0,179,221,.12)}
+  .clogo:nth-last-child(-n+2){border-bottom:none}
+
+  /* testimonials */
+  .t-card{padding:36px;max-width:600px}
+  .t-text{font-size:17px}
+
+  /* about */
+  .about-inner{grid-template-columns:1fr;gap:50px}
+  .about-visual{max-width:340px;margin:0 auto}
+  .about-content .section-title,.about-content .eyebrow{text-align:center;justify-content:center}
+  .astats{justify-content:center}
+  .skills{justify-content:center}
+
+  /* contact */
+  .contact-inner{grid-template-columns:1fr;gap:48px}
+  .cform{padding:36px}
+
+  /* footer */
+  .footer-inner{grid-template-columns:1fr;gap:40px;padding:48px 0 40px}
+  .footer-links{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 </head>
 <body>
@@ -390,8 +473,17 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   </div>
 </header>
 
+<div class="mob-overlay" id="mobOverlay"></div>
 <div class="mob-menu" id="mobileMenu">
   <ul>
+    <li class="mob-dropdown">
+      <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <ul class="mob-submenu" id="mobSubmenu">
+        <li><a href="website-design.html" class="mob-link mob-sub-link">בניית אתרים</a></li>
+        <li><a href="website-redesign.html" class="mob-link mob-sub-link">שיפוץ אתר</a></li>
+        <li><a href="app-design.html" class="mob-link mob-sub-link">עיצוב אפליקציה</a></li>
+      </ul>
+    </li>
     <li><a href="services.html" class="mob-link">שירותים</a></li>
     <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
     <li><a href="clients.html" class="mob-link">לקוחות</a></li>
@@ -536,13 +628,17 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
     <div class="testi reveal">
       <div class="t-track" id="testimonialTrack">
         <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי הוא עובד שלנו אבל הוא גם המעצב שלנו — הוא עיצב עבורנו את הלוגו ואת השפה הגרפית החדשה של החברה.</p><div class="t-foot"><div class="t-av">A</div><div><strong>Agrosoft</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
-        <div class="t-card"><div class="t-quote">"</div><p class="t-text">בעקבות רעיון שעלה לעמרי עבור הלוגו שלי, הוא היה סבלני אליי ונתן לי לוגו ומיתוג מלא שאני מאוד מרוצה ממנו.</p><div class="t-foot"><div class="t-av">C</div><div><strong>Colorful Heart</strong><span>לקוחה</span></div><div class="t-stars">★★★★★</div></div></div>
-        <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי נתן עבודה מקצועית וטובה על הלוגו שלי לאורך כל הדרך. ממליץ בחום על השירות.</p><div class="t-foot"><div class="t-av">O</div><div><strong>Or</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
+        <div class="t-card"><div class="t-quote">"</div><p class="t-text">בעקבות רעיון שעלה לעמרי עבור הלוגו שלי, הוא היה סבלני אליי ונתן לי לוגו ומיתוג מלא שאני מאוד מרוצה ממנו.</p><div class="t-foot"><div class="t-av">C</div><div><strong>Colorful Heart</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
+        <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי מקצועי ויצירתי. עיצב לי אתר ולוגו ברמה גבוהה מאוד. ממליצה בחום לכל מי שצריך עיצוב מקצועי.</p><div class="t-foot"><div class="t-av">ח</div><div><strong>חופית</strong><span>לקוחה</span></div><div class="t-stars">★★★★★</div></div></div>
+        <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי הבין בדיוק מה אני צריכה, היה סבלני ותמיד זמין. קיבלתי לוגו שאני אוהבת ומזדהה איתו.</p><div class="t-foot"><div class="t-av">ל</div><div><strong>ליאן</strong><span>לקוחה</span></div><div class="t-stars">★★★★★</div></div></div>
+        <div class="t-card"><div class="t-quote">"</div><p class="t-text">שירות מהיר, מקצועי ויצירתי. עמרי הפתיע אותי עם רעיונות שלא חשבתי עליהם ותוצאה שעברה את הציפיות שלי.</p><div class="t-foot"><div class="t-av">D</div><div><strong>DJ Or Baumstein</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
       </div>
       <div class="t-dots" id="testimonialDots">
         <button class="dot active" data-index="0"></button>
         <button class="dot" data-index="1"></button>
         <button class="dot" data-index="2"></button>
+        <button class="dot" data-index="3"></button>
+        <button class="dot" data-index="4"></button>
       </div>
     </div>
   </div>

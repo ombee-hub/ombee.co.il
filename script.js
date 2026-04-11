@@ -34,21 +34,49 @@ window.addEventListener('scroll', () => {
 /* ── HAMBURGER / MOBILE MENU ─────────────────── */
 const hamburger   = document.getElementById('hamburger');
 const mobileMenu  = document.getElementById('mobileMenu');
+const mobOverlay  = document.getElementById('mobOverlay');
 const mobileLinks = document.querySelectorAll('.mobile-menu__link');
 
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  if (mobOverlay) mobOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
 hamburger.addEventListener('click', () => {
+  const opening = !mobileMenu.classList.contains('open');
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
-  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  if (mobOverlay) mobOverlay.classList.toggle('open');
+  document.body.style.overflow = opening ? 'hidden' : '';
 });
 
+if (mobOverlay) {
+  mobOverlay.addEventListener('click', closeMobileMenu);
+}
+
 mobileLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    document.body.style.overflow = '';
-  });
+  link.addEventListener('click', closeMobileMenu);
 });
+
+// Close mobile menu when resizing to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 840 && mobileMenu.classList.contains('open')) {
+    closeMobileMenu();
+  }
+});
+
+/* ── MOBILE SOLUTIONS SUBMENU ─────────────────── */
+const mobToggle = document.getElementById('mobSolutionsToggle');
+const mobSubmenu = document.getElementById('mobSubmenu');
+if (mobToggle && mobSubmenu) {
+  mobToggle.addEventListener('click', e => {
+    e.preventDefault();
+    mobToggle.classList.toggle('open');
+    mobSubmenu.classList.toggle('open');
+  });
+}
 
 /* ── SCROLL REVEAL ───────────────────────────── */
 const revealEls = document.querySelectorAll('.reveal');
@@ -71,12 +99,12 @@ revealEls.forEach(el => revealObserver.observe(el));
 
 /* ── TESTIMONIALS SLIDER ─────────────────────── */
 const track = document.getElementById('testimonialTrack');
-const dots  = document.querySelectorAll('.testimonial-dots .dot');
+const dots  = document.querySelectorAll('#testimonialDots .dot');
 let current = 0;
 
 function goTo(index) {
   current = index;
-  const cardWidth = track.querySelector('.testimonial-card').offsetWidth + 24; // +gap
+  const cardWidth = track.querySelector('.t-card').offsetWidth + 24; // +gap
   // RTL: scroll in positive direction
   track.style.transform = `translateX(${index * cardWidth}px)`;
   dots.forEach((d, i) => d.classList.toggle('active', i === index));
