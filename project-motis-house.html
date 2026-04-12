@@ -64,12 +64,23 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mob-menu{position:fixed;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:999}
-.mob-menu.open{opacity:1;pointer-events:all}
-.mob-menu ul{display:flex;flex-direction:column;align-items:center;gap:32px}
-.mob-link{font-size:34px;font-weight:800;color:#0D1B2A;transition:color .3s}
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:998}
+.mob-overlay.open{opacity:1;pointer-events:all}
+.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:999;overflow-y:auto;padding:90px 32px 40px;display:block}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu>ul{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.mob-link{font-size:17px;font-weight:700;color:#0D1B2A;transition:color .3s;display:block;padding:12px 0;border-bottom:1px solid rgba(0,179,221,.08);width:100%}
 .mob-link:hover{color:#00B3DD}
-@media(max-width:840px){.nav{display:none}.hamburger{display:flex}}
+.mob-link-drop{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
+.mob-link-drop.open svg{transform:rotate(180deg)}
+.mob-submenu{display:none;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px;padding:8px 16px 12px;background:rgba(0,179,221,.04);border-radius:12px}
+.mob-submenu.open{display:flex}
+.mob-sub-link{font-size:15px;font-weight:600;color:#6B7280;padding:8px 0;border-bottom:none}
+.mob-sub-link:hover{color:#00B3DD}
+.mob-cta{background:#00B3DD;color:#fff!important;border-radius:50px;padding:14px 28px!important;text-align:center;border-bottom:none!important;margin-top:12px;font-size:16px;transition:all .3s}
+.mob-cta:hover{background:#33C5E8;color:#fff!important}
+@media(max-width:1024px){.nav{display:none}.hamburger{display:flex}}
+@media(min-width:1025px){.mob-menu,.mob-overlay{display:none!important}}
 
 /* PAGE HERO */
 .page-hero{padding:160px 0 90px;background:#fff;position:relative;overflow:hidden;text-align:center}
@@ -209,13 +220,22 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   </div>
 </header>
 
+<div class="mob-overlay" id="mobOverlay"></div>
 <div class="mob-menu" id="mobileMenu">
   <ul>
+    <li class="mob-dropdown">
+      <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+      <ul class="mob-submenu" id="mobSubmenu">
+        <li><a href="website-design.html" class="mob-link mob-sub-link">בניית אתרים</a></li>
+        <li><a href="website-redesign.html" class="mob-link mob-sub-link">שיפוץ אתר</a></li>
+        <li><a href="app-design.html" class="mob-link mob-sub-link">עיצוב אפליקציה</a></li>
+      </ul>
+    </li>
     <li><a href="services.html" class="mob-link">שירותים</a></li>
     <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
     <li><a href="clients.html" class="mob-link">לקוחות</a></li>
     <li><a href="about.html" class="mob-link">מי אני</a></li>
-    <li><a href="contact.html" class="mob-link">יצירת קשר</a></li>
+    <li><a href="contact.html" class="mob-link mob-cta">יצירת קשר</a></li>
   </ul>
 </div>
 
