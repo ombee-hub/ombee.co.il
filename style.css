@@ -230,6 +230,7 @@ body:has(button:hover) .cursor-follower {
   color: var(--black) !important;
   font-weight: 700;
   padding: 10px 22px;
+  border-radius: 8px;
 }
 .nav__link--cta:hover {
   background: var(--gold-light);
