@@ -62,18 +62,18 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .nav-cta:hover{background:#33C5E8;box-shadow:0 8px 24px rgba(0,179,221,.3);transform:translateY(-1px)}
 
 /* DROPDOWN */
-.nav-dropdown{position:relative}
+.nav-dropdown{position:static}
 .nav-dropdown::after{content:"";position:absolute;top:100%;left:0;right:0;height:12px}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
-.dropdown-menu{position:absolute;top:calc(100% + 12px);right:auto;left:0;background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:12px;min-width:300px;box-shadow:0 16px 48px rgba(0,179,221,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
-.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:none}
-.dropdown-header{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;padding:6px 12px 12px;border-bottom:1px solid rgba(0,179,221,.1);margin-bottom:8px}
-.dropdown-item{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:14px;transition:all .2s;color:#0D1B2A}
+.dropdown-menu{position:absolute;top:100%;left:28px;right:28px;background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:20px;display:flex;justify-content:center;gap:16px;box-shadow:0 16px 48px rgba(0,179,221,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateY(0)}
+.dropdown-header{font-size:13px;font-weight:700;color:#AECDD7;padding:16px 28px;border-left:1.5px solid rgba(0,179,221,.15);display:flex;align-items:center;white-space:nowrap;order:-1}
+.dropdown-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 32px;border-radius:16px;transition:all .2s;color:#0D1B2A;text-align:center;flex:1;max-width:260px}
 .dropdown-item:hover{background:rgba(0,179,221,.07)}
 .dropdown-item:hover .dropdown-icon{background:#00B3DD;color:#fff}
-.dropdown-icon{width:44px;height:44px;border-radius:12px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0;transition:all .2s}
+.dropdown-icon{width:48px;height:48px;border-radius:14px;background:rgba(0,179,221,.08);display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0;transition:all .2s}
 .dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
 .dropdown-item span{font-size:12px;color:#6B7280}
 
@@ -151,9 +151,13 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .fg label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#AECDD7}
 .fg input,.fg textarea,.fg select{padding:14px 18px;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:14px;font-size:15px;color:#0D1B2A;outline:none;transition:border-color .3s;resize:none}
 .fg input::placeholder,.fg textarea::placeholder{color:#AECDD7}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:#00B3DD;background:#fff}
-.fg select{appearance:none;-webkit-appearance:none;cursor:pointer;color:#6B7280;background:#F2FBFD url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2300B3DD' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat left 18px center / 14px 9px;padding-left:44px}
-.fg select:focus{background-color:#fff}
+.fg input:focus,.fg textarea:focus{border-color:#00B3DD;background:#fff}
+.select-wrap{position:relative}
+.select-wrap select{width:100%}
+.select-wrap::after{content:"";position:absolute;left:18px;top:50%;transform:translateY(-50%);width:14px;height:9px;background:url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%2300B3DD' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;pointer-events:none;transition:transform .3s}
+.select-wrap:focus-within::after{transform:translateY(-50%) rotate(180deg)}
+.fg select{appearance:none;-webkit-appearance:none;cursor:pointer;color:#6B7280;padding-left:44px}
+.fg select:focus{border-color:#00B3DD;background-color:#fff}
 
 @media(max-width:1024px){.contact-inner{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}.cform{padding:32px}}
 
@@ -305,8 +309,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
               <p>כן — מלא את הטופס ותקבל הצעה מותאמת תוך 24 שעות.</p>
             </div>
             <div class="faq-item">
-              <h4>עובד עם לקוחות מחוץ לישראל?</h4>
-              <p>כן, עובד עם לקוחות בינלאומיים בעברית ובאנגלית.</p>
+              <h4>עובד עם לקוחות מישראל?</h4>
+              <p>כן, עובד עם לקוחות בעברית</p>
             </div>
           </div>
         </div>
@@ -314,27 +318,32 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
       <!-- Form column -->
       <form class="cform reveal" id="contactForm" novalidate>
-        <h2>שלח פנייה</h2>
+        <h2>שלח/י לי פנייה</h2>
         <p>מלא את הפרטים ואחזור אליך בהקדם האפשרי.</p>
         <div class="form-row">
           <div class="fg"><label for="name">שם מלא</label><input type="text" id="name" placeholder="ישראל ישראלי" required/></div>
           <div class="fg"><label for="phone">טלפון</label><input type="tel" id="phone" placeholder="05X-XXX-XXXX"/></div>
         </div>
         <div class="fg"><label for="email">אימייל</label><input type="email" id="email" placeholder="you@example.com" required/></div>
-        <div class="fg"><label for="company">שם החברה / העסק</label><input type="text" id="company" placeholder="שם העסק שלך"/></div>
+        <div class="form-row">
+          <div class="fg"><label for="company">שם החברה / העסק</label><input type="text" id="company" placeholder="שם העסק שלך"/></div>
+          <div class="fg"><label for="company-id">ח.פ / ע.מ</label><input type="text" id="company-id" placeholder="מספר חברה או עוסק מורשה"/></div>
+        </div>
         <div class="fg"><label for="service">סוג שירות</label>
-          <select id="service">
-            <option value="">בחר שירות...</option>
-            <option value="logo">לוגו ומיתוג</option>
-            <option value="website">אתר אינטרנט (WordPress)</option>
-            <option value="redesign">שיפוץ אתר קיים</option>
-            <option value="uiux">UI/UX Design</option>
-            <option value="app">עיצוב אפליקציה</option>
-            <option value="other">אחר</option>
-          </select>
+          <div class="select-wrap">
+            <select id="service">
+              <option value="">בחר שירות...</option>
+              <option value="logo">לוגו ומיתוג</option>
+              <option value="website">אתר אינטרנט (WordPress)</option>
+              <option value="redesign">שיפוץ אתר קיים</option>
+              <option value="uiux">UI/UX Design</option>
+              <option value="app">עיצוב אפליקציה</option>
+              <option value="other">אחר</option>
+            </select>
+          </div>
         </div>
         <div class="fg"><label for="message">תאר את הפרויקט</label><textarea id="message" rows="5" placeholder="ספר לי על הפרויקט, המטרה, קהל היעד..."></textarea></div>
-        <button type="submit" class="btn btn-cy btn-full">שלח הודעה <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button type="submit" class="btn btn-cy btn-full">שלח/י הודעה <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
       </form>
 
     </div>
