@@ -161,6 +161,41 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 @media(max-width:1024px){.contact-inner{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}.cform{padding:32px}}
 
+@media(max-width:768px){
+  .container{padding:0 18px}
+  .page-hero{padding:110px 0 50px}
+  .page-title{font-size:clamp(40px,11vw,64px);margin-bottom:16px}
+  .page-sub{font-size:16px}
+  .contact-section{padding:50px 0}
+  .contact-inner{gap:28px}
+  .cinfo-block{padding:26px 22px;border-radius:20px}
+  .cinfo-block h3{font-size:18px}
+  .cinfo-block p{font-size:14px;margin-bottom:18px;line-height:1.7}
+  .clink{padding:14px 16px;gap:14px;border-radius:12px}
+  .clink-icon{width:40px;height:40px;border-radius:10px}
+  .clink strong{font-size:14px;word-break:break-word}
+  .clink small{font-size:10px}
+  .clink-arrow{width:16px;height:16px}
+  .social-row{margin-top:18px;gap:8px;justify-content:flex-start}
+  .soc{width:42px;height:42px}
+  .faq-mini{gap:10px}
+  .faq-item{padding:15px 18px;border-radius:14px}
+  .faq-item h4{font-size:14px}
+  .faq-item p{font-size:13px}
+  .cform{padding:26px 22px;border-radius:22px;gap:18px}
+  .cform h2{font-size:24px}
+  .cform > p{font-size:14px}
+  .fg input,.fg textarea,.fg select{padding:13px 16px;font-size:15px;border-radius:12px}
+  .fg select{padding-left:40px}
+  .form-row{gap:14px}
+  .avail{padding:50px 0}
+  .avail-inner{gap:16px}
+  .avail-card{padding:26px 22px;border-radius:20px}
+  .avail-icon{width:52px;height:52px;margin-bottom:14px}
+  .avail-card h3{font-size:17px}
+  .avail-card p{font-size:13.5px}
+}
+
 /* ══════════ MAP / AVAILABILITY ══════════ */
 .avail{background:#fff;padding:80px 0}
 .avail-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -173,6 +208,10 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 /* ══════════ FOOTER ══════════ */
 .footer{background:#fff;border-top:1px solid rgba(0,179,221,.12)}
+.footer-top{padding:26px 0;border-bottom:1px solid rgba(0,179,221,.1);text-align:center}
+.footer-sitemap-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#00B3DD;padding:10px 22px;border:1.5px solid rgba(0,179,221,.25);border-radius:8px;transition:all .3s;background:#fff}
+.footer-sitemap-link:hover{background:#00B3DD;color:#fff;box-shadow:0 6px 18px rgba(0,179,221,.22);transform:translateY(-1px)}
+.footer-sitemap-link svg{width:16px;height:16px}
 .footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:64px 0 56px;border-bottom:1px solid rgba(0,179,221,.1)}
 .footer-brand img{height:34px;width:auto;margin-bottom:14px}
 .footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
@@ -376,6 +415,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
+    <div class="footer-top"><a href="sitemap.html" class="footer-sitemap-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 3 18"/><polyline points="9 3 9 21"/><polyline points="15 6 15 18"/><polyline points="21 3 21 21"/></svg>מפת האתר</a></div>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="index.html"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>

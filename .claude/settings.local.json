@@ -5,7 +5,9 @@
       "mcp__Claude_Preview__preview_start",
       "Bash(powershell -Command \"Get-Command Start-PodeServer -ErrorAction SilentlyContinue; Get-Command php -ErrorAction SilentlyContinue; ls ''C:\\\\Windows\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\'' | Select-Object -First 5\")",
       "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File server.ps1)",
-      "Bash(curl -s http://localhost:8787/)"
+      "Bash(curl -s http://localhost:8787/)",
+      "Bash(node -e ' *)",
+      "Bash(git add *)"
     ]
   }
 }

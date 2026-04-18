@@ -43,33 +43,39 @@
 .ombee-a11y-btn svg{width:30px;height:30px}
 .ombee-a11y-btn.active{background:#0a8dab}
 
-/* ── Panel ── */
-.ombee-a11y-panel{
-  position:fixed;bottom:24px;left:24px;z-index:10001;
-  width:320px;max-height:calc(100vh - 48px);overflow-y:auto;
-  background:#fff;border-radius:24px;
-  box-shadow:0 8px 40px rgba(0,0,0,.18);
+/* ── Side Drawer Overlay ── */
+.ombee-a11y-overlay{
+  position:fixed;inset:0;z-index:10000;
+  background:rgba(0,0,0,.35);
   opacity:0;pointer-events:none;
-  transform:translateY(12px) scale(.97);
-  transition:opacity .25s ease, transform .25s ease;
+  transition:opacity .3s ease;
+}
+.ombee-a11y-overlay.open{opacity:1;pointer-events:all}
+
+/* ── Side Drawer Panel ── */
+.ombee-a11y-panel{
+  position:fixed;top:0;left:0;bottom:0;z-index:10001;
+  width:360px;max-width:100vw;overflow-y:auto;
+  background:#fff;
+  box-shadow:4px 0 40px rgba(0,0,0,.18);
+  transform:translateX(-100%);
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
   direction:rtl;font-family:'Heebo',sans-serif;
+  display:flex;flex-direction:column;
 }
-.ombee-a11y-panel.open{
-  opacity:1;pointer-events:all;
-  transform:translateY(0) scale(1);
-}
+.ombee-a11y-panel.open{transform:translateX(0)}
 .ombee-a11y-panel::-webkit-scrollbar{width:4px}
 .ombee-a11y-panel::-webkit-scrollbar-thumb{background:rgba(0,179,221,.3);border-radius:4px}
 
 /* ── Panel Header ── */
 .ombee-a11y-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 20px 14px;border-bottom:1px solid #f0f0f0;
-  position:sticky;top:0;background:#fff;z-index:1;
-  border-radius:24px 24px 0 0;
+  padding:18px 20px;border-bottom:1px solid #f0f0f0;
+  position:sticky;top:0;background:linear-gradient(135deg,rgba(0,179,221,.10),rgba(0,179,221,.18));
+  z-index:1;gap:10px;
 }
 .ombee-a11y-title{
-  font-size:16px;font-weight:800;color:#1a1a2e;
+  font-size:16px;font-weight:800;color:#00B3DD;
   flex:1;text-align:center;
 }
 .ombee-a11y-close{
@@ -119,7 +125,7 @@
 .ombee-a11y-reset{
   display:flex;align-items:center;justify-content:center;gap:8px;
   width:calc(100% - 32px);margin:0 16px 12px;padding:13px;
-  border:none;border-radius:50px;
+  border:none;border-radius:8px;
   background:#00B3DD;color:#fff;font-size:14px;font-weight:700;
   font-family:'Heebo',sans-serif;cursor:pointer;transition:all .25s;
 }
@@ -129,15 +135,22 @@
 /* ── Bottom Bar ── */
 .ombee-a11y-bottom{
   display:flex;align-items:center;justify-content:space-between;
-  padding:10px 20px 14px;border-top:1px solid #f0f0f0;
-  font-size:12px;color:#888;
+  padding:14px 16px 18px;border-top:1px solid #f0f0f0;
+  gap:8px;
 }
 .ombee-a11y-bottom-link{
-  display:flex;align-items:center;gap:4px;
-  cursor:pointer;transition:color .2s;background:none;border:none;
-  font-family:'Heebo',sans-serif;font-size:12px;color:#888;
+  display:flex;align-items:center;gap:6px;
+  padding:8px 12px;border-radius:10px;
+  cursor:pointer;transition:all .2s;
+  background:rgba(0,179,221,.06);border:1px solid rgba(0,179,221,.2);
+  text-decoration:none;
+  font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;color:#00B3DD;
 }
-.ombee-a11y-bottom-link:hover{color:#00B3DD}
+.ombee-a11y-bottom-link:hover{
+  background:#00B3DD;color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,179,221,.25);
+}
 .ombee-a11y-bottom-link svg{width:16px;height:16px}
 
 /* ── Applied A11y Styles ── */
@@ -157,7 +170,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 
 /* ── Mobile ── */
 @media(max-width:480px){
-  .ombee-a11y-panel{left:8px;right:8px;width:auto;bottom:16px}
+  .ombee-a11y-panel{width:88vw}
   .ombee-a11y-btn{bottom:16px;left:16px;width:50px;height:50px}
   .ombee-a11y-btn svg{width:26px;height:26px}
 }
@@ -168,8 +181,9 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
 <button class="ombee-a11y-btn" aria-label="תפריט נגישות" title="נגישות">
-  <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="4" r="2"/><path d="M12 8c-3.5 0-6.5 1-8 2l1 2c1.2-.8 3.8-1.5 6-1.7V13l-3.5 7h2.2l2.3-5 2.3 5h2.2L13 13v-2.7c2.2.2 4.8.9 6 1.7l1-2c-1.5-1-4.5-2-8-2z"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 10.5c1.5.6 3.2 1 5 1s3.5-.4 5-1"/><path d="M12 11.5v3"/><path d="M12 14.5l-2 4"/><path d="M12 14.5l2 4"/></svg>
 </button>
+<div class="ombee-a11y-overlay"></div>
 <div class="ombee-a11y-panel">
   <div class="ombee-a11y-header">
     <div style="width:30px"></div>
@@ -205,11 +219,15 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 
   document.body.appendChild(wrapper);
 
-  const btn   = wrapper.querySelector('.ombee-a11y-btn');
-  const panel = wrapper.querySelector('.ombee-a11y-panel');
-  const close = wrapper.querySelector('.ombee-a11y-close');
-  const items = wrapper.querySelectorAll('.ombee-a11y-item');
-  const reset = wrapper.querySelector('.ombee-a11y-reset');
+  const btn     = wrapper.querySelector('.ombee-a11y-btn');
+  const panel   = wrapper.querySelector('.ombee-a11y-panel');
+  const overlay = wrapper.querySelector('.ombee-a11y-overlay');
+  const close   = wrapper.querySelector('.ombee-a11y-close');
+  const items   = wrapper.querySelectorAll('.ombee-a11y-item');
+  const reset   = wrapper.querySelector('.ombee-a11y-reset');
+
+  function openPanel(){ panel.classList.add('open'); overlay.classList.add('open'); btn.style.display='none'; }
+  function closePanel(){ panel.classList.remove('open'); overlay.classList.remove('open'); btn.style.display=''; }
 
   // ── Apply saved state on load ──
   function applyState() {
@@ -231,30 +249,16 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   // ── Toggle panel ──
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
-    panel.classList.toggle('open');
-    if (panel.classList.contains('open')) {
-      btn.style.display = 'none';
-    }
+    openPanel();
   });
 
   close.addEventListener('click', (e) => {
     e.stopPropagation();
-    panel.classList.remove('open');
-    btn.style.display = '';
+    closePanel();
   });
 
-  // Prevent panel clicks from closing
-  panel.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-
-  // Click outside to close
-  document.addEventListener('click', () => {
-    if (panel.classList.contains('open')) {
-      panel.classList.remove('open');
-      btn.style.display = '';
-    }
-  });
+  // Click overlay to close
+  overlay.addEventListener('click', closePanel);
 
   // ── Toggle features ──
   items.forEach(item => {
@@ -273,20 +277,10 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
     applyState();
   });
 
-  // ── Bottom bar: toggle widget visibility ──
-  const toggleBtn = wrapper.querySelector('[data-action="toggle-widget"]');
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      panel.classList.remove('open');
-      btn.style.display = '';
-    });
-  }
-
   // ── Keyboard: Escape closes panel ──
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && panel.classList.contains('open')) {
-      panel.classList.remove('open');
-      btn.style.display = '';
+      closePanel();
     }
   });
 })();
