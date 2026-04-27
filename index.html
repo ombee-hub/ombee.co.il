@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>OMBee - Graphic Design And UI/UX | דף הבית</title>
-<link rel="icon" type="image/svg+xml" href="images/סמל OMBee.svg"/>
+<title>OMBee - Graphic Design And UI/UX | בית</title>
+<link rel="icon" type="image/png" href="images/OMBee_icon.png?v=2"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -423,9 +423,28 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   .footer-inner{grid-template-columns:1fr;gap:40px;padding:48px 0 40px}
   .footer-links{grid-template-columns:repeat(3,1fr)}
 }
+
+/* ── SPLASH (entry effect) ─────────────────── */
+.splash{position:fixed;inset:0;background:#fff;z-index:99999;display:flex;align-items:center;justify-content:center;animation:splashOut .6s ease 1.8s forwards}
+.splash.skip{animation:splashOut .35s ease forwards}
+.splash-logo{height:90px;width:auto;opacity:0;transform:scale(.7);animation:splashLogoIn 1.1s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes splashLogoIn{
+  0%{opacity:0;transform:scale(.7)}
+  60%{opacity:1;transform:scale(1.06)}
+  100%{opacity:1;transform:scale(1)}
+}
+@keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
+body.splash-lock{overflow:hidden}
+@media(max-width:768px){.splash-logo{height:64px}}
+@media(prefers-reduced-motion:reduce){.splash{animation:splashOut .3s ease forwards}.splash-logo{animation:none;opacity:1;transform:none}}
 </style>
 </head>
-<body>
+<body class="splash-lock">
+
+<!-- SPLASH SCREEN -->
+<div class="splash" id="splashScreen" aria-hidden="true">
+  <img src="images/OMBee_Logo.png" alt="OMBee Studio" class="splash-logo"/>
+</div>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-f" id="cursorFollower"></div>
@@ -434,7 +453,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <header class="header" id="header">
   <div class="container header-inner">
     <div class="header-logo-nav">
-    <a href="#" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+    <a href="/" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-dropdown">
@@ -686,7 +705,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
     <div class="footer-top"><a href="sitemap.html" class="footer-sitemap-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 3 18"/><polyline points="9 3 9 21"/><polyline points="15 6 15 18"/><polyline points="21 3 21 21"/></svg>מפת האתר</a></div>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="#"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+        <a href="/"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
         <p>עיצוב גרפי ו-UI/UX<br/>מאז 2014</p>
       </div>
       <div class="footer-links">
@@ -705,6 +724,30 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   </div>
 </footer>
 
+<script>
+(function(){
+  var splash = document.getElementById('splashScreen');
+  if (!splash) return;
+  if (sessionStorage.getItem('ombeeSplashShown')) {
+    splash.remove();
+    document.body.classList.remove('splash-lock');
+    return;
+  }
+  sessionStorage.setItem('ombeeSplashShown', '1');
+  function close(){
+    splash.classList.add('skip');
+    setTimeout(function(){
+      splash.remove();
+      document.body.classList.remove('splash-lock');
+    }, 400);
+  }
+  splash.addEventListener('click', close);
+  setTimeout(function(){
+    document.body.classList.remove('splash-lock');
+    if (splash.parentNode) splash.remove();
+  }, 3000);
+})();
+</script>
 <script src="script.js"></script>
 <script src="accessibility.js"></script>
 </body>
