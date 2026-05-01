@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>OMBee - אגודת הסטודנטים חמדת הדרום | לוגו ומיתוג</title>
+<title>OMBee - עיצוב גרפי | לוגואים ומיתוג</title>
 <link rel="icon" type="image/png" href="images/OMBee_icon.png?v=2"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -24,6 +24,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:none}
 .section{padding:100px 0}
+.section-header{text-align:center;margin-bottom:72px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#00B3DD;margin-bottom:18px}
 .eyebrow::before,.eyebrow::after{content:'';width:28px;height:1.5px;background:#00B3DD;opacity:.5}
 .section-title{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#0D1B2A}
@@ -31,6 +32,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
 .btn-cy{background:#00B3DD;color:#fff}
 .btn-cy:hover{background:#33C5E8;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,179,221,.3)}
+.btn-out{background:transparent;color:#00B3DD;border:2px solid #00B3DD}
+.btn-out:hover{background:#00B3DD;color:#fff;transform:translateY(-3px)}
 .btn-white{background:#fff;color:#00B3DD;border:none}
 .btn-white:hover{background:#F2FBFD;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
 
@@ -39,6 +42,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .header.scrolled{box-shadow:0 4px 24px rgba(0,179,221,.1)}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
 .header-logo-nav{display:flex;align-items:center;gap:28px}
+
+
 .logo img{height:38px;width:auto}
 .nav-list{display:flex;align-items:center;gap:4px}
 .nav-link{font-size:14px;font-weight:600;color:#6B7280;padding:8px 16px;border-radius:50px;transition:all .3s}
@@ -91,68 +96,74 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .breadcrumb a{color:#00B3DD}
 .breadcrumb-sep{opacity:.4}
 .page-hero h1{font-size:clamp(44px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#0D1B2A;margin-bottom:20px}
-.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 40px}
-.hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.hero-tag{padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.2);color:#00B3DD}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 36px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero-tag{padding:8px 18px;background:rgba(0,179,221,.08);border:1px solid rgba(0,179,221,.25);border-radius:50px;font-size:13px;font-weight:600;color:#00B3DD}
 
-/* PROJECT SHOWCASE */
-.project-showcase{background:#F2FBFD;padding:0 0 80px}
-.project-showcase .container{max-width:960px}
-.project-showcase img{width:100%;border-radius:24px;box-shadow:0 24px 80px rgba(0,179,221,.12);margin-top:-40px}
+/* INTRO SPLIT */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.intro-visual{background:linear-gradient(135deg,#0077A8,#004D6E);border-radius:24px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.intro-visual::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+.mock-browser{background:rgba(255,255,255,.1);border-radius:12px;padding:16px;width:80%;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);position:relative;z-index:1}
+.mock-bar{display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.mock-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.3)}
+.mock-url{flex:1;height:10px;background:rgba(255,255,255,.15);border-radius:5px}
+.mock-lines{display:flex;flex-direction:column;gap:8px}
+.mock-line{height:8px;background:rgba(255,255,255,.15);border-radius:4px}
+.mock-line.short{width:60%}
+.mock-line.mid{width:80%}
+.intro-txt p{font-size:16px;color:#6B7280;line-height:1.9;margin-bottom:16px}
+.check-list{margin:24px 0 32px;display:flex;flex-direction:column;gap:12px}
+.check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#0D1B2A;font-weight:500}
+.check-list li::before{content:'✓';width:22px;height:22px;background:#00B3DD;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:48px}}
 
-/* PROJECT OVERVIEW */
-.project-overview{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:start}
-.project-overview h2{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:#0D1B2A;letter-spacing:-.02em;margin-bottom:18px}
-.project-overview p{font-size:16px;color:#6B7280;line-height:1.85}
-.project-meta{background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:36px}
-.project-meta h3{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;margin-bottom:24px}
-.project-meta-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(0,179,221,.1)}
-.project-meta-row:last-child{border-bottom:none}
-.project-meta-row span:first-child{font-size:14px;font-weight:600;color:#6B7280}
-.project-meta-row span:last-child{font-size:14px;font-weight:700;color:#0D1B2A}
-@media(max-width:768px){.project-overview{grid-template-columns:1fr}}
-
-/* CHALLENGE & SOLUTION */
-.challenge-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.cs-card{background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 36px;transition:all .3s}
-.cs-card:hover{border-color:#00B3DD;transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,179,221,.1)}
-.cs-card .cs-icon{width:52px;height:52px;border-radius:16px;background:rgba(0,179,221,.1);display:flex;align-items:center;justify-content:center;color:#00B3DD;margin-bottom:22px}
-.cs-card h3{font-size:22px;font-weight:800;color:#0D1B2A;margin-bottom:14px;letter-spacing:-.02em}
-.cs-card p{font-size:15px;color:#6B7280;line-height:1.85}
-@media(max-width:768px){.challenge-grid{grid-template-columns:1fr}}
-
-/* DELIVERABLES */
-.del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.del-card{background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:32px 28px;text-align:center;transition:all .3s}
-.del-card:hover{border-color:#00B3DD;transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,179,221,.1)}
-.del-card .del-icon{width:52px;height:52px;border-radius:16px;background:rgba(0,179,221,.1);display:flex;align-items:center;justify-content:center;color:#00B3DD;margin:0 auto 18px}
-.del-card h4{font-size:16px;font-weight:700;color:#0D1B2A;letter-spacing:-.01em}
-@media(max-width:768px){.del-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.del-grid{grid-template-columns:1fr}}
-
-/* TOOLS */
-.tools-wrap{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
-.tool-pill{padding:10px 24px;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.2);border-radius:50px;font-size:14px;font-weight:600;color:#6B7280;transition:all .3s}
-.tool-pill:hover{border-color:#00B3DD;color:#00B3DD}
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat-card{background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:32px 28px;transition:all .3s}
+.feat-card:hover{border-color:#00B3DD;transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,179,221,.1)}
+.feat-icon{width:48px;height:48px;background:rgba(0,179,221,.1);border-radius:14px;display:flex;align-items:center;justify-content:center;color:#00B3DD;margin-bottom:16px}
+.feat-card h3{font-size:17px;font-weight:800;color:#0D1B2A;margin-bottom:8px}
+.feat-card p{font-size:14px;color:#6B7280;line-height:1.75}
+@media(max-width:900px){.features-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.features-grid{grid-template-columns:1fr}}
 
 /* PROCESS */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
-.pitem{position:relative;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:20px;padding:36px 28px;text-align:center;transition:all .3s}
-.pitem:hover{border-color:#00B3DD;transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,179,221,.1)}
-.pitem::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#00B3DD;color:#fff;font-size:16px;font-weight:800;margin:0 auto 18px}
-.pitem h4{font-size:16px;font-weight:700;color:#0D1B2A;margin-bottom:8px}
-.pitem p{font-size:13px;color:#6B7280;line-height:1.7}
-@media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.process-grid{grid-template-columns:1fr}}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+.process-grid::before{content:'';position:absolute;top:35px;right:12%;left:12%;height:1px;background:linear-gradient(to left,transparent,#00B3DD,transparent);opacity:.3}
+.pitem{padding:0 24px 36px;text-align:center}
+.pnum{width:70px;height:70px;background:#fff;border:1.5px solid rgba(0,179,221,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#00B3DD;margin:0 auto 24px;position:relative;z-index:1;transition:all .3s}
+.pitem:hover .pnum{background:#00B3DD;color:#fff;border-color:transparent;transform:scale(1.1);box-shadow:0 8px 28px rgba(0,179,221,.25)}
+.pitem h3{font-size:17px;font-weight:800;color:#0D1B2A;margin-bottom:10px}
+.pitem p{font-size:14px;color:#6B7280;line-height:1.75}
+@media(max-width:900px){
+  .process-grid{grid-template-columns:1fr;gap:28px}
+  .process-grid::before{display:none}
+  .pitem{display:grid;grid-template-columns:70px 1fr;text-align:right;align-items:start;gap:0 20px;padding:0 0 28px;border-bottom:1px solid rgba(0,179,221,.12)}
+  .pitem:last-child{border-bottom:none}
+  .pnum{margin:0;grid-row:1/3}
+  .pitem h3{grid-column:2}
+  .pitem p{grid-column:2}
+}
 
-/* PROJECT NAVIGATION */
-.project-nav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:48px 0;border-top:1px solid rgba(0,179,221,.12)}
-.project-nav a{display:flex;align-items:center;gap:14px;padding:18px 28px;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.18);border-radius:16px;transition:all .3s;flex:1;max-width:320px}
-.project-nav a:hover{border-color:#00B3DD;transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,179,221,.1)}
-.project-nav a .pn-label{font-size:12px;font-weight:600;color:#AECDD7;text-transform:uppercase;letter-spacing:.08em}
-.project-nav a .pn-name{font-size:16px;font-weight:700;color:#0D1B2A}
-.project-nav a svg{color:#00B3DD;flex-shrink:0}
-@media(max-width:600px){.project-nav{flex-direction:column}.project-nav a{max-width:100%}}
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.price-card{border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative}
+.price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,179,221,.1)}
+.price-card.featured{background:#00B3DD;border-color:transparent;color:#fff}
+.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0D1B2A;color:#fff;font-size:12px;font-weight:700;padding:6px 18px;border-radius:50px;white-space:nowrap}
+.price-name{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AECDD7;margin-bottom:16px}
+.price-card.featured .price-name{color:rgba(255,255,255,.7)}
+.price-num{font-size:48px;font-weight:900;color:#0D1B2A;letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+.price-card.featured .price-num{color:#fff}
+.price-note{font-size:13px;color:#6B7280;margin-bottom:28px}
+.price-card.featured .price-note{color:rgba(255,255,255,.7)}
+.price-features{text-align:right;margin-bottom:32px;display:flex;flex-direction:column;gap:10px}
+.price-features li{font-size:14px;color:#6B7280;display:flex;align-items:center;gap:8px}
+.price-card.featured .price-features li{color:rgba(255,255,255,.85)}
+.price-features li::before{content:'✓';color:#00B3DD;font-weight:800}
+.price-card.featured .price-features li::before{color:#fff}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
 
 /* CTA STRIP */
 .cta-strip{background:#00B3DD;padding:80px 0;text-align:center}
@@ -196,7 +207,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
     <nav class="nav">
       <ul class="nav-list">
         <li class="nav-dropdown">
-          <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          <a href="services.html" class="nav-link nav-link-drop active">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
           <div class="dropdown-menu">
             <div class="dropdown-header">איך אוכל לעזור לך?</div>
             <a href="website-design.html" class="dropdown-item">
@@ -214,7 +225,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
           </div>
         </li>
         <li><a href="services.html" class="nav-link">שירותים</a></li>
-        <li><a href="portfolio.html" class="nav-link active">עבודות</a></li>
+        <li><a href="portfolio.html" class="nav-link">עבודות</a></li>
         <li><a href="clients.html" class="nav-link">לקוחות</a></li>
         <li><a href="about.html" class="nav-link">מי אני</a></li>
         <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר</a></li>
@@ -249,131 +260,89 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
   <div class="page-hero-grid"></div>
   <div class="page-hero-glow"></div>
   <div class="container" style="position:relative;z-index:1">
-    <div class="breadcrumb reveal"><a href="/">דף הבית</a><span class="breadcrumb-sep">/</span><a href="portfolio.html">עבודות</a><span class="breadcrumb-sep">/</span><span>אגודת הסטודנטים חמדת הדרום</span></div>
-    <h1 class="reveal">אגודת הסטודנטים חמדת הדרום</h1>
-    <p class="reveal">עיצוב זהות מותגית ולוגו ייחודי שמשדר חום, מקצועיות ואמינות בתחום ה-NLP והטיפול</p>
+    <div class="breadcrumb reveal"><a href="/">דף הבית</a><span class="breadcrumb-sep">/</span><a href="services.html">פתרונות</a><span class="breadcrumb-sep">/</span><span>עיצוב גרפי</span></div>
+    <h1 class="reveal">לוגואים <span style="color:#00B3DD">ומיתוג</span><br/>שזוכרים</h1>
+    <p class="reveal">מהסקיצה הראשונה ועד למותג שלם — תהליך מקצועי, שקוף ושיתופי</p>
     <div class="hero-tags reveal">
-      <span class="hero-tag">Logo Design</span>
-      <span class="hero-tag">Brand Identity</span>
-      <span class="hero-tag">Typography</span>
-      <span class="hero-tag">Color Palette</span>
+      <span class="hero-tag">לוגו</span>
+      <span class="hero-tag">מיתוג עסקי</span>
+      <span class="hero-tag">Brand Guidelines</span>
+      <span class="hero-tag">Illustrator</span>
+      <span class="hero-tag">Photoshop</span>
     </div>
   </div>
 </section>
 
-<!-- PROJECT SHOWCASE -->
-<section class="project-showcase">
-  <div class="container">
-    <img src="images/Mockup_Boys' Student Union_Hemdat HaDrom.png" alt="אגודת הסטודנטים חמדת הדרום" class="reveal"/>
+<!-- INTRO -->
+<section class="section" style="background:#F2FBFD">
+  <div class="container intro-grid">
+    <div class="intro-visual reveal">
+      <div class="mock-browser">
+        <div class="mock-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-url"></div></div>
+        <div class="mock-lines">
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+          <div class="mock-line mid"></div>
+          <div class="mock-line"></div>
+          <div class="mock-line short"></div>
+        </div>
+      </div>
+    </div>
+    <div class="intro-txt reveal">
+      <p class="eyebrow">מה כולל השירות</p>
+      <h2 class="section-title" style="margin-bottom:20px">מותג שמדבר <span class="title-out">בשפתך</span></h2>
+      <p>הלוגו והמיתוג הם הזהות של העסק שלך — הפנים שכל לקוח רואה ראשון. אני יוצר זהויות ויזואליות שלא רק יפות, הן זכירות ומחזקות את העסק.</p>
+      <p>כל פרויקט מתחיל בהבנה עמוקה של העסק, הערכים והקהל. רק אחרי זה מתחיל הסקיצה הראשונה.</p>
+      <ul class="check-list">
+        <li>עיצוב לוגו מקורי ובלעדי — לא תבניות</li>
+        <li>זהות מותגית מלאה (צבעים, פונטים, אלמנטים)</li>
+        <li>Brand Guidelines מקצועי</li>
+        <li>קבצים פתוחים בכל פורמט (AI, PNG, SVG, PDF)</li>
+        <li>שלושה כיווני עיצוב לבחירה</li>
+      </ul>
+      <a href="contact.html" class="btn btn-cy">קבל הצעת מחיר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+    </div>
   </div>
 </section>
 
-<!-- PROJECT OVERVIEW -->
+<!-- FEATURES -->
 <section class="section" style="background:#fff">
   <div class="container">
-    <div class="project-overview">
-      <div class="reveal">
-        <div class="eyebrow">סקירת הפרויקט</div>
-        <h2>יצירת זהות מותגית ולוגו עבור אגודת הסטודנטים חמדת הדרום</h2>
-        <p>הפרויקט כלל עיצוב לוגו וזהות מותגית מלאה עבור אגודת הסטודנטים חמדת הדרום, מטפלת בתחום ה-NLP והטיפול הרגשי. המטרה הייתה ליצור שפה ויזואלית שמשדרת חום אנושי, מקצועיות ונגישות, תוך שמירה על ייחודיות שתבדיל את המותג בשוק תחרותי. תהליך העבודה כלל מחקר מעמיק, פיתוח קונספטים, ועידון עד להגעה לתוצאה המושלמת.</p>
-      </div>
-      <div class="project-meta reveal">
-        <h3>פרטי הפרויקט</h3>
-        <div class="project-meta-row"><span>לקוח</span><span>אגודת הסטודנטים חמדת הדרום</span></div>
-        <div class="project-meta-row"><span>קטגוריה</span><span>לוגו · מיתוג</span></div>
-        <div class="project-meta-row"><span>שנה</span><span>2023</span></div>
-        <div class="project-meta-row"><span>תחום</span><span>חינוך אקדמי</span></div>
-      </div>
+    <div class="section-header reveal">
+      <p class="eyebrow">מה מקבלים</p>
+      <h2 class="section-title">הכל <span class="title-out">כלול</span></h2>
     </div>
-  </div>
-</section>
-
-<!-- CHALLENGE & SOLUTION -->
-<section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">אתגר ופתרון</div>
-      <h2 class="section-title reveal">מהאתגר <span class="title-out">לפתרון</span></h2>
-    </div>
-    <div class="challenge-grid">
-      <div class="cs-card reveal">
-        <div class="cs-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-        </div>
-        <h3>האתגר</h3>
-        <p>להביע חום, אמפתיה ומקצועיות בזהות ויזואלית אחת. תחום ה-NLP והטיפול דורש שפה עיצובית שמשדרת אמינות ובטחון, אך בו-זמנית נגישה, רכה ומזמינה. האתגר היה למצוא את האיזון המדויק בין הפרופסיונליות לבין החום האנושי שמאפיין את Hofit ואת דרך הטיפול שלה.</p>
+    <div class="features-grid">
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>לוגו מקורי</h3>
+        <p>עיצוב לוגו ייחודי שמיוצר במיוחד עבור העסק שלך — לא תבניות ולא חיקויים.</p>
       </div>
-      <div class="cs-card reveal">
-        <div class="cs-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3>הפתרון</h3>
-        <p>פיתוח גישת מיתוג ייחודית שמשלבת צורות אורגניות ורכות עם טיפוגרפיה מקצועית ופלטת צבעים מרגיעה. הלוגו עוצב כך שישדר תחושת חיבוק ונוכחות, תוך שימוש בקווים זורמים שמייצגים את תהליך הטיפול והצמיחה. התוצאה היא זהות מותגית שמרגישה אותנטית, חמה ומקצועית בו-זמנית.</p>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13.5" cy="6.5" r="2.5"/><circle cx="19" cy="13" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="10" cy="20" r="2.5"/></svg></div>
+        <h3>פלטת צבעים</h3>
+        <p>בחירת צבעים מותאמת אישית שמעבירה את האווירה הנכונה ומבדלת אותך מהמתחרים.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- DELIVERABLES -->
-<section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">תוצרים</div>
-      <h2 class="section-title reveal">מה <span class="title-out">סיפקנו</span></h2>
-    </div>
-    <div class="del-grid">
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h4>עיצוב לוגו</h4>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
+        <h3>טיפוגרפיה</h3>
+        <p>בחירת פונטים מקצועית והגדרת היררכיה ויזואלית ברורה לכל המותג.</p>
       </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </div>
-        <h4>פלטת צבעים</h4>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>Brand Guidelines</h3>
+        <p>מסמך מקצועי המגדיר את כל כללי השימוש במותג — לוגו, צבעים, פונטים ויישומים.</p>
       </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
-        </div>
-        <h4>טיפוגרפיה</h4>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+        <h3>קבצים בכל הפורמטים</h3>
+        <p>תקבל את הלוגו ב-AI, PNG, SVG, PDF, JPG — מוכן לכל שימוש דיגיטלי או הדפסה.</p>
       </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-        </div>
-        <h4>Brand Guidelines</h4>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <h3>3 כיווני עיצוב</h3>
+        <p>שלושה כיוונים שונים לבחירה — אתה בוחר את הכיוון, אני מפתח אותו עד למושלם.</p>
       </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9h20"/></svg>
-        </div>
-        <h4>כרטיס ביקור</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h4>נכסים דיגיטליים</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TOOLS -->
-<section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:40px">
-      <div class="eyebrow reveal">כלים</div>
-      <h2 class="section-title reveal" style="font-size:clamp(24px,3.5vw,40px)">כלי <span class="title-out">עבודה</span></h2>
-    </div>
-    <div class="tools-wrap reveal">
-      <span class="tool-pill">Illustrator</span>
-      <span class="tool-pill">Photoshop</span>
-      <span class="tool-pill">InDesign</span>
-      <span class="tool-pill">Figma</span>
     </div>
   </div>
 </section>
@@ -381,59 +350,80 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <!-- PROCESS -->
 <section class="section" style="background:#F2FBFD">
   <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">תהליך עבודה</div>
-      <h2 class="section-title reveal">מהרעיון <span class="title-out">לתוצאה</span></h2>
+    <div class="section-header reveal">
+      <p class="eyebrow">איך זה עובד</p>
+      <h2 class="section-title">מהרעיון <span class="title-out">לאוויר</span></h2>
     </div>
     <div class="process-grid">
-      <div class="pitem reveal">
-        <h4>מחקר מותג</h4>
-        <p>ניתוח מעמיק של התחום, קהל היעד, מתחרים וערכי המותג</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>סקיצות וקונספטים</h4>
-        <p>פיתוח כיוונים עיצוביים מגוונים על בסיס תובנות המחקר</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>עידון ובחירת כיוון</h4>
-        <p>בחירת הכיוון הנכון ועידון הפרטים עד לשלמות</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>Brand Book ותוצרים</h4>
-        <p>הפקת חוברת מותג מלאה וכל התוצרים הנדרשים</p>
-      </div>
+      <div class="pitem reveal"><div class="pnum">01</div><h3>שיחת היכרות</h3><p>נכיר את העסק, הערכים, הקהל והאווירה הרצויה. מגדירים יחד את הכיוון.</p></div>
+      <div class="pitem reveal"><div class="pnum">02</div><h3>סקיצות ראשוניות</h3><p>3 כיווני עיצוב שונים לבחירה — בוחרים יחד את הכיוון המנצח.</p></div>
+      <div class="pitem reveal"><div class="pnum">03</div><h3>פיתוח ועידון</h3><p>פיתוח הכיוון הנבחר, התאמות וסיבובי תיקונים עד לתוצאה מושלמת.</p></div>
+      <div class="pitem reveal"><div class="pnum">04</div><h3>מסירה</h3><p>קבלת כל הקבצים, ה-Brand Guidelines וזכויות שימוש מלאות במותג.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PROJECT NAVIGATION -->
-<section style="background:#fff;padding:0">
+<!-- PRICING -->
+<section class="section" style="background:#fff">
   <div class="container">
-    <div class="project-nav">
-      <a href="project-agrosoft-service-calls.html">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div>
-          <span class="pn-label">הפרויקט הקודם</span>
-          <span class="pn-name">Agrosoft Service Calls</span>
-        </div>
-      </a>
-      <a href="project-buzz.html" style="flex-direction:row-reverse;text-align:left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div>
-          <span class="pn-label">הפרויקט הבא</span>
-          <span class="pn-name">קבוצת באז</span>
-        </div>
-      </a>
+    <div class="section-header reveal">
+      <p class="eyebrow">מחירים</p>
+      <h2 class="section-title">השקעה <span class="title-out">שמחזירה את עצמה</span></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-name">לוגו</div>
+        <div class="price-num">₪1,500</div>
+        <div class="price-note">לוגו ראשוני לעסק חדש</div>
+        <ul class="price-features">
+          <li>3 כיווני עיצוב</li>
+          <li>2 סבבי תיקונים</li>
+          <li>קבצים ב-PNG, SVG, PDF</li>
+          <li>גרסה לבנה ושחורה</li>
+          <li>זכויות שימוש מלאות</li>
+        </ul>
+        <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-badge">הכי פופולרי</div>
+        <div class="price-name">מיתוג מלא</div>
+        <div class="price-num">₪3,500</div>
+        <div class="price-note">חבילת מיתוג מקצועית</div>
+        <ul class="price-features">
+          <li>לוגו ראשי + וריאציות</li>
+          <li>פלטת צבעים</li>
+          <li>טיפוגרפיה</li>
+          <li>Brand Guidelines (PDF)</li>
+          <li>כרטיס ביקור מעוצב</li>
+          <li>קבצים בכל הפורמטים</li>
+          <li>3 סבבי תיקונים</li>
+        </ul>
+        <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל עכשיו</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-name">פרימיום</div>
+        <div class="price-num">₪6,500</div>
+        <div class="price-note">מיתוג + חומרי שיווק</div>
+        <ul class="price-features">
+          <li>כל מה שכלול במיתוג מלא</li>
+          <li>תבניות לרשתות חברתיות</li>
+          <li>פלייר / חוברת מעוצבת</li>
+          <li>חתימת מייל</li>
+          <li>תבנית מצגת</li>
+          <li>סבבי תיקונים ללא הגבלה</li>
+        </ul>
+        <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CTA STRIP -->
+<!-- CTA -->
 <section class="cta-strip">
   <div class="container">
-    <h2 class="reveal">רוצה מותג שמדבר בשבילך?</h2>
-    <p class="reveal">בואו ניצור יחד זהות מותגית שתבדיל אותך מהמתחרים</p>
-    <a href="contact.html" class="btn btn-white reveal">בואו נדבר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+    <h2 class="reveal">מוכן למותג שמדבר בשפתך?</h2>
+    <p class="reveal">בואו נדבר — הייעוץ הראשון ללא עלות</p>
+    <a href="contact.html" class="btn btn-white reveal">קבל הצעת מחיר חינם <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
   </div>
 </section>
 

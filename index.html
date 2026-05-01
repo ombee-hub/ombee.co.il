@@ -104,12 +104,13 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 @media(min-width:1025px){.mob-menu,.mob-overlay{display:none!important}}
 
 /* ══════════ HERO ══════════ */
-.hero{min-height:100vh;background:#fff;display:flex;align-items:center;position:relative;overflow:hidden;padding:100px 0 80px}
+.hero{background:#fff;display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 30px}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,179,221,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,179,221,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.08) 0%,transparent 70%);top:-200px;left:-200px;pointer-events:none}
 .hero-glow2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.05) 0%,transparent 70%);bottom:-100px;right:5%;pointer-events:none}
 
-.hero-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%}
+.hero-inner{display:flex;flex-direction:column;gap:24px;position:relative;z-index:1;width:100%}
+.hero-row{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;width:100%}
 
 .hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;background:rgba(0,179,221,.08);border:1px solid rgba(0,179,221,.25);border-radius:50px;font-size:13px;font-weight:600;color:#00B3DD;margin-bottom:28px;width:fit-content}
 .hero-dot{width:7px;height:7px;background:#00B3DD;border-radius:50%;animation:pulse 2s ease infinite}
@@ -121,29 +122,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .hero-sub{font-size:17px;color:#6B7280;line-height:1.85;margin-bottom:42px;max-width:500px}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
 
-/* stats column */
-.hero-right{display:flex;flex-direction:column;align-items:center;gap:20px}
-
-/* orbit */
-.orbit-wrap{position:relative;width:340px;height:340px;flex-shrink:0}
-.orbit-ring-circle{position:absolute;top:50%;left:50%;width:290px;height:290px;border:1.5px solid rgba(0,179,221,.25);border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 18px rgba(0,179,221,.04),0 0 60px rgba(0,179,221,.08)}
-.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:86px;height:86px;background:#fff;border-radius:50%;border:2px solid rgba(0,179,221,.25);box-shadow:0 0 28px rgba(0,179,221,.18);display:flex;align-items:center;justify-content:center;z-index:2}
-.orbit-center img{width:56px;height:auto;object-fit:contain}
-.orbit-items{position:absolute;top:0;left:0;width:100%;height:100%}
-.orbit-item{position:absolute;top:50%;left:50%;width:68px;height:68px;margin:-34px;border-radius:14px;overflow:hidden;background:#fff;border:2px solid rgba(0,179,221,.3);box-shadow:0 8px 24px rgba(0,179,221,.18)}
-.orbit-item img{width:100%;height:100%;object-fit:contain;padding:4px}
-.orbit-item:nth-child(1){animation:o0 20s linear infinite}
-.orbit-item:nth-child(2){animation:o1 20s linear infinite}
-.orbit-item:nth-child(3){animation:o2 20s linear infinite}
-.orbit-item:nth-child(4){animation:o3 20s linear infinite}
-.orbit-item:nth-child(5){animation:o4 20s linear infinite}
-@keyframes o0{from{transform:rotate(0deg) translate(145px) rotate(0deg)}to{transform:rotate(360deg) translate(145px) rotate(-360deg)}}
-@keyframes o1{from{transform:rotate(72deg) translate(145px) rotate(-72deg)}to{transform:rotate(432deg) translate(145px) rotate(-432deg)}}
-@keyframes o2{from{transform:rotate(144deg) translate(145px) rotate(-144deg)}to{transform:rotate(504deg) translate(145px) rotate(-504deg)}}
-@keyframes o3{from{transform:rotate(216deg) translate(145px) rotate(-216deg)}to{transform:rotate(576deg) translate(145px) rotate(-576deg)}}
-@keyframes o4{from{transform:rotate(288deg) translate(145px) rotate(-288deg)}to{transform:rotate(648deg) translate(145px) rotate(-648deg)}}
-
-.orbit-stats{display:flex;gap:12px;width:100%}
+/* stats */
+.orbit-stats{display:flex;gap:12px;margin-inline-start:auto}
 .h-stat{background:#F2FBFD;border:1.5px solid rgba(0,179,221,.2);border-radius:20px;padding:16px 20px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex:1}
 .h-stat:hover{border-color:#00B3DD;transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,179,221,.12)}
 .h-stat.featured{background:#00B3DD;border-color:transparent}
@@ -167,27 +147,18 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 @keyframes drip{0%{opacity:0;transform:scaleY(0);transform-origin:top}60%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
 
 @media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-right{display:flex;order:2;margin:0 auto}
-  .orbit-wrap{width:240px;height:240px}
-  .orbit-ring-circle{width:200px;height:200px}
-  .orbit-center{width:64px;height:64px}
-  .orbit-center img{width:42px}
-  .orbit-item{width:52px;height:52px;margin:-26px}
-  @keyframes o0{from{transform:rotate(0deg) translate(100px) rotate(0deg)}to{transform:rotate(360deg) translate(100px) rotate(-360deg)}}
-  @keyframes o1{from{transform:rotate(72deg) translate(100px) rotate(-72deg)}to{transform:rotate(432deg) translate(100px) rotate(-432deg)}}
-  @keyframes o2{from{transform:rotate(144deg) translate(100px) rotate(-144deg)}to{transform:rotate(504deg) translate(100px) rotate(-504deg)}}
-  @keyframes o3{from{transform:rotate(216deg) translate(100px) rotate(-216deg)}to{transform:rotate(576deg) translate(100px) rotate(-576deg)}}
-  @keyframes o4{from{transform:rotate(288deg) translate(100px) rotate(-288deg)}to{transform:rotate(648deg) translate(100px) rotate(-648deg)}}
-  .orbit-stats,.hero-tools{display:none}
+  .hero-row{flex-direction:column;align-items:stretch}
+  .orbit-stats{max-width:100%;width:100%}
+  .hero-tools{display:none}
 }
 
 /* ══════════ MARQUEE ══════════ */
 .marquee-wrap{background:#00B3DD;overflow:hidden;padding:14px 0}
-.marquee-track{display:flex;white-space:nowrap;animation:mq 25s linear infinite;width:max-content}
+.marquee-track{display:flex;align-items:center;white-space:nowrap;animation:mq 25s linear infinite;width:max-content}
 .marquee-track span{font-size:13px;font-weight:800;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;padding:0 20px}
-.marquee-track .sep{opacity:.4;font-size:10px;padding:0 4px}
-@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-track .sep{opacity:.4;font-size:10px;padding:0 4px;display:flex;align-items:center}
+.marquee-track img{height:48px;width:auto;padding:0 30px;filter:brightness(0) invert(1);opacity:.9;vertical-align:middle;display:block}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-25%)}}
 
 /* ══════════ SERVICES ══════════ */
 .services{background:#F2FBFD}
@@ -266,7 +237,9 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 /* ══════════ CLIENTS ══════════ */
 .clients{background:#fff}
 .clogos{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid rgba(0,179,221,.18);border-radius:24px;overflow:hidden;margin-bottom:72px;background:#fff}
-.clogo{padding:30px 24px;text-align:center;font-size:15px;font-weight:700;color:rgba(0,0,0,.2);border-left:1px solid rgba(0,179,221,.12);border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s}
+.clogo{padding:30px 24px;text-align:center;font-size:15px;font-weight:700;color:rgba(0,0,0,.2);border-left:1px solid rgba(0,179,221,.12);border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s;display:flex;align-items:center;justify-content:center;min-height:110px}
+.clogo img{max-height:60px;max-width:140px;width:auto;height:auto;object-fit:contain;opacity:.75;transition:opacity .3s}
+.clogo:hover img{opacity:1}
 .clogo:nth-child(4n+1){border-left:none}
 .clogo:nth-child(5),.clogo:nth-child(6),.clogo:nth-child(7),.clogo:nth-child(8){border-bottom:none}
 .clogo:hover{color:#00B3DD;background:rgba(0,179,221,.06)}
@@ -373,9 +346,10 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
   /* hero */
   .hero{min-height:auto;padding:100px 0 60px}
-  .hero-inner{grid-template-columns:1fr;text-align:center}
-  .hero-right{display:flex;order:2;margin:0 auto}
-  .orbit-stats,.hero-tools{display:none}
+  .hero-inner{text-align:center}
+  .hero-row{flex-direction:column;align-items:center}
+  .orbit-stats{display:none}
+  .hero-tools{display:none}
   .hero-tag{margin:0 auto 24px}
   .hero-title{font-size:clamp(44px,7vw,64px)}
   .hero-sub{margin:0 auto 36px;text-align:center}
@@ -527,52 +501,35 @@ body.splash-lock{overflow:hidden}
   <div class="hero-glow2"></div>
   <div class="container hero-inner">
     <div>
-      <div class="hero-tag reveal"><span class="hero-dot"></span>זמין לפרויקטים חדשים · 2025</div>
+      <div class="hero-tag reveal"><span class="hero-dot"></span>זמין לפרויקטים חדשים · 2026</div>
       <h1 class="hero-title reveal">
         עיצוב<br/>
         <span class="cy">שמדבר</span><br/>
         <span class="out">בשפתך</span>
       </h1>
-      <div class="hero-profile reveal">
-        <img src="images/08-28-19_ben-eliyahu-8276.jpg" alt="עמרי בן אליהו"/>
-        <div class="hero-profile-info">
-          <strong>עמרי בן אליהו</strong>
-          <span>Graphic Designer & UI/UX</span>
+      <p class="hero-sub reveal">סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI<br/>מוזמנים לצור איתי קשר להתחלת עבודה משותפת</p>
+      <div class="hero-row reveal">
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-cy">צפה בעבודות</a>
+          <a href="contact.html" class="btn btn-out">בואו נדבר</a>
         </div>
-      </div>
-      <p class="hero-sub reveal">לוגואים · מיתוג · WordPress · UI/UX<br/>מאז 2014</p>
-      <div class="hero-actions reveal">
-        <a href="portfolio.html" class="btn btn-cy">צפה בעבודות</a>
-        <a href="contact.html" class="btn btn-out">בואו נדבר</a>
-      </div>
-    </div>
-    <div class="hero-right reveal">
-      <div class="orbit-wrap">
-        <div class="orbit-ring-circle"></div>
-        <div class="orbit-center"><img src="images/OMBee_Logo.png" alt="OMBee"/></div>
-        <div class="orbit-items">
-          <div class="orbit-item"><img src="images/Hofit Dala_Logo_NLP.png" alt="Hofit Dala"/></div>
-          <div class="orbit-item"><img src="images/DJ Or Baumstein.png" alt="DJ Or Baumstein"/></div>
-          <div class="orbit-item"><img src="images/NimrodGrisaru_Logo HE.png" alt="Nimrod Grisaru"/></div>
-          <div class="orbit-item"><img src="images/Good chocolate.png" alt="Good Chocolate"/></div>
-          <div class="orbit-item"><img src="images/jewelry_Lian.png" alt="Lian"/></div>
+        <div class="orbit-stats">
+          <div class="h-stat"><div><div class="h-num">120<sup>+</sup></div><div class="h-lbl">פרויקטים</div></div></div>
+          <div class="h-stat featured"><div><div class="h-num">12<sup>+</sup></div><div class="h-lbl">שנות ניסיון</div></div></div>
+          <div class="h-stat"><div><div class="h-num">98<sup>%</sup></div><div class="h-lbl">שביעות רצון</div></div></div>
         </div>
-      </div>
-      <div class="orbit-stats">
-        <div class="h-stat"><div><div class="h-num">120<sup>+</sup></div><div class="h-lbl">פרויקטים</div></div></div>
-        <div class="h-stat featured"><div><div class="h-num">12<sup>+</sup></div><div class="h-lbl">שנות ניסיון</div></div></div>
-        <div class="h-stat"><div><div class="h-num">98<sup>%</sup></div><div class="h-lbl">שביעות רצון</div></div></div>
       </div>
     </div>
   </div>
-  <div class="hero-scroll"><div class="scroll-line"></div><span>גלול</span></div>
 </section>
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>לוגו & מיתוג</span><span class="sep">✦</span><span>עיצוב אתרים</span><span class="sep">✦</span><span>UI/UX Design</span><span class="sep">✦</span><span>WordPress</span><span class="sep">✦</span><span>Figma</span><span class="sep">✦</span><span>זהות מותגית</span><span class="sep">✦</span><span>App Design</span><span class="sep">✦</span><span>Prototype</span><span class="sep">✦</span>
-    <span>לוגו & מיתוג</span><span class="sep">✦</span><span>עיצוב אתרים</span><span class="sep">✦</span><span>UI/UX Design</span><span class="sep">✦</span><span>WordPress</span><span class="sep">✦</span><span>Figma</span><span class="sep">✦</span><span>זהות מותגית</span><span class="sep">✦</span><span>App Design</span><span class="sep">✦</span><span>Prototype</span><span class="sep">✦</span>
+    <img src="images/AgrosoftLogo.png" alt="Agrosoft"/><span class="sep">✦</span><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/><span class="sep">✦</span><img src="images/Good%20chocolate.png" alt="Good chocolate"/><span class="sep">✦</span><img src="images/Hofit%20Dala.png?v=2" alt="Hofit Dala"/><span class="sep">✦</span><img src="images/NimrodGrisaru_Logo%20HEW.png" alt="Nimrod Grisaru"/><span class="sep">✦</span><img src="images/Oren_logo_B.png" alt="Oren"/><span class="sep">✦</span><img src="images/jewelry_Lian.png" alt="Lian"/><span class="sep">✦</span><img src="images/colorful%20heart_broad_Transparent%20logo.png" alt="Colorful Heart"/><span class="sep">✦</span>
+    <img src="images/AgrosoftLogo.png" alt="Agrosoft"/><span class="sep">✦</span><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/><span class="sep">✦</span><img src="images/Good%20chocolate.png" alt="Good chocolate"/><span class="sep">✦</span><img src="images/Hofit%20Dala.png?v=2" alt="Hofit Dala"/><span class="sep">✦</span><img src="images/NimrodGrisaru_Logo%20HEW.png" alt="Nimrod Grisaru"/><span class="sep">✦</span><img src="images/Oren_logo_B.png" alt="Oren"/><span class="sep">✦</span><img src="images/jewelry_Lian.png" alt="Lian"/><span class="sep">✦</span><img src="images/colorful%20heart_broad_Transparent%20logo.png" alt="Colorful Heart"/><span class="sep">✦</span>
+    <img src="images/AgrosoftLogo.png" alt="Agrosoft"/><span class="sep">✦</span><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/><span class="sep">✦</span><img src="images/Good%20chocolate.png" alt="Good chocolate"/><span class="sep">✦</span><img src="images/Hofit%20Dala.png?v=2" alt="Hofit Dala"/><span class="sep">✦</span><img src="images/NimrodGrisaru_Logo%20HEW.png" alt="Nimrod Grisaru"/><span class="sep">✦</span><img src="images/Oren_logo_B.png" alt="Oren"/><span class="sep">✦</span><img src="images/jewelry_Lian.png" alt="Lian"/><span class="sep">✦</span><img src="images/colorful%20heart_broad_Transparent%20logo.png" alt="Colorful Heart"/><span class="sep">✦</span>
+    <img src="images/AgrosoftLogo.png" alt="Agrosoft"/><span class="sep">✦</span><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/><span class="sep">✦</span><img src="images/Good%20chocolate.png" alt="Good chocolate"/><span class="sep">✦</span><img src="images/Hofit%20Dala.png?v=2" alt="Hofit Dala"/><span class="sep">✦</span><img src="images/NimrodGrisaru_Logo%20HEW.png" alt="Nimrod Grisaru"/><span class="sep">✦</span><img src="images/Oren_logo_B.png" alt="Oren"/><span class="sep">✦</span><img src="images/jewelry_Lian.png" alt="Lian"/><span class="sep">✦</span><img src="images/colorful%20heart_broad_Transparent%20logo.png" alt="Colorful Heart"/><span class="sep">✦</span>
   </div>
 </div>
 
@@ -589,7 +546,7 @@ body.splash-lock{overflow:hidden}
         <span class="svc-num">01</span>
         <h3 class="svc-title">מחלקת גרפיקה</h3>
         <p class="svc-text">מחלקת הגרפיקה היא המחלקה החשובה בה אני בונה את השלב הראשוני של העסק — הלוגו והמיתוג המוביל לאורך כל הדרך.</p>
-        <a href="services.html" class="svc-link">קרא עוד <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a href="graphic-design.html" class="svc-link">קרא עוד <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
       </div>
       <div class="svc-card feat reveal">
         <div class="svc-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="7" width="28" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M12 32H24M18 25V32" stroke="currentColor" stroke-width="2"/></svg></div>
@@ -650,8 +607,8 @@ body.splash-lock{overflow:hidden}
       <h2 class="section-title">עסקים שסומכים <span class="title-out">עלי</span></h2>
     </div>
     <div class="clogos reveal">
-      <div class="clogo">Agrosoft</div><div class="clogo">Hofit</div><div class="clogo">Or</div><div class="clogo">אורן תיקונים</div>
-      <div class="clogo">ניצני מודיעין</div><div class="clogo">שי</div><div class="clogo">ליאן</div><div class="clogo">AgroTalk</div>
+      <div class="clogo"><img src="images/AgrosoftLogo.png" alt="Agrosoft"/></div><div class="clogo"><img src="images/Hofit%20Dala.png?v=2" alt="חופית"/></div><div class="clogo">Or</div><div class="clogo"><img src="images/Oren_logo_B.png" alt="אורן תיקונים"/></div>
+      <div class="clogo">ניצני מודיעין</div><div class="clogo">שי</div><div class="clogo"><img src="images/jewelry_Lian.png" alt="ליאן"/></div><div class="clogo"><img src="images/AgroTalk.png" alt="AgroTalk"/></div>
     </div>
     <div class="testi reveal">
       <div class="t-track" id="testimonialTrack">
@@ -682,10 +639,11 @@ body.splash-lock{overflow:hidden}
       <div class="about-badge"><span class="about-badge-y">2014</span><span class="about-badge-l">שנת הקמה</span></div>
     </div>
     <div class="about-content reveal">
-      <p class="eyebrow">אודות</p>
+      <p class="eyebrow">מי אני</p>
       <h2 class="section-title">היי, אני עמרי —<br/><span class="title-out">המעצב שישנה</span><br/>את המותג שלך</h2>
-      <p class="about-txt">מאז 2014 אני מלווה עסקים בתהליך של בניית זהות ויזואלית שלמה — מהלוגו הראשון ועד לאתר הפועל.</p>
-      <p class="about-txt">כל פרויקט מקבל יחס אישי מלא, תהליך שקוף, ותוצאה שתגרום ללקוחות שלך לעצור ולהסתכל פעמיים.</p>
+      <p class="about-txt">סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו.</p>
+      <p class="about-txt">עיצוב לוגו, מיתוג עסקי, אפיון אתרים ואפליקציות, ובניית אתרים במערכת AI.</p>
+      <p class="about-txt">מוזמנים ליצור איתי קשר להתחלת עבודה משותפת.</p>
       <div class="skills">
         <span class="skill">Figma</span><span class="skill">WordPress</span><span class="skill">Elementor</span><span class="skill">Illustrator</span><span class="skill">Photoshop</span><span class="skill">UI/UX</span>
       </div>
@@ -749,6 +707,6 @@ body.splash-lock{overflow:hidden}
 })();
 </script>
 <script src="script.js"></script>
-<script src="accessibility.js"></script>
+<script src="accessibility.js?v=3"></script>
 </body>
 </html>

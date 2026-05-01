@@ -30,7 +30,7 @@
 /* ── A11y Floating Button ── */
 .ombee-a11y-btn{
   position:fixed;bottom:24px;left:24px;z-index:10000;
-  width:56px;height:56px;border-radius:50%;border:none;
+  width:46px;height:46px;border-radius:50%;border:none;
   background:#00B3DD;color:#fff;cursor:pointer;
   box-shadow:0 4px 20px rgba(0,179,221,.4);
   display:flex;align-items:center;justify-content:center;
@@ -40,7 +40,7 @@
   transform:scale(1.08);
   box-shadow:0 6px 28px rgba(0,179,221,.5);
 }
-.ombee-a11y-btn svg{width:30px;height:30px}
+.ombee-a11y-btn svg{width:24px;height:24px}
 .ombee-a11y-btn.active{background:#0a8dab}
 
 /* ── Side Drawer Overlay ── */
@@ -54,51 +54,51 @@
 
 /* ── Side Drawer Panel ── */
 .ombee-a11y-panel{
-  position:fixed;top:0;left:0;bottom:0;z-index:10001;
-  width:360px;max-width:100vw;overflow-y:auto;
-  background:#fff;
+  position:fixed;top:50%;left:0;z-index:10001;
+  width:320px;max-width:100vw;max-height:96vh;overflow-y:auto;
+  background:#fff;border-radius:0 16px 16px 0;
   box-shadow:4px 0 40px rgba(0,0,0,.18);
-  transform:translateX(-100%);
+  transform:translate(-100%,-50%);
   transition:transform .35s cubic-bezier(.4,0,.2,1);
   direction:rtl;font-family:'Heebo',sans-serif;
   display:flex;flex-direction:column;
 }
-.ombee-a11y-panel.open{transform:translateX(0)}
+.ombee-a11y-panel.open{transform:translate(0,-50%)}
 .ombee-a11y-panel::-webkit-scrollbar{width:4px}
 .ombee-a11y-panel::-webkit-scrollbar-thumb{background:rgba(0,179,221,.3);border-radius:4px}
 
 /* ── Panel Header ── */
 .ombee-a11y-header{
   display:flex;align-items:center;justify-content:space-between;
-  padding:18px 20px;border-bottom:1px solid #f0f0f0;
+  padding:12px 16px;border-bottom:1px solid #f0f0f0;
   position:sticky;top:0;background:linear-gradient(135deg,rgba(0,179,221,.10),rgba(0,179,221,.18));
   z-index:1;gap:10px;
 }
 .ombee-a11y-title{
-  font-size:16px;font-weight:800;color:#00B3DD;
+  font-size:14px;font-weight:800;color:#00B3DD;
   flex:1;text-align:center;
 }
 .ombee-a11y-close{
-  width:30px;height:30px;border-radius:50%;border:1.5px solid #e0e0e0;
+  width:26px;height:26px;border-radius:50%;border:1.5px solid #e0e0e0;
   background:#fff;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   transition:all .2s;color:#888;flex-shrink:0;
 }
 .ombee-a11y-close:hover{background:#f5f5f5;border-color:#ccc}
-.ombee-a11y-close svg{width:14px;height:14px}
+.ombee-a11y-close svg{width:12px;height:12px}
 
 /* ── Feature Grid ── */
 .ombee-a11y-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-  padding:16px;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px;
+  padding:12px;
 }
 .ombee-a11y-item{
   display:flex;flex-direction:column;align-items:center;
   justify-content:center;
-  gap:10px;padding:18px 8px 14px;border-radius:16px;
+  gap:6px;padding:10px 6px 8px;border-radius:12px;
   border:1.5px solid #eaeaea;
   background:#fff;cursor:pointer;transition:all .2s;
-  text-align:center;min-height:90px;position:relative;
+  text-align:center;min-height:70px;position:relative;
 }
 .ombee-a11y-item:hover{
   border-color:#00B3DD;background:rgba(0,179,221,.03);
@@ -108,15 +108,15 @@
 }
 .ombee-a11y-item.on .ombee-a11y-item-icon{color:#00B3DD}
 .ombee-a11y-item-icon{
-  width:32px;height:32px;display:flex;align-items:center;justify-content:center;
+  width:26px;height:26px;display:flex;align-items:center;justify-content:center;
   color:#444;transition:color .2s;
 }
 .ombee-a11y-item.on .ombee-a11y-item-icon{color:#00B3DD}
-.ombee-a11y-item-icon svg{width:26px;height:26px}
-.ombee-a11y-item-label{font-size:12px;font-weight:600;color:#333;line-height:1.3}
+.ombee-a11y-item-icon svg{width:22px;height:22px}
+.ombee-a11y-item-label{font-size:11px;font-weight:600;color:#333;line-height:1.3}
 .ombee-a11y-item.on .ombee-a11y-item-label{color:#00B3DD}
 .ombee-a11y-item .ombee-a11y-dot{
-  position:absolute;top:8px;right:8px;width:8px;height:8px;
+  position:absolute;top:6px;right:6px;width:7px;height:7px;
   border-radius:50%;background:#00B3DD;display:none;
 }
 .ombee-a11y-item.on .ombee-a11y-dot{display:block}
@@ -124,34 +124,34 @@
 /* ── Reset Button ── */
 .ombee-a11y-reset{
   display:flex;align-items:center;justify-content:center;gap:8px;
-  width:calc(100% - 32px);margin:0 16px 12px;padding:13px;
+  width:calc(100% - 24px);margin:0 12px 10px;padding:10px;
   border:none;border-radius:8px;
-  background:#00B3DD;color:#fff;font-size:14px;font-weight:700;
+  background:#00B3DD;color:#fff;font-size:13px;font-weight:700;
   font-family:'Heebo',sans-serif;cursor:pointer;transition:all .25s;
 }
 .ombee-a11y-reset:hover{background:#00a0c8;transform:translateY(-1px)}
-.ombee-a11y-reset svg{width:18px;height:18px}
+.ombee-a11y-reset svg{width:16px;height:16px}
 
 /* ── Bottom Bar ── */
 .ombee-a11y-bottom{
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 16px 18px;border-top:1px solid #f0f0f0;
-  gap:8px;
+  padding:10px 12px 14px;border-top:1px solid #f0f0f0;
+  gap:6px;
 }
 .ombee-a11y-bottom-link{
-  display:flex;align-items:center;gap:6px;
-  padding:8px 12px;border-radius:10px;
+  display:flex;align-items:center;gap:5px;
+  padding:6px 10px;border-radius:8px;
   cursor:pointer;transition:all .2s;
   background:rgba(0,179,221,.06);border:1px solid rgba(0,179,221,.2);
   text-decoration:none;
-  font-family:'Heebo',sans-serif;font-size:13px;font-weight:600;color:#00B3DD;
+  font-family:'Heebo',sans-serif;font-size:12px;font-weight:600;color:#00B3DD;
 }
 .ombee-a11y-bottom-link:hover{
   background:#00B3DD;color:#fff;
   transform:translateY(-1px);
   box-shadow:0 4px 12px rgba(0,179,221,.25);
 }
-.ombee-a11y-bottom-link svg{width:16px;height:16px}
+.ombee-a11y-bottom-link svg{width:14px;height:14px}
 
 /* ── Applied A11y Styles ── */
 html.a11y-contrast{filter:contrast(1.4)!important}
@@ -181,7 +181,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
 <button class="ombee-a11y-btn" aria-label="תפריט נגישות" title="נגישות">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/><path d="M7 10.5c1.5.6 3.2 1 5 1s3.5-.4 5-1"/><path d="M12 11.5v3"/><path d="M12 14.5l-2 4"/><path d="M12 14.5l2 4"/></svg>
+  <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.2 0 0 7.2 0 16s7.2 16 16 16 16-7.2 16-16S24.8 0 16 0zm0 7c1.4 0 2.5 1.1 2.5 2.5S17.4 12 16 12s-2.5-1.1-2.5-2.5S14.6 7 16 7zm6.6 7.7c-2 .7-4 1.1-6 1.2v3.3l2.7 7.5c.3.8-.1 1.6-.9 1.9-.8.3-1.6-.1-1.9-.9L14 21h-.1l-2.5 6.7c-.3.8-1.1 1.2-1.9.9-.8-.3-1.2-1.1-.9-1.9l2.7-7.5v-3.3c-2 0-4-.5-6-1.2-.8-.3-1.2-1.1-.9-1.9.3-.8 1.1-1.2 1.9-.9 2.7 1 5.5 1.4 8.3 1.4s5.6-.5 8.3-1.4c.8-.3 1.6.1 1.9.9.3.8-.1 1.6-.9 1.9z"/></svg>
 </button>
 <div class="ombee-a11y-overlay"></div>
 <div class="ombee-a11y-panel">
