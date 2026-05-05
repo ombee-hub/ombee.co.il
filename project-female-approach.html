@@ -11,23 +11,23 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:#fff;color:#0D1B2A;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:none}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#0D1B2A;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:auto}
 @media(max-width:768px){body{cursor:auto}}
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 ul{list-style:none}
 input,textarea,select,button{font-family:'Heebo',sans-serif}
 .container{max-width:1200px;margin:0 auto;padding:0 28px}
-.cursor{width:8px;height:8px;background:#00B3DD;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-.cursor-f{width:32px;height:32px;border:1.5px solid rgba(0,179,221,.4);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s}
+.cursor{display:none}
+.cursor-f{display:none}
 body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate(-50%,-50%) scale(1.7);background:rgba(0,179,221,.08)}
 .reveal{opacity:0;transform:translateY(32px);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:none}
 .section{padding:100px 0}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#00B3DD;margin-bottom:18px}
-.eyebrow::before,.eyebrow::after{content:'';width:28px;height:1.5px;background:#00B3DD;opacity:.5}
-.section-title{font-size:clamp(30px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.03em;color:#0D1B2A}
-.title-out{-webkit-text-stroke:1.5px #00B3DD;color:transparent}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#00B3DD,transparent)}
+
+.section-title{font-size:clamp(20px,2.5vw,32px);font-weight:600;line-height:1.4;letter-spacing:-.01em;color:#6B7280;-webkit-text-fill-color:#6B7280}
+.title-out{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline-block;animation:titleShine 4s linear infinite}.title-out::after{content:'';position:absolute;left:5%;right:5%;bottom:-6px;height:3px;background:linear-gradient(90deg,transparent,#00B3DD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
 .btn-cy{background:#00B3DD;color:#fff}
 .btn-cy:hover{background:#33C5E8;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,179,221,.3)}
@@ -37,7 +37,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 /* HEADER */
 .header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:#fff;border-bottom:1px solid rgba(0,179,221,.12);transition:all .3s}
 .header.scrolled{box-shadow:0 4px 24px rgba(0,179,221,.1)}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .header-logo-nav{display:flex;align-items:center;gap:28px}
 .logo img{height:38px;width:auto}
 .nav-list{display:flex;align-items:center;gap:4px}
@@ -80,7 +80,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .mob-sub-link:hover{color:#00B3DD}
 .mob-cta{background:#00B3DD;color:#fff!important;border-radius:8px;padding:14px 28px!important;text-align:center;border-bottom:none!important;margin-top:12px;font-size:16px;transition:all .3s;width:100%;display:block;box-sizing:border-box}
 .mob-cta:hover{background:#33C5E8;color:#fff!important}
-@media(max-width:1024px){.nav{display:none}.hamburger{display:flex}}
+@media(max-width:1024px){.nav{display:none}.hamburger{display:flex}.header-inner{justify-content:flex-start;gap:14px}}
 @media(min-width:1025px){.mob-menu,.mob-overlay{display:none!important}}
 
 /* PAGE HERO */
@@ -90,7 +90,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AECDD7;margin-bottom:24px}
 .breadcrumb a{color:#00B3DD}
 .breadcrumb-sep{opacity:.4}
-.page-hero h1{font-size:clamp(44px,7vw,80px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#0D1B2A;margin-bottom:20px}
+.page-hero h1{font-size:clamp(40px,6.5vw,80px);font-weight:900;line-height:1.1;letter-spacing:-.04em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;text-wrap:balance}.page-hero h1 .cy{font-weight:900;background:linear-gradient(135deg,#00B3DD 0%,#0086A8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.page-hero h1 .out{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShine 4s linear infinite;position:relative;display:inline-block}.page-hero h1 .out::after{content:'';position:absolute;left:5%;right:5%;bottom:-4px;height:5px;background:linear-gradient(90deg,transparent,#00B3DD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 .page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 40px}
 .hero-tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .hero-tag{padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.2);color:#00B3DD}
@@ -161,25 +161,26 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 /* FOOTER */
 .footer{background:#fff;border-top:1px solid rgba(0,179,221,.12)}
-.footer-top{padding:26px 0;border-bottom:1px solid rgba(0,179,221,.1);text-align:center}
-.footer-sitemap-link{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#00B3DD;padding:10px 22px;border:1.5px solid rgba(0,179,221,.25);border-radius:8px;transition:all .3s;background:#fff}
-.footer-sitemap-link:hover{background:#00B3DD;color:#fff;box-shadow:0 6px 18px rgba(0,179,221,.22);transform:translateY(-1px)}
-.footer-sitemap-link svg{width:16px;height:16px}
+.footer-top{padding:50px 0 40px;border-bottom:1px solid rgba(0,179,221,.1);text-align:center;background:linear-gradient(180deg,rgba(0,179,221,.04),transparent);position:relative}
+.footer-sitemap-title{display:inline-flex;align-items:center;gap:14px;font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.02em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.footer-sitemap-title::before,.footer-sitemap-title::after{content:'';width:60px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial}
+.footer-sitemap-title::after{background:linear-gradient(90deg,#00B3DD,transparent)}
+.footer-sitemap-title .accent{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShine 4s linear infinite}
 .footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:64px 0 56px;border-bottom:1px solid rgba(0,179,221,.1)}
 .footer-brand img{height:34px;width:auto;margin-bottom:14px}
 .footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
 .footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.footer-col h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#AECDD7;margin-bottom:18px}
+.footer-col h4{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#00B3DD;margin-bottom:20px;position:relative;padding-bottom:10px}.footer-col h4::after{content:'';position:absolute;right:0;bottom:0;width:24px;height:2px;background:#00B3DD;border-radius:2px;opacity:.4}
 .footer-col ul{display:flex;flex-direction:column;gap:12px}
-.footer-col a{font-size:14px;color:#6B7280;transition:color .3s}
-.footer-col a:hover{color:#00B3DD}
+.footer-col a{font-size:14px;color:#6B7280;transition:all .3s;position:relative;display:inline-block}
+.footer-col a:hover{color:#00B3DD;transform:translateX(-4px)}
 .footer-bottom{padding:20px 0}
 .footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
 .footer-bottom span{font-size:13px;color:#AECDD7}
 @media(max-width:768px){
-  .footer-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 36px}
-  .footer-links{grid-template-columns:repeat(2,1fr)}
-  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+ .footer-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 36px}
+ .footer-links{grid-template-columns:repeat(2,1fr)}
+ .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
 }
 </style>
 </head>
@@ -190,276 +191,276 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 <!-- HEADER -->
 <header class="header" id="header">
-  <div class="container header-inner">
-    <div class="header-logo-nav">
-    <a href="/" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
-    <nav class="nav">
-      <ul class="nav-list">
-        <li class="nav-dropdown">
-          <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-          <div class="dropdown-menu">
-            <div class="dropdown-header">איך אוכל לעזור לך?</div>
-            <a href="website-design.html" class="dropdown-item">
-              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-              <div><strong>בניית אתרים</strong><span>WordPress & Figma — מהרעיון לאוויר</span></div>
-            </a>
-            <a href="website-redesign.html" class="dropdown-item">
-              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-              <div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div>
-            </a>
-            <a href="app-design.html" class="dropdown-item">
-              <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
-              <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
-            </a>
-          </div>
-        </li>
-        <li><a href="services.html" class="nav-link">שירותים</a></li>
-        <li><a href="portfolio.html" class="nav-link active">עבודות</a></li>
-        <li><a href="clients.html" class="nav-link">לקוחות</a></li>
-        <li><a href="about.html" class="nav-link">מי אני</a></li>
-        <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר</a></li>
-      </ul>
-    </nav>
-    </div>
-    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-  </div>
+ <div class="container header-inner">
+ <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+ <div class="header-logo-nav">
+ <a href="/" class="logo"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+ <nav class="nav">
+ <ul class="nav-list">
+ <li class="nav-dropdown">
+ <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+ <div class="dropdown-menu">
+ <div class="dropdown-header">איך אוכל לעזור לך?</div>
+ <a href="website-design.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+ <div><strong>בניית אתרים</strong><span>AI & Figma — מהרעיון לאוויר</span></div>
+ </a>
+ <a href="website-redesign.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+ <div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div>
+ </a>
+ <a href="app-design.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
+ <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
+ </a>
+ </div>
+ </li>
+ <li><a href="services.html" class="nav-link">שירותים</a></li>
+ <li><a href="portfolio.html" class="nav-link active">עבודות</a></li>
+ <li><a href="clients.html" class="nav-link">לקוחות</a></li>
+ <li><a href="about.html" class="nav-link">מי אני</a></li>
+ <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-inline-start:6px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a></li>
+ </ul>
+ </nav>
+ </div>
+ </div>
 </header>
 
 <div class="mob-overlay" id="mobOverlay"></div>
 <div class="mob-menu" id="mobileMenu">
-  <ul>
-    <li class="mob-dropdown">
-      <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
-      <ul class="mob-submenu" id="mobSubmenu">
-        <li><a href="website-design.html" class="mob-link mob-sub-link">בניית אתרים</a></li>
-        <li><a href="website-redesign.html" class="mob-link mob-sub-link">שיפוץ אתר</a></li>
-        <li><a href="app-design.html" class="mob-link mob-sub-link">עיצוב אפליקציה</a></li>
-      </ul>
-    </li>
-    <li><a href="services.html" class="mob-link">שירותים</a></li>
-    <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
-    <li><a href="clients.html" class="mob-link">לקוחות</a></li>
-    <li><a href="about.html" class="mob-link">מי אני</a></li>
-    <li><a href="contact.html" class="mob-link mob-cta">יצירת קשר</a></li>
-  </ul>
+ <ul>
+ <li class="mob-dropdown">
+ <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+ <ul class="mob-submenu" id="mobSubmenu">
+ <li><a href="website-design.html" class="mob-link mob-sub-link">בניית אתרים</a></li>
+ <li><a href="website-redesign.html" class="mob-link mob-sub-link">שיפוץ אתר</a></li>
+ <li><a href="app-design.html" class="mob-link mob-sub-link">עיצוב אפליקציה</a></li>
+ </ul>
+ </li>
+ <li><a href="services.html" class="mob-link">שירותים</a></li>
+ <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
+ <li><a href="clients.html" class="mob-link">לקוחות</a></li>
+ <li><a href="about.html" class="mob-link">מי אני</a></li>
+ <li><a href="contact.html" class="mob-link mob-cta">יצירת קשר <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-inline-start:6px"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a></li>
+ </ul>
 </div>
 
 <!-- PAGE HERO -->
 <section class="page-hero">
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-glow"></div>
-  <div class="container" style="position:relative;z-index:1">
-    <div class="breadcrumb reveal"><a href="/">דף הבית</a><span class="breadcrumb-sep">/</span><a href="portfolio.html">עבודות</a><span class="breadcrumb-sep">/</span><span>גישה נשית</span></div>
-    <h1 class="reveal">גישה נשית</h1>
-    <p class="reveal">עיצוב זהות מותגית ולוגו ייחודי שמשדר חום, מקצועיות ואמינות בתחום ה-NLP והטיפול</p>
-    <div class="hero-tags reveal">
-      <span class="hero-tag">Logo Design</span>
-      <span class="hero-tag">Brand Identity</span>
-      <span class="hero-tag">Typography</span>
-      <span class="hero-tag">Color Palette</span>
-    </div>
-  </div>
+ <div class="page-hero-grid"></div>
+ <div class="page-hero-glow"></div>
+ <div class="container" style="position:relative;z-index:1">
+ <div class="breadcrumb reveal"><a href="/">דף הבית</a><span class="breadcrumb-sep">/</span><a href="portfolio.html">עבודות</a><span class="breadcrumb-sep">/</span><span>גישה נשית</span></div>
+ <h1 class="reveal">גישה נשית</h1>
+ <p class="reveal">עיצוב זהות מותגית ולוגו ייחודי שמשדר חום, מקצועיות ואמינות בתחום ה-NLP והטיפול</p>
+ <div class="hero-tags reveal">
+ <span class="hero-tag">Logo Design</span>
+ <span class="hero-tag">Brand Identity</span>
+ <span class="hero-tag">Typography</span>
+ <span class="hero-tag">Color Palette</span>
+ </div>
+ </div>
 </section>
 
 <!-- PROJECT SHOWCASE -->
 <section class="project-showcase">
-  <div class="container">
-    <img src="images/Mockup_Female approach 2022.png" alt="גישה נשית" class="reveal"/>
-  </div>
+ <div class="container">
+ <img src="images/Mockup_Female approach 2022.png" alt="גישה נשית" class="reveal"/>
+ </div>
 </section>
 
 <!-- PROJECT OVERVIEW -->
 <section class="section" style="background:#fff">
-  <div class="container">
-    <div class="project-overview">
-      <div class="reveal">
-        <div class="eyebrow">סקירת הפרויקט</div>
-        <h2>יצירת זהות מותגית ולוגו עבור גישה נשית</h2>
-        <p>הפרויקט כלל עיצוב לוגו וזהות מותגית מלאה עבור גישה נשית, מטפלת בתחום ה-NLP והטיפול הרגשי. המטרה הייתה ליצור שפה ויזואלית שמשדרת חום אנושי, מקצועיות ונגישות, תוך שמירה על ייחודיות שתבדיל את המותג בשוק תחרותי. תהליך העבודה כלל מחקר מעמיק, פיתוח קונספטים, ועידון עד להגעה לתוצאה המושלמת.</p>
-      </div>
-      <div class="project-meta reveal">
-        <h3>פרטי הפרויקט</h3>
-        <div class="project-meta-row"><span>לקוח</span><span>גישה נשית</span></div>
-        <div class="project-meta-row"><span>קטגוריה</span><span>לוגו · מיתוג</span></div>
-        <div class="project-meta-row"><span>שנה</span><span>2022</span></div>
-        <div class="project-meta-row"><span>תחום</span><span>העצמה נשית</span></div>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="project-overview">
+ <div class="reveal">
+ <div class="eyebrow">סקירת הפרויקט</div>
+ <h2>יצירת זהות מותגית ולוגו עבור גישה נשית</h2>
+ <p>הפרויקט כלל עיצוב לוגו וזהות מותגית מלאה עבור גישה נשית, מטפלת בתחום ה-NLP והטיפול הרגשי. המטרה הייתה ליצור שפה ויזואלית שמשדרת חום אנושי, מקצועיות ונגישות, תוך שמירה על ייחודיות שתבדיל את המותג בשוק תחרותי. תהליך העבודה כלל מחקר מעמיק, פיתוח קונספטים, ועידון עד להגעה לתוצאה המושלמת.</p>
+ </div>
+ <div class="project-meta reveal">
+ <h3>פרטי הפרויקט</h3>
+ <div class="project-meta-row"><span>לקוח</span><span>גישה נשית</span></div>
+ <div class="project-meta-row"><span>קטגוריה</span><span>לוגו · מיתוג</span></div>
+ <div class="project-meta-row"><span>שנה</span><span>2022</span></div>
+ <div class="project-meta-row"><span>תחום</span><span>העצמה נשית</span></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- CHALLENGE & SOLUTION -->
 <section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">אתגר ופתרון</div>
-      <h2 class="section-title reveal">מהאתגר <span class="title-out">לפתרון</span></h2>
-    </div>
-    <div class="challenge-grid">
-      <div class="cs-card reveal">
-        <div class="cs-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-        </div>
-        <h3>האתגר</h3>
-        <p>להביע חום, אמפתיה ומקצועיות בזהות ויזואלית אחת. תחום ה-NLP והטיפול דורש שפה עיצובית שמשדרת אמינות ובטחון, אך בו-זמנית נגישה, רכה ומזמינה. האתגר היה למצוא את האיזון המדויק בין הפרופסיונליות לבין החום האנושי שמאפיין את Hofit ואת דרך הטיפול שלה.</p>
-      </div>
-      <div class="cs-card reveal">
-        <div class="cs-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h3>הפתרון</h3>
-        <p>פיתוח גישת מיתוג ייחודית שמשלבת צורות אורגניות ורכות עם טיפוגרפיה מקצועית ופלטת צבעים מרגיעה. הלוגו עוצב כך שישדר תחושת חיבוק ונוכחות, תוך שימוש בקווים זורמים שמייצגים את תהליך הטיפול והצמיחה. התוצאה היא זהות מותגית שמרגישה אותנטית, חמה ומקצועית בו-זמנית.</p>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div style="text-align:center;margin-bottom:56px">
+ <div class="eyebrow reveal">אתגר ופתרון</div>
+ <h2 class="section-title reveal">מהאתגר <span class="title-out">לפתרון</span></h2>
+ </div>
+ <div class="challenge-grid">
+ <div class="cs-card reveal">
+ <div class="cs-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+ </div>
+ <h3>האתגר</h3>
+ <p>להביע חום, אמפתיה ומקצועיות בזהות ויזואלית אחת. תחום ה-NLP והטיפול דורש שפה עיצובית שמשדרת אמינות ובטחון, אך בו-זמנית נגישה, רכה ומזמינה. האתגר היה למצוא את האיזון המדויק בין הפרופסיונליות לבין החום האנושי שמאפיין את Hofit ואת דרך הטיפול שלה.</p>
+ </div>
+ <div class="cs-card reveal">
+ <div class="cs-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+ </div>
+ <h3>הפתרון</h3>
+ <p>פיתוח גישת מיתוג ייחודית שמשלבת צורות אורגניות ורכות עם טיפוגרפיה מקצועית ופלטת צבעים מרגיעה. הלוגו עוצב כך שישדר תחושת חיבוק ונוכחות, תוך שימוש בקווים זורמים שמייצגים את תהליך הטיפול והצמיחה. התוצאה היא זהות מותגית שמרגישה אותנטית, חמה ומקצועית בו-זמנית.</p>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- DELIVERABLES -->
 <section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">תוצרים</div>
-      <h2 class="section-title reveal">מה <span class="title-out">סיפקנו</span></h2>
-    </div>
-    <div class="del-grid">
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        </div>
-        <h4>עיצוב לוגו</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-        </div>
-        <h4>פלטת צבעים</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
-        </div>
-        <h4>טיפוגרפיה</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-        </div>
-        <h4>Brand Guidelines</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9h20"/></svg>
-        </div>
-        <h4>כרטיס ביקור</h4>
-      </div>
-      <div class="del-card reveal">
-        <div class="del-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h4>נכסים דיגיטליים</h4>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div style="text-align:center;margin-bottom:56px">
+ <div class="eyebrow reveal">תוצרים</div>
+ <h2 class="section-title reveal">מה <span class="title-out">סיפקנו</span></h2>
+ </div>
+ <div class="del-grid">
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+ </div>
+ <h4>עיצוב לוגו</h4>
+ </div>
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+ </div>
+ <h4>פלטת צבעים</h4>
+ </div>
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+ </div>
+ <h4>טיפוגרפיה</h4>
+ </div>
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+ </div>
+ <h4>Brand Guidelines</h4>
+ </div>
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 15h0M2 9h20"/></svg>
+ </div>
+ <h4>כרטיס ביקור</h4>
+ </div>
+ <div class="del-card reveal">
+ <div class="del-icon">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+ </div>
+ <h4>נכסים דיגיטליים</h4>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- TOOLS -->
 <section class="section" style="background:#fff;padding-top:0">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:40px">
-      <div class="eyebrow reveal">כלים</div>
-      <h2 class="section-title reveal" style="font-size:clamp(24px,3.5vw,40px)">כלי <span class="title-out">עבודה</span></h2>
-    </div>
-    <div class="tools-wrap reveal">
-      <span class="tool-pill">Illustrator</span>
-      <span class="tool-pill">Photoshop</span>
-      <span class="tool-pill">InDesign</span>
-      <span class="tool-pill">Figma</span>
-    </div>
-  </div>
+ <div class="container">
+ <div style="text-align:center;margin-bottom:40px">
+ <div class="eyebrow reveal">כלים</div>
+ <h2 class="section-title reveal" style="font-size:clamp(24px,3.5vw,40px)">כלי <span class="title-out">עבודה</span></h2>
+ </div>
+ <div class="tools-wrap reveal">
+ <span class="tool-pill">Illustrator</span>
+ <span class="tool-pill">Photoshop</span>
+ <span class="tool-pill">InDesign</span>
+ <span class="tool-pill">Figma</span>
+ </div>
+ </div>
 </section>
 
 <!-- PROCESS -->
 <section class="section" style="background:#F2FBFD">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:56px">
-      <div class="eyebrow reveal">תהליך עבודה</div>
-      <h2 class="section-title reveal">מהרעיון <span class="title-out">לתוצאה</span></h2>
-    </div>
-    <div class="process-grid">
-      <div class="pitem reveal">
-        <h4>מחקר מותג</h4>
-        <p>ניתוח מעמיק של התחום, קהל היעד, מתחרים וערכי המותג</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>סקיצות וקונספטים</h4>
-        <p>פיתוח כיוונים עיצוביים מגוונים על בסיס תובנות המחקר</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>עידון ובחירת כיוון</h4>
-        <p>בחירת הכיוון הנכון ועידון הפרטים עד לשלמות</p>
-      </div>
-      <div class="pitem reveal">
-        <h4>Brand Book ותוצרים</h4>
-        <p>הפקת חוברת מותג מלאה וכל התוצרים הנדרשים</p>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div style="text-align:center;margin-bottom:56px">
+ <div class="eyebrow reveal">תהליך עבודה</div>
+ <h2 class="section-title reveal">מהרעיון <span class="title-out">לתוצאה</span></h2>
+ </div>
+ <div class="process-grid">
+ <div class="pitem reveal">
+ <h4>מחקר מותג</h4>
+ <p>ניתוח מעמיק של התחום, קהל היעד, מתחרים וערכי המותג</p>
+ </div>
+ <div class="pitem reveal">
+ <h4>סקיצות וקונספטים</h4>
+ <p>פיתוח כיוונים עיצוביים מגוונים על בסיס תובנות המחקר</p>
+ </div>
+ <div class="pitem reveal">
+ <h4>עידון ובחירת כיוון</h4>
+ <p>בחירת הכיוון הנכון ועידון הפרטים עד לשלמות</p>
+ </div>
+ <div class="pitem reveal">
+ <h4>Brand Book ותוצרים</h4>
+ <p>הפקת חוברת מותג מלאה וכל התוצרים הנדרשים</p>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- PROJECT NAVIGATION -->
 <section style="background:#fff;padding:0">
-  <div class="container">
-    <div class="project-nav">
-      <a href="project-obvious-stutterer.html">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div>
-          <span class="pn-label">הפרויקט הקודם</span>
-          <span class="pn-name">מגמגם ברור</span>
-        </div>
-      </a>
-      <a href="project-family-history.html" style="flex-direction:row-reverse;text-align:left">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div>
-          <span class="pn-label">הפרויקט הבא</span>
-          <span class="pn-name">ההיסטוריה של משפחה</span>
-        </div>
-      </a>
-    </div>
-  </div>
+ <div class="container">
+ <div class="project-nav">
+ <a href="project-obvious-stutterer.html">
+ <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+ <div>
+ <span class="pn-label">הפרויקט הקודם</span>
+ <span class="pn-name">מגמגם ברור</span>
+ </div>
+ </a>
+ <a href="project-family-history.html" style="flex-direction:row-reverse;text-align:left">
+ <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+ <div>
+ <span class="pn-label">הפרויקט הבא</span>
+ <span class="pn-name">ההיסטוריה של משפחה</span>
+ </div>
+ </a>
+ </div>
+ </div>
 </section>
 
 <!-- CTA STRIP -->
 <section class="cta-strip">
-  <div class="container">
-    <h2 class="reveal">רוצה מותג שמדבר בשבילך?</h2>
-    <p class="reveal">בואו ניצור יחד זהות מותגית שתבדיל אותך מהמתחרים</p>
-    <a href="contact.html" class="btn btn-white reveal">בואו נדבר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
-  </div>
+ <div class="container">
+ <h2 class="reveal">רוצה מותג שמדבר בשבילך?</h2>
+ <p class="reveal">בואו ניצור יחד זהות מותגית שתבדיל אותך מהמתחרים</p>
+ <a href="contact.html" class="btn btn-white reveal">בואו נדבר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+ </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="container">
-    <div class="footer-top"><a href="sitemap.html" class="footer-sitemap-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 3 18"/><polyline points="9 3 9 21"/><polyline points="15 6 15 18"/><polyline points="21 3 21 21"/></svg>מפת האתר</a></div>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="/"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
-        <p>עיצוב גרפי ו-UI/UX<br/>מאז 2014</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
-        <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">מי אני</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
-        <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container" style="padding:0">
-        <span>© כל הזכויות שמורות ל-OMBee Graphic Design And UI/UX 2014-2026</span>
-        <span>עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</span>
-        <span><a href="accessibility-statement.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">מדיניות פרטיות</a></span>
-      </div>
-    </div>
-  </div>
+ <div class="container">
+ <div class="footer-top"><h2 class="footer-sitemap-title">מפת <span class="accent">האתר</span></h2></div>
+ <div class="footer-inner">
+ <div class="footer-brand">
+ <a href="/"><img src="images/OMBee_Logo.png" alt="OMBee Studio"/></a>
+ <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ </div>
+ <div class="footer-links">
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+ <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">מי אני</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
+ <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <div class="container" style="padding:0">
+ <span>© כל הזכויות שמורות ל-OMBee Graphic Design And UI/UX 2014-2026</span>
+ <span>עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</span>
+ <span><a href="accessibility-statement.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AECDD7;transition:color .3s" onmouseover="this.style.color='#00B3DD'" onmouseout="this.style.color='#AECDD7'">מדיניות פרטיות</a></span>
+ </div>
+ </div>
+ </div>
 </footer>
 
 <script src="script.js"></script>
