@@ -203,6 +203,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .wcard:nth-child(3){grid-column:span 5}
 .wcard:nth-child(4){grid-column:span 7}
 .wcard:nth-child(5){grid-column:span 12;height:240px}
+.wcard:nth-child(6){grid-column:span 12;height:240px}
+.wcard:nth-child(7){grid-column:span 12;height:240px}
 
 .wcard-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .wcard:hover .wcard-bg{transform:scale(1.05)}
@@ -211,6 +213,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .wcard-bg-3{background:url('images/yevulei-hakfar_Web.png') center/cover no-repeat}
 .wcard-bg-4{background:url('images/Mockup_Oren.png') center/cover no-repeat}
 .wcard-bg-5{background:url('images/AgroTalk.png') center/cover no-repeat}
+.wcard-bg-6{background:url('images/AgroSmart.png') center/cover no-repeat}
+.wcard-bg-7{background:url('images/Mockup_Ziva%20Events%202022.png') center/cover no-repeat}
 .wcard-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
 
 .wcat{position:absolute;top:20px;right:20px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,179,221,.35);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:50px;opacity:0;transform:translateY(-8px);transition:all .3s}
@@ -378,6 +382,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  .work-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px;gap:14px}
  .wcard:nth-child(n){grid-column:span 1;height:auto}
  .wcard:nth-child(5){grid-column:span 2;height:220px}
+ .wcard:nth-child(6){grid-column:span 2;height:220px}
+ .wcard:nth-child(7){grid-column:span 2;height:220px}
 
  /* process */
  .process-grid{grid-template-columns:repeat(2,1fr);gap:32px}
@@ -583,10 +589,12 @@ body.splash-lock{overflow:hidden}
  </div>
  <div class="work-grid">
  <a href="project-agrosoft.html" class="wcard reveal"><div class="wcard-bg wcard-bg-1"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>Figma</span><span>UI/UX</span></div><h3>Agrosoft</h3></div></a>
- <a href="project-hofit.html" class="wcard reveal"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit</h3></div></a>
- <a href="project-yevulei-hakfar.html" class="wcard reveal"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>חנות דיגיטלית</h3></div></a>
- <a href="project-oren.html" class="wcard reveal"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>אורן תיקונים</h3></div></a>
- <a href="project-agrotalk.html" class="wcard reveal"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk — פרויקט דגל 2024</h3></div></a>
+ <a href="project-hofit.html" class="wcard reveal"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit Dala</h3></div></a>
+ <a href="project-yevulei-hakfar.html" class="wcard reveal"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>Digital Store</h3></div></a>
+ <a href="project-oren.html" class="wcard reveal"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Oren Repairs</h3></div></a>
+ <a href="project-agrotalk.html" class="wcard reveal"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk</h3></div></a>
+ <a href="project-agrosmart.html" class="wcard reveal"><div class="wcard-bg wcard-bg-6"></div><div class="wcat">אפליקציה</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Figma</span></div><h3>AgroSmart</h3></div></a>
+ <a href="project-ziva.html" class="wcard reveal"><div class="wcard-bg wcard-bg-7"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Ziva Events</h3></div></a>
  </div>
  </div>
 </section>
@@ -615,7 +623,7 @@ body.splash-lock{overflow:hidden}
  <h2 class="section-title">עסקים שסומכים <span class="title-out">עלי</span></h2>
  </div>
  <div class="clogos reveal">
- <div class="clogo"><img src="images/AgrosoftLogo.png" alt="Agrosoft"/></div><div class="clogo"><img src="images/Hofit%20Dala.png?v=2" alt="חופית"/></div><div class="clogo"><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/></div><div class="clogo"><img src="images/Oren_logo_B.png" alt="אורן תיקונים"/></div>
+ <div class="clogo"><img src="images/AgrosoftLogo.png" alt="Agrosoft"/></div><div class="clogo"><img src="images/Hofit%20Dala.png?v=2" alt="חופית"/></div><div class="clogo"><img src="images/DJ%20Or%20Baumstein.png" alt="DJ Or Baumstein"/></div><div class="clogo"><img src="images/Oren_logo_B.png" alt="Oren Repairs"/></div>
  <div class="clogo"><img src="images/Nitzanei_Modiin_Logo.png" alt="ניצני מודיעין"/></div><div class="clogo"><img src="images/colorful%20heart.png" alt="Colorful Heart"/></div><div class="clogo"><img src="images/jewelry_Lian.png" alt="ליאן"/></div><div class="clogo"><img src="images/NimrodGrisaru_Logo%20HEW.png" alt="Nimrod Grisaru"/></div><div class="clogo"><img src="images/Ziva_Logo.png" alt="Ziva"/></div><div class="clogo"><img src="images/These%20curtains.png" alt="These Curtains"/></div>
  </div>
  <div class="testi reveal">
@@ -626,7 +634,7 @@ body.splash-lock{overflow:hidden}
  <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי הבין בדיוק מה אני צריכה, היה סבלני ותמיד זמין. קיבלתי לוגו שאני אוהבת ומזדהה איתו.</p><div class="t-foot"><div class="t-av">ל</div><div><strong>ליאן</strong><span>לקוחה</span></div><div class="t-stars">★★★★★</div></div></div>
  <div class="t-card"><div class="t-quote">"</div><p class="t-text">שירות מהיר, מקצועי ויצירתי. עמרי הפתיע אותי עם רעיונות שלא חשבתי עליהם ותוצאה שעברה את הציפיות שלי.</p><div class="t-foot"><div class="t-av">D</div><div><strong>DJ Or Baumstein</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
  <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי מעצב מעולה שיודע לתרגם צורך של עסק לעיצוב יפהפה.</p><div class="t-foot"><div class="t-av">ב</div><div><strong>בר בן דוד</strong><span>לקוחה</span></div><div class="t-stars">★★★★★</div></div></div>
- <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי נותן שירות מצוין. הוא בנה לי לוגו בזמנו שאהבתי מאוד.</p><div class="t-foot"><div class="t-av">א</div><div><strong>אורן תיקונים</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
+ <div class="t-card"><div class="t-quote">"</div><p class="t-text">עמרי נותן שירות מצוין. הוא בנה לי לוגו בזמנו שאהבתי מאוד.</p><div class="t-foot"><div class="t-av">א</div><div><strong>Oren Repairs</strong><span>לקוח</span></div><div class="t-stars">★★★★★</div></div></div>
  </div>
  <div class="t-dots" id="testimonialDots">
  <button class="dot active" data-index="0"></button>
