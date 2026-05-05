@@ -181,7 +181,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const wrapper = document.createElement('div');
   wrapper.innerHTML = `
 <button class="ombee-a11y-btn" aria-label="תפריט נגישות" title="נגישות">
-  <svg viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 0C7.2 0 0 7.2 0 16s7.2 16 16 16 16-7.2 16-16S24.8 0 16 0zm0 7c1.4 0 2.5 1.1 2.5 2.5S17.4 12 16 12s-2.5-1.1-2.5-2.5S14.6 7 16 7zm6.6 7.7c-2 .7-4 1.1-6 1.2v3.3l2.7 7.5c.3.8-.1 1.6-.9 1.9-.8.3-1.6-.1-1.9-.9L14 21h-.1l-2.5 6.7c-.3.8-1.1 1.2-1.9.9-.8-.3-1.2-1.1-.9-1.9l2.7-7.5v-3.3c-2 0-4-.5-6-1.2-.8-.3-1.2-1.1-.9-1.9.3-.8 1.1-1.2 1.9-.9 2.7 1 5.5 1.4 8.3 1.4s5.6-.5 8.3-1.4c.8-.3 1.6.1 1.9.9.3.8-.1 1.6-.9 1.9z"/></svg>
+  <svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="3.8" r="2.2"/><path d="M20.5 8.7c-2.6.7-5.5 1.1-8.5 1.1s-5.9-.4-8.5-1.1c-.5-.1-1 .2-1.1.7-.1.5.2 1 .7 1.1 2.3.6 4.7 1 7.2 1.1v3.6L7.5 21c-.2.5 0 1.1.5 1.3.5.2 1.1 0 1.3-.5L11.7 16h.6l2.4 5.8c.2.5.8.7 1.3.5.5-.2.7-.8.5-1.3L13.7 15v-3.5c2.5-.1 4.9-.5 7.2-1.1.5-.1.8-.6.7-1.1-.1-.5-.6-.8-1.1-.7z"/></svg>
 </button>
 <div class="ombee-a11y-overlay"></div>
 <div class="ombee-a11y-panel">
