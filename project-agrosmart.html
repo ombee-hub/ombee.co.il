@@ -30,11 +30,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .reveal.visible{opacity:1;transform:none}
 
 /* ── SECTION ── */
-.section{padding:100px 0}
-.section-header{text-align:center;margin-bottom:72px}
-.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#00B3DD,transparent)}
+.section{padding:70px 0}
+.section-header{text-align:center;margin-bottom:40px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0;line-height:.9;padding-bottom:0}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#00B3DD,transparent)}
 
-.section-title{font-size:clamp(34px,5.5vw,64px);font-weight:900;line-height:1.1;letter-spacing:-.035em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 24px rgba(13,27,42,.06)}
+.section-title{font-size:clamp(34px,5.5vw,64px);font-weight:900;line-height:1;letter-spacing:-.035em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 24px rgba(13,27,42,.06)}
 .title-out{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline-block;animation:titleShine 4s linear infinite}.title-out::after{content:'';position:absolute;left:5%;right:5%;bottom:-6px;height:3px;background:linear-gradient(90deg,transparent,#00B3DD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
 /* ── BUTTONS ── */
@@ -102,19 +102,19 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 @media(max-width:1024px){.nav{display:none}.hamburger{display:flex}.header-inner{justify-content:flex-start;gap:14px}}
 
 /* ══════════ PAGE HERO ══════════ */
-.page-hero{padding:160px 0 90px;background:#fff;position:relative;overflow:hidden;text-align:center}
+.page-hero{padding:120px 0 10px;background:#fff;position:relative;overflow:hidden;text-align:center}
 .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,179,221,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,179,221,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(0,179,221,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
 .breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AECDD7;margin-bottom:24px}
 .breadcrumb a{color:#00B3DD}
 .breadcrumb-sep{opacity:.4}
 .page-hero h1{font-size:clamp(40px,6.5vw,80px);font-weight:900;line-height:1.1;letter-spacing:-.04em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;text-wrap:balance}.page-hero h1 .cy{font-weight:900;background:linear-gradient(135deg,#00B3DD 0%,#0086A8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.page-hero h1 .out{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShine 4s linear infinite;position:relative;display:inline-block}.page-hero h1 .out::after{content:'';position:absolute;left:5%;right:5%;bottom:-4px;height:5px;background:linear-gradient(90deg,transparent,#00B3DD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
-.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 40px}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.7;max-width:560px;margin:0 auto 16px}
 .hero-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
 .hero-tags span{padding:8px 18px;background:#F2FBFD;border:1.5px solid rgba(0,179,221,.2);border-radius:50px;font-size:13px;font-weight:600;color:#00B3DD}
 
 /* ══════════ PROJECT SHOWCASE ══════════ */
-.project-showcase{background:#F2FBFD;padding:80px 0}
+.project-showcase{background:#fff;padding:0 0 30px;text-align:center}
 .project-showcase img{width:100%;border-radius:24px;box-shadow:0 24px 64px rgba(0,179,221,.15)}
 
 /* ══════════ PROJECT OVERVIEW ══════════ */
@@ -277,7 +277,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <span>AgroSmart</span>
  </div>
  <h1 class="reveal">AgroSmart</h1>
- <p class="reveal">עיצוב אפליקציית ניטור חקלאי חכם</p>
+ <p class="reveal">עיצוב אפליקציית מסופונים לבית האריזה</p>
  <div class="hero-tags reveal">
  <span>Figma</span>
  <span>App Design</span>
@@ -290,7 +290,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <!-- PROJECT SHOWCASE -->
 <section class="project-showcase">
  <div class="container">
- <img class="reveal" src="images/AgroSmart.png" alt="AgroSmart — אפליקציית ניטור חקלאי חכם"/>
+ <img class="reveal" src="images/Mockup_Agrosoft_AgroSmart%202026.png" alt="AgroSmart — אפליקציית מסופונים לבית האריזה"/>
  </div>
 </section>
 
@@ -303,7 +303,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
  <div class="project-overview reveal">
  <div>
- <p>AgroSmart היא אפליקציית ניטור חקלאי חכם שנועדה להנגיש נתוני IoT מורכבים לחקלאים בצורה פשוטה ואינטואיטיבית. הפרויקט כלל מחקר משתמשים מעמיק, עיצוב דשבורד מותאם אישית וויזואליזציית נתונים חכמה.</p>
+ <p>AgroSmart היא אפליקציית מסופונים ייעודית לעובדי בתי האריזה — מאפשרת תיעוד וניהול תהליכי האריזה בזמן אמת, מהמסופון בשטח. הפרויקט כלל עיצוב ממשק נקי ומהיר עבור עבודה יום-יומית בתנאי שטח, עם דגש על קריאות במסכים קטנים ושימוש בכפפות.</p>
  <br/>
  <p>האתגר המרכזי היה להפוך זרמי מידע מחיישנים רבים — לחות קרקע, טמפרטורה, רמות השקיה ומצב גידולים — לממשק נקי וברור שמאפשר קבלת החלטות מהירה בשטח.</p>
  </div>
@@ -322,7 +322,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
  <div class="project-meta-row">
  <span class="label">תחום</span>
- <span class="value">חקלאות חכמה</span>
+ <span class="value">אפליקציית מסופונים לבית האריזה</span>
  </div>
  </div>
  </div>
@@ -342,7 +342,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
  </div>
  <h3>האתגר</h3>
- <p>מערכת IoT חקלאית מייצרת כמויות אדירות של נתונים מחיישנים מרובים — טמפרטורה, לחות, רמות מים, מצב גידולים ותחזיות. האתגר היה להציג את כל המידע המורכב הזה בממשק פשוט ונגיש שמאפשר לחקלאים לקבל תובנות מיידיות ולקבל החלטות מבוססות נתונים בזמן אמת.</p>
+ <p>בתי אריזה הם סביבות עבודה תובעניות — חמות, רטובות, ועם קצב מהיר. עובדים זקוקים לאפליקציה שעובדת מהר על מסופון, עם כפתורים גדולים, ניווט פשוט וקריאות גם בתאורה משתנה ובידיים עם כפפות. האתגר היה לעצב ממשק שיגדיל את היעילות ולא יעכב את העבודה בקו האריזה.</p>
  </div>
  <div class="cs-card reveal">
  <div class="cs-icon">

@@ -30,11 +30,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .reveal.visible{opacity:1;transform:none}
 
 /* ── SECTION ── */
-.section{padding:110px 0}
-.section-header{text-align:center;margin-bottom:72px}
-.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:18px}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#00B3DD,transparent)}
+.section{padding:70px 0}
+.section-header{text-align:center;margin-bottom:40px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(24px,3vw,38px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0;line-height:.9;padding-bottom:0}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#00B3DD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#00B3DD,transparent)}
 
-.section-title{font-size:clamp(34px,5.5vw,64px);font-weight:900;line-height:1.1;letter-spacing:-.035em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 24px rgba(13,27,42,.06)}
+.section-title{font-size:clamp(34px,5.5vw,64px);font-weight:900;line-height:1;letter-spacing:-.035em;background:linear-gradient(135deg,#0D1B2A 30%,#1F4068 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 24px rgba(13,27,42,.06)}
 .title-cy{color:#00B3DD;font-weight:900}
 .title-out{font-weight:900;background:linear-gradient(90deg,#00B3DD,#0086A8,#00B3DD,#33C5E8);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline-block;animation:titleShine 4s linear infinite}.title-out::after{content:'';position:absolute;left:5%;right:5%;bottom:-6px;height:3px;background:linear-gradient(90deg,transparent,#00B3DD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 
@@ -149,9 +149,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,#00B3DD,transparent);animation:drip 2.2s ease-in-out infinite}
 @keyframes drip{0%{opacity:0;transform:scaleY(0);transform-origin:top}60%{opacity:1;transform:scaleY(1)}100%{opacity:0;transform:scaleY(0);transform-origin:bottom}}
 
+@media(max-width:1024px){
+ .orbit-stats{display:none}
+}
 @media(max-width:900px){
  .hero-row{flex-direction:column;align-items:stretch}
- .orbit-stats{max-width:100%;width:100%}
  .hero-tools{display:none}
  .hero-title{font-size:clamp(40px,6.5vw,68px);line-height:1.12;letter-spacing:-.035em}
 }
@@ -202,19 +204,24 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .wcard:nth-child(2){grid-column:span 5}
 .wcard:nth-child(3){grid-column:span 5}
 .wcard:nth-child(4){grid-column:span 7}
-.wcard:nth-child(5){grid-column:span 12;height:240px}
-.wcard:nth-child(6){grid-column:span 12;height:240px}
-.wcard:nth-child(7){grid-column:span 12;height:240px}
+.wcard:nth-child(5){grid-column:span 7}
+.wcard:nth-child(6){grid-column:span 5}
+.wcard:nth-child(7){grid-column:span 5}
+.wcard:nth-child(8){grid-column:span 7}
+.wcard:nth-child(9){grid-column:span 12;height:240px}
 
 .wcard-bg{position:absolute;inset:0;transition:transform .6s cubic-bezier(.4,0,.2,1)}
 .wcard:hover .wcard-bg{transform:scale(1.05)}
-.wcard-bg-1{background:url('images/Mockup_Web_New%20Agrosoft.png?v=2') center/cover no-repeat}
+.wcard-bg-1{background:url('images/Mockup_Web_New%20Agrosoft%202026.png?v=3') center/cover no-repeat}
 .wcard-bg-2{background:url('images/Mockup_Hofit Dala 2022.jpeg') center/cover no-repeat}
-.wcard-bg-3{background:url('images/yevulei-hakfar_Web.png') center/cover no-repeat}
+.wcard-bg-3{background:url('images/yevulei-hakfar_Web.png?v=2') center/cover no-repeat}
 .wcard-bg-4{background:url('images/Mockup_Oren.png') center/cover no-repeat}
-.wcard-bg-5{background:url('images/AgroTalk.png') center/cover no-repeat}
-.wcard-bg-6{background:url('images/AgroSmart.png') center/cover no-repeat}
+.wcard-bg-5{background:url('images/Mockup_Agrosoft_AgtoTalk%202026.png') center/cover no-repeat}
+.wcard-bg-6{background:url('images/Mockup_Agrosoft_AgroSmart%202026.png') center/cover no-repeat}
 .wcard-bg-7{background:url('images/Mockup_Ziva%20Events%202022.png') center/cover no-repeat}
+.wcard-bg-8{background:url('images/Mockup_Dog%20training%20workshop%202022.png') center/cover no-repeat}
+.wcard-bg-9{background:url('images/Mockup_Agrosoft_Service%20Calls%20System%202026.png') center/cover no-repeat}
+@media(max-width:768px){.wcard-bg-7{background-size:auto 130%;background-position:center}}
 .wcard-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
 
 .wcat{position:absolute;top:20px;right:20px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(0,179,221,.35);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:50px;opacity:0;transform:translateY(-8px);transition:all .3s}
@@ -231,7 +238,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 }
 
 /* ══════════ PROCESS ══════════ */
-.process{background:#F2FBFD}
+.process{background:#F2FBFD;padding-top:60px}.process .section-header{margin-bottom:40px}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .process-grid::before{content:'';position:absolute;top:35px;right:12%;left:12%;height:1px;background:linear-gradient(to left,transparent,#00B3DD,transparent);opacity:.3}
 .pitem{padding:0 24px 36px;text-align:center}
@@ -278,7 +285,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 @media(max-width:768px){.t-card{padding:28px}.t-text{font-size:16px}}
 
 /* ══════════ ABOUT ══════════ */
-.about{background:#F2FBFD}
+.about{background:#F2FBFD;padding-top:60px}
 .about-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:center}
 .about-visual{position:relative}
 .about-card{border-radius:24px;overflow:hidden;border:1.5px solid rgba(0,179,221,.18)}
@@ -381,9 +388,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  /* work */
  .work-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:240px;gap:14px}
  .wcard:nth-child(n){grid-column:span 1;height:auto}
- .wcard:nth-child(5){grid-column:span 2;height:220px}
- .wcard:nth-child(6){grid-column:span 2;height:220px}
- .wcard:nth-child(7){grid-column:span 2;height:220px}
+ .wcard:nth-child(9){grid-column:span 2;height:220px}
 
  /* process */
  .process-grid{grid-template-columns:repeat(2,1fr);gap:32px}
@@ -593,6 +598,8 @@ body.splash-lock{overflow:hidden}
  <a href="project-yevulei-hakfar.html" class="wcard reveal"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>Digital Store</h3></div></a>
  <a href="project-oren.html" class="wcard reveal"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Oren Repairs</h3></div></a>
  <a href="project-agrotalk.html" class="wcard reveal"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk</h3></div></a>
+ <a href="project-dog-training.html" class="wcard reveal"><div class="wcard-bg wcard-bg-8"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Logo</span></div><h3>Dog Training Workshop</h3></div></a>
+ <a href="project-agrosoft-service-calls.html" class="wcard reveal"><div class="wcard-bg wcard-bg-9"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>UI/UX</span></div><h3>Agrosoft Service Calls</h3></div></a>
  <a href="project-agrosmart.html" class="wcard reveal"><div class="wcard-bg wcard-bg-6"></div><div class="wcat">אפליקציה</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Figma</span></div><h3>AgroSmart</h3></div></a>
  <a href="project-ziva.html" class="wcard reveal"><div class="wcard-bg wcard-bg-7"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Ziva Events</h3></div></a>
  </div>
