@@ -148,7 +148,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 /* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.price-card{border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative}
+.price-card{border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative;display:flex;flex-direction:column}
+.price-card .btn{margin-top:auto}
 .price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,179,221,.1)}
 .price-card.featured{background:#00B3DD;border-color:transparent;color:#fff}
 .price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0D1B2A;color:#fff;font-size:12px;font-weight:700;padding:6px 18px;border-radius:50px;white-space:nowrap}
@@ -300,7 +301,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>קבצים פתוחים בכל פורמט (AI, PNG, SVG, PDF)</li>
  <li>שלושה כיווני עיצוב לבחירה</li>
  </ul>
- <a href="contact.html" class="btn btn-cy">קבל הצעת מחיר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+ <a href="contact.html" class="btn btn-cy">קבל/י הצעת מחיר</a>
  </div>
  </div>
 </section>
@@ -336,12 +337,12 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <div class="feat-card reveal">
  <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
  <h3>קבצים בכל הפורמטים</h3>
- <p>תקבל את הלוגו ב-AI, PNG, SVG, PDF, JPG — מוכן לכל שימוש דיגיטלי או הדפסה.</p>
+ <p>תקבל/י את הלוגו ב-AI, PNG, SVG, PDF, JPG — מוכן לכל שימוש דיגיטלי או הדפסה.</p>
  </div>
  <div class="feat-card reveal">
  <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
  <h3>3 כיווני עיצוב</h3>
- <p>שלושה כיוונים שונים לבחירה — אתה בוחר את הכיוון, אני מפתח אותו עד למושלם.</p>
+ <p>שלושה כיוונים שונים לבחירה — את/ה בוחר/ת את הכיוון, אני מפתח אותו עד למושלם.</p>
  </div>
  </div>
  </div>
@@ -372,7 +373,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <div class="pricing-grid">
  <div class="price-card reveal">
  <div class="price-name">לוגו</div>
- <div class="price-num">₪1,500</div>
+ <div class="price-num">₪590</div>
  <div class="price-note">לוגו ראשוני לעסק חדש</div>
  <ul class="price-features">
  <li>3 כיווני עיצוב</li>
@@ -381,12 +382,12 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>גרסה לבנה ושחורה</li>
  <li>זכויות שימוש מלאות</li>
  </ul>
- <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card featured reveal">
  <div class="price-badge">הכי פופולרי</div>
  <div class="price-name">מיתוג מלא</div>
- <div class="price-num">₪3,500</div>
+ <div class="price-num">₪1,290</div>
  <div class="price-note">חבילת מיתוג מקצועית</div>
  <ul class="price-features">
  <li>לוגו ראשי + וריאציות</li>
@@ -397,11 +398,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>קבצים בכל הפורמטים</li>
  <li>3 סבבי תיקונים</li>
  </ul>
- <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card reveal">
  <div class="price-name">פרימיום</div>
- <div class="price-num">₪6,500</div>
+ <div class="price-num">₪2,290</div>
  <div class="price-note">מיתוג + חומרי שיווק</div>
  <ul class="price-features">
  <li>כל מה שכלול במיתוג מלא</li>
@@ -411,7 +412,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>תבנית מצגת</li>
  <li>סבבי תיקונים ללא הגבלה</li>
  </ul>
- <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  </div>
  </div>
@@ -420,9 +421,9 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <!-- CTA -->
 <section class="cta-strip">
  <div class="container">
- <h2 class="reveal">מוכן למותג שמדבר בשפתך?</h2>
+ <h2 class="reveal">מוכן/ה למותג שמדבר בשפתך?</h2>
  <p class="reveal">בואו נדבר — הייעוץ הראשון ללא עלות</p>
- <a href="contact.html" class="btn btn-white reveal">קבל הצעת מחיר חינם <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+ <a href="contact.html" class="btn btn-white reveal">קבל/י הצעת מחיר חינם</a>
  </div>
 </section>
 
@@ -451,7 +452,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 <script src="accessibility.js?v=10"></script>
 </body>
 </html>

@@ -106,8 +106,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 /* ══════════ ACCESSIBILITY CONTENT ══════════ */
 .a11y-content{background:#F2FBFD}
 .a11y-inner{max-width:800px;margin:0 auto}
-.a11y-block{background:#fff;border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 36px;margin-bottom:24px;transition:all .3s}
-.a11y-block:hover{border-color:#00B3DD;box-shadow:0 12px 40px rgba(0,179,221,.08)}
+.a11y-block{background:transparent;border:none;border-radius:0;padding:0;margin-bottom:36px;transition:none}
+.a11y-block:hover{border:none;box-shadow:none}
 .a11y-block h2{font-size:22px;font-weight:800;color:#0D1B2A;margin-bottom:16px;display:flex;align-items:center;gap:12px;letter-spacing:-.02em}
 .a11y-block h2 .a11y-icon{width:40px;height:40px;background:rgba(0,179,221,.1);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#00B3DD;flex-shrink:0}
 .a11y-block p{font-size:15px;color:#6B7280;line-height:1.9;margin-bottom:12px}
@@ -140,7 +140,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  .footer-inner{grid-template-columns:1fr;gap:36px;padding:20px 0 36px}
  .footer-links{grid-template-columns:repeat(2,1fr)}
  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
- .a11y-block{padding:28px 22px}
+ .a11y-block{padding:0}
 }
 </style>
 </head>
@@ -221,7 +221,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
  <div class="a11y-block reveal">
  <h2>
- <div class="a11y-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+ <div class="a11y-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
  רקע כללי
  </h2>
  <p>הצהרת הנגישות עודכנה בתאריך 07/04/2026</p>
@@ -295,7 +295,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 <script src="accessibility.js?v=10"></script>
 </body>
 </html>

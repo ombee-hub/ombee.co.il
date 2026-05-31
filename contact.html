@@ -347,7 +347,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
  <div class="faq-item">
  <h4>אפשר לקבל הצעת מחיר?</h4>
- <p>כן — מלא את הטופס ותקבל הצעה מותאמת תוך 24 שעות.</p>
+ <p>כן — מלא/י את הטופס ותקבל/י הצעה מותאמת תוך 24 שעות.</p>
  </div>
  <div class="faq-item">
  <h4>עובד עם לקוחות מישראל?</h4>
@@ -360,20 +360,22 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <!-- Form column -->
  <form class="cform reveal" id="contactForm" novalidate>
  <h2>שלח/י לי פנייה</h2>
- <p>מלא את הפרטים ואחזור אליך בהקדם האפשרי.</p>
+ <p>מלא/י את הפרטים ואחזור אליך בהקדם האפשרי.</p>
+ <!-- honeypot נגד ספאם — שדה מוסתר שבוטים נוטים למלא -->
+ <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;border:0;overflow:hidden;clip:rect(0 0 0 0);opacity:0;pointer-events:none"/>
  <div class="form-row">
- <div class="fg"><label for="name">שם מלא</label><input type="text" id="name" placeholder="ישראל ישראלי" required/></div>
- <div class="fg"><label for="phone">טלפון</label><input type="tel" id="phone" placeholder="05X-XXX-XXXX"/></div>
+ <div class="fg"><label for="name">שם מלא</label><input type="text" id="name" name="שם מלא" placeholder="ישראל ישראלי" required/></div>
+ <div class="fg"><label for="phone">טלפון</label><input type="tel" id="phone" name="טלפון" placeholder="05X-XXX-XXXX"/></div>
  </div>
- <div class="fg"><label for="email">אימייל</label><input type="email" id="email" placeholder="you@example.com" required/></div>
+ <div class="fg"><label for="email">אימייל</label><input type="email" id="email" name="אימייל" placeholder="you@example.com" required/></div>
  <div class="form-row">
- <div class="fg"><label for="company">שם החברה / העסק</label><input type="text" id="company" placeholder="שם העסק שלך"/></div>
- <div class="fg"><label for="company-id">ח.פ / ע.מ</label><input type="text" id="company-id" placeholder="מספר חברה או עוסק מורשה"/></div>
+ <div class="fg"><label for="company">שם החברה / העסק</label><input type="text" id="company" name="שם העסק" placeholder="שם העסק שלך"/></div>
+ <div class="fg"><label for="company-id">ח.פ / ע.מ</label><input type="text" id="company-id" name="ח.פ / ע.מ" placeholder="מספר חברה או עוסק מורשה"/></div>
  </div>
  <div class="fg"><label for="service">סוג שירות</label>
  <div class="select-wrap">
- <select id="service">
- <option value="">בחר שירות...</option>
+ <select id="service" name="סוג שירות">
+ <option value="">בחר/י שירות...</option>
  <option value="logo">לוגו ומיתוג</option>
  <option value="website">אתר אינטרנט (AI)</option>
  <option value="redesign">שיפוץ אתר קיים</option>
@@ -383,7 +385,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </select>
  </div>
  </div>
- <div class="fg"><label for="message">תאר את הפרויקט</label><textarea id="message" rows="5" placeholder="ספר לי על הפרויקט, המטרה, קהל היעד..."></textarea></div>
+ <div class="fg"><label for="message">תאר/י את הפרויקט</label><textarea id="message" name="תיאור הפרויקט" rows="5" placeholder="ספר/י לי על הפרויקט, המטרה, קהל היעד..."></textarea></div>
  <button type="submit" class="btn btn-cy btn-full">שלח/י הודעה <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
  </form>
 
@@ -439,7 +441,21 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- ===== EmailJS — שליחת מייל מעוצב מטופס יצירת הקשר =====
+     החלף/י את שלושת הערכים במזהים שלך מ-https://dashboard.emailjs.com
+     publicKey  → Account → General → Public Key
+     serviceId  → Email Services (לאחר חיבור Gmail)
+     templateId → Email Templates (הדבק/י שם את התוכן מהקובץ emailjs-template.html) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  window.EMAILJS_CONFIG = {
+    publicKey:  "1geRS9JWFueCV0cIS",
+    serviceId:  "service_zpib6ul",
+    templateId: "template_u4jr3dq"
+  };
+  if (window.emailjs) { emailjs.init({ publicKey: window.EMAILJS_CONFIG.publicKey }); }
+</script>
+<script src="script.js?v=2"></script>
 <script src="accessibility.js?v=10"></script>
 </body>
 </html>

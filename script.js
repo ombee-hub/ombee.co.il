@@ -2,6 +2,13 @@
    OMBee Studio — script.js
 ───────────────────────────────────────────── */
 
+/* ── FAILSAFE ────────────────────────────────────
+   מבטיח שהתוכן לעולם לא יישאר מוסתר (opacity:0) גם אם משהו אחר
+   בסקריפט נכשל. נקבע ראשון, לפני כל קוד שעלול לזרוק שגיאה. */
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el => el.classList.add('visible'));
+}, 1600);
+
 /* ── CURSOR ─────────────────────────────────── */
 const cursor = document.getElementById('cursor');
 const cursorFollower = document.getElementById('cursorFollower');
@@ -9,21 +16,23 @@ const cursorFollower = document.getElementById('cursorFollower');
 let mouseX = 0, mouseY = 0;
 let followerX = 0, followerY = 0;
 
-document.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.left = mouseX + 'px';
-  cursor.style.top  = mouseY + 'px';
-});
+if (cursor && cursorFollower) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursor.style.left = mouseX + 'px';
+    cursor.style.top  = mouseY + 'px';
+  });
 
-function animateFollower() {
-  followerX += (mouseX - followerX) * 0.12;
-  followerY += (mouseY - followerY) * 0.12;
-  cursorFollower.style.left = followerX + 'px';
-  cursorFollower.style.top  = followerY + 'px';
-  requestAnimationFrame(animateFollower);
+  const animateFollower = () => {
+    followerX += (mouseX - followerX) * 0.12;
+    followerY += (mouseY - followerY) * 0.12;
+    cursorFollower.style.left = followerX + 'px';
+    cursorFollower.style.top  = followerY + 'px';
+    requestAnimationFrame(animateFollower);
+  };
+  animateFollower();
 }
-animateFollower();
 
 /* ── HEADER SCROLL ───────────────────────────── */
 const header = document.getElementById('header');
@@ -73,8 +82,13 @@ const mobSubmenu = document.getElementById('mobSubmenu');
 if (mobToggle && mobSubmenu) {
   mobToggle.addEventListener('click', e => {
     e.preventDefault();
-    mobToggle.classList.toggle('open');
-    mobSubmenu.classList.toggle('open');
+    // Tapping the arrow toggles the sub-menu; tapping the label opens the solutions page
+    if (e.target.closest('svg')) {
+      mobToggle.classList.toggle('open');
+      mobSubmenu.classList.toggle('open');
+    } else {
+      window.location.href = 'services.html';
+    }
   });
 }
 
@@ -102,30 +116,33 @@ const track = document.getElementById('testimonialTrack');
 const dots  = document.querySelectorAll('#testimonialDots .dot');
 let current = 0;
 
-function goTo(index) {
-  current = index;
-  const cardWidth = track.querySelector('.t-card').offsetWidth + 24; // +gap
-  // RTL: scroll in positive direction
-  track.style.transform = `translateX(${index * cardWidth}px)`;
-  dots.forEach((d, i) => d.classList.toggle('active', i === index));
+// רץ רק בדפים שבהם קיים מחוון ההמלצות (אחרת track הוא null וזורק שגיאה שעוצרת את הסקריפט)
+if (track && dots.length) {
+  const goTo = (index) => {
+    current = index;
+    const cardWidth = track.querySelector('.t-card').offsetWidth + 24; // +gap
+    // RTL: scroll in positive direction
+    track.style.transform = `translateX(${index * cardWidth}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  };
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
+  });
+
+  // Auto-advance
+  setInterval(() => {
+    goTo((current + 1) % dots.length);
+  }, 5000);
+
+  // Touch/drag support
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? Math.min(current + 1, dots.length - 1) : Math.max(current - 1, 0));
+  });
 }
-
-dots.forEach(dot => {
-  dot.addEventListener('click', () => goTo(Number(dot.dataset.index)));
-});
-
-// Auto-advance
-setInterval(() => {
-  goTo((current + 1) % dots.length);
-}, 5000);
-
-// Touch/drag support
-let startX = 0;
-track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-track.addEventListener('touchend', e => {
-  const diff = startX - e.changedTouches[0].clientX;
-  if (Math.abs(diff) > 50) goTo(diff > 0 ? Math.min(current + 1, dots.length - 1) : Math.max(current - 1, 0));
-});
 
 /* ── SMOOTH NAV LINKS ────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -165,22 +182,81 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-/* ── CONTACT FORM ────────────────────────────── */
+/* ── CONTACT FORM (EmailJS — מייל מעוצב) ─────────── */
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', e => {
+  const val = id => {
+    const el = document.getElementById(id);
+    if (!el) return '';
+    if (el.tagName === 'SELECT') {
+      return el.value ? el.options[el.selectedIndex].text.trim() : '';
+    }
+    return el.value.trim();
+  };
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
     const original = btn.innerHTML;
-    btn.innerHTML = '✓ נשלח בהצלחה!';
-    btn.style.background = '#28c840';
+
+    // honeypot — אם מולא, כנראה בוט: מדמים הצלחה ולא שולחים
+    if (document.getElementById('website') && document.getElementById('website').value) {
+      return;
+    }
+
+    // בדיקת תקינות בסיסית של שדות חובה
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // ודא שספריית EmailJS והמזהים הוגדרו
+    const cfg = window.EMAILJS_CONFIG || {};
+    if (!window.emailjs || !cfg.serviceId || cfg.serviceId.indexOf('YOUR_') === 0) {
+      console.error('EmailJS לא הוגדר — יש למלא את publicKey / serviceId / templateId ב-contact.html');
+      btn.innerHTML = '✗ הטופס לא מוגדר עדיין';
+      btn.style.background = '#e23b3b';
+      setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; }, 3500);
+      return;
+    }
+
+    // פרמטרים שנשלחים לתבנית המעוצבת ב-EmailJS
+    const params = {
+      name:       val('name')       || '—',
+      email:      val('email')      || '—',
+      phone:      val('phone')      || '—',
+      company:    val('company')    || '—',
+      company_id: val('company-id') || '—',
+      service:    val('service')    || '—',
+      message:    val('message')    || '—',
+      subject:    'פנייה חדשה מאתר OMBee' + (val('name') ? ' — ' + val('name') : ''),
+      reply_to:   val('email'),
+      time:       new Date().toLocaleString('he-IL')
+    };
+
     btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.disabled = false;
+    btn.innerHTML = 'שולח…';
+
+    try {
+      await emailjs.send(cfg.serviceId, cfg.templateId, params);
+      btn.innerHTML = '✓ נשלח בהצלחה!';
+      btn.style.background = '#28c840';
       form.reset();
-    }, 3000);
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3000);
+    } catch (err) {
+      console.error('שגיאה בשליחת הטופס:', err);
+      btn.innerHTML = '✗ שגיאה — נסה שוב';
+      btn.style.background = '#e23b3b';
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 3500);
+    }
   });
 }
 

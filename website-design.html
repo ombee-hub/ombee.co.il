@@ -148,7 +148,8 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 /* PRICING */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.price-card{border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative}
+.price-card{border:1.5px solid rgba(0,179,221,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative;display:flex;flex-direction:column}
+.price-card .btn{margin-top:auto}
 .price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,179,221,.1)}
 .price-card.featured{background:#00B3DD;border-color:transparent;color:#fff}
 .price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#0D1B2A;color:#fff;font-size:12px;font-weight:700;padding:6px 18px;border-radius:50px;white-space:nowrap}
@@ -266,7 +267,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <div class="hero-tags reveal">
  <span class="hero-tag">AI</span>
  <span class="hero-tag">Figma</span>
- <span class="hero-tag">WooCommerce</span>
+ <span class="hero-tag">פייסבוק ואינסטגרם</span>
  <span class="hero-tag">Responsive Design</span>
  <span class="hero-tag">SEO Ready</span>
  </div>
@@ -298,9 +299,10 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>פיתוח מלא ב-AI</li>
  <li>אחריות 3 חודשים לאחר השקה</li>
  <li>הדרכה מלאה לניהול עצמאי של האתר</li>
+ <li>הקמת דף פייסבוק ודף אינסטגרם עסקיים</li>
  <li>אופטימיזציה למנועי חיפוש (SEO)</li>
  </ul>
- <a href="contact.html" class="btn btn-cy">קבל הצעת מחיר <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+ <a href="contact.html" class="btn btn-cy">קבל/י הצעת מחיר</a>
  </div>
  </div>
 </section>
@@ -316,12 +318,12 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <div class="feat-card reveal">
  <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
  <h3>עיצוב ב-Figma</h3>
- <p>פרוטוטייפ אינטראקטיבי מלא לפני כתיבת שורת קוד אחת — אתה רואה ומאשר הכל מראש.</p>
+ <p>פרוטוטייפ אינטראקטיבי מלא לפני כתיבת שורת קוד אחת — את/ה רואה ומאשר/ת הכל מראש.</p>
  </div>
  <div class="feat-card reveal">
  <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
  <h3>AI מתקדם</h3>
- <p>פיתוח ב-AI — מערכת ניהול תוכן שתוכל לעדכן בעצמך בקלות.</p>
+ <p>פיתוח ב-AI — מערכת ניהול תוכן שתוכל/י לעדכן בעצמך בקלות.</p>
  </div>
  <div class="feat-card reveal">
  <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></div>
@@ -343,6 +345,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <h3>אחריות ותמיכה</h3>
  <p>3 חודשי אחריות מלאה לאחר ההשקה + הדרכה מקיפה לניהול עצמאי.</p>
  </div>
+ <div class="feat-card reveal">
+ <div class="feat-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></div>
+ <h3>פייסבוק ואינסטגרם</h3>
+ <p>בונה לך גם דף פייסבוק עסקי ודף אינסטגרם — מעוצבים, מחוברים ומוכנים לפעולה.</p>
+ </div>
  </div>
  </div>
 </section>
@@ -355,7 +362,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
  <div class="process-grid">
  <div class="pitem reveal"><div class="pnum">01</div><h3>פגישת היכרות</h3><p>נבין את העסק, המטרות וקהל היעד. מגדירים יחד את הצרכים.</p></div>
- <div class="pitem reveal"><div class="pnum">02</div><h3>עיצוב ב-Figma</h3><p>מוקאפ מלא לכל הדפים — אתה רואה ומאשר לפני פיתוח.</p></div>
+ <div class="pitem reveal"><div class="pnum">02</div><h3>עיצוב ב-Figma</h3><p>מוקאפ מלא לכל הדפים — את/ה רואה ומאשר/ת לפני פיתוח.</p></div>
  <div class="pitem reveal"><div class="pnum">03</div><h3>פיתוח AI</h3><p>בניית האתר, אינטגרציות, טפסים, אופטימיזציה ומהירות.</p></div>
  <div class="pitem reveal"><div class="pnum">04</div><h3>השקה & הדרכה</h3><p>העלאה לדומיין, בדיקות מקיפות, SEO ראשוני ו-3 חודשי אחריות.</p></div>
  </div>
@@ -372,7 +379,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <div class="pricing-grid">
  <div class="price-card reveal">
  <div class="price-name">בסיסי</div>
- <div class="price-num">₪3,500</div>
+ <div class="price-num">₪1,290</div>
  <div class="price-note">לאתר תדמית עד 5 עמודים</div>
  <ul class="price-features">
  <li>עיצוב ב-Figma</li>
@@ -382,12 +389,12 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>SEO בסיסי</li>
  <li>חודש אחריות</li>
  </ul>
- <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card featured reveal">
  <div class="price-badge">הכי פופולרי</div>
  <div class="price-name">מקצועי</div>
- <div class="price-num">₪6,500</div>
+ <div class="price-num">₪2,490</div>
  <div class="price-note">לאתר עסקי מלא</div>
  <ul class="price-features">
  <li>עיצוב מלא ב-Figma</li>
@@ -398,21 +405,21 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  <li>3 חודשי אחריות</li>
  <li>הדרכת ניהול</li>
  </ul>
- <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card reveal">
- <div class="price-name">חנות / e-Commerce</div>
- <div class="price-num">₪9,500</div>
- <div class="price-note">WooCommerce מלא</div>
+ <div class="price-name">פייסבוק ואינסטגרם</div>
+ <div class="price-num">₪690</div>
+ <div class="price-note">הקמת נוכחות ברשתות</div>
  <ul class="price-features">
- <li>WooCommerce מותאם</li>
- <li>ניהול מלא של מוצרים</li>
- <li>שערי תשלום (PayPal, כרטיס)</li>
- <li>מערכת קופונים</li>
- <li>SEO לחנות</li>
- <li>3 חודשי אחריות</li>
+ <li>הקמת דף פייסבוק עסקי</li>
+ <li>הקמת דף אינסטגרם עסקי</li>
+ <li>עיצוב תמונת נושא ופרופיל</li>
+ <li>הגדרת פרטי עסק ויצירת קשר</li>
+ <li>חיבור בין הדפים</li>
+ <li>הדרכה קצרה לניהול</li>
  </ul>
- <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל עכשיו</a>
+ <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  </div>
  </div>
@@ -421,9 +428,9 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 <!-- CTA -->
 <section class="cta-strip">
  <div class="container">
- <h2 class="reveal">מוכן לאתר שעובד בשבילך?</h2>
+ <h2 class="reveal">מוכן/ה לאתר שעובד בשבילך?</h2>
  <p class="reveal">בואו נדבר — הייעוץ הראשון ללא עלות</p>
- <a href="contact.html" class="btn btn-white reveal">קבל הצעת מחיר חינם <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9H15M15 9L10 4M15 9L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+ <a href="contact.html" class="btn btn-white reveal">קבל/י הצעת מחיר חינם</a>
  </div>
 </section>
 
@@ -452,7 +459,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="script.js?v=2"></script>
 <script src="accessibility.js?v=10"></script>
 </body>
 </html>

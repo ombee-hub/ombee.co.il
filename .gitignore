@@ -1,0 +1,6 @@
+# Build / distribution archives (too large for GitHub, generated locally)
+*.zip
+
+# Local dev / editor
+.DS_Store
+Thumbs.db
