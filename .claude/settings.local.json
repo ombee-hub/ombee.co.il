@@ -16,7 +16,8 @@
       "PowerShell($root = \"C:\\\\My Files\\\\Omri Ben Eliyahu - Graphic Designer\\\\OMBee Web\"; $dest = Join-Path $root \"OMBee-Web.zip\"; if \\(Test-Path $dest\\) { Remove-Item $dest -Force }; $items = Get-ChildItem -Path $root -Force | Where-Object { $_.Name -notin @\\('.git', '.claude', 'OMBee-Web.zip'\\) }; Compress-Archive -Path $items.FullName -DestinationPath $dest -CompressionLevel Optimal; Get-Item $dest | Select-Object Name, @{N='SizeMB';E={[math]::Round\\($_.Length/1MB,2\\)}}, LastWriteTime | Format-List)",
       "Bash(perl -i -pe 's{images/סמל OMBee\\\\.svg}{images/OMBee_icon.svg}g' *.html)",
       "Bash(perl -i -pe 's{href=\"images/OMBee_icon\\\\.svg\"}{href=\"images/OMBee_icon.svg?v=2\"}g' *.html)",
-      "Bash(perl -i -pe 's{<link rel=\"icon\" type=\"image/svg\\\\+xml\" href=\"images/OMBee_icon\\\\.svg\\\\?v=2\"/>}{<link rel=\"icon\" type=\"image/png\" href=\"images/OMBee_icon.png?v=2\"/>}g' *.html)"
+      "Bash(perl -i -pe 's{<link rel=\"icon\" type=\"image/svg\\\\+xml\" href=\"images/OMBee_icon\\\\.svg\\\\?v=2\"/>}{<link rel=\"icon\" type=\"image/png\" href=\"images/OMBee_icon.png?v=2\"/>}g' *.html)",
+      "PowerShell($src = \"C:\\\\My Files\\\\Omri Ben Eliyahu - Graphic Designer\\\\OMBee Web\"; $dst = \"$src\\\\OMBee-Web.zip\"; if \\(Test-Path $dst\\) { Remove-Item $dst -Force }; $items = Get-ChildItem -Path $src -Force | Where-Object { $_.Name -notin @\\('.git','.claude','OMBee-Web.zip'\\) }; Compress-Archive -Path $items.FullName -DestinationPath $dst -CompressionLevel Optimal; Get-Item $dst | Select-Object Name, @{N='SizeMB';E={[math]::Round\\($_.Length/1MB,2\\)}}, LastWriteTime)"
     ]
   }
 }
