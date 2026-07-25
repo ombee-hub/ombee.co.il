@@ -82,13 +82,9 @@ const mobSubmenu = document.getElementById('mobSubmenu');
 if (mobToggle && mobSubmenu) {
   mobToggle.addEventListener('click', e => {
     e.preventDefault();
-    // Tapping the arrow toggles the sub-menu; tapping the label opens the solutions page
-    if (e.target.closest('svg')) {
-      mobToggle.classList.toggle('open');
-      mobSubmenu.classList.toggle('open');
-    } else {
-      window.location.href = 'services.html';
-    }
+    // Tapping anywhere on the row toggles the sub-menu
+    mobToggle.classList.toggle('open');
+    mobSubmenu.classList.toggle('open');
   });
 }
 
