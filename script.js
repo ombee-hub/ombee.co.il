@@ -94,16 +94,16 @@ const revealEls = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      // stagger siblings slightly
+      // stagger siblings slightly (capped so fast scrolling never waits long)
       const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
       const idx = siblings.indexOf(entry.target);
       setTimeout(() => {
         entry.target.classList.add('visible');
-      }, idx * 80);
+      }, Math.min(idx * 50, 200));
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0, rootMargin: '0px 0px 150px 0px' });
 
 revealEls.forEach(el => revealObserver.observe(el));
 
