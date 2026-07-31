@@ -151,7 +151,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
 .pitem{position:relative;background:#F0F5FF;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:36px 28px;text-align:center;transition:all .3s}
 .pitem:hover{border-color:#015CFD;transform:translateY(-4px);box-shadow:0 16px 40px rgba(1,92,253,.1)}
-.pitem::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#015CFD;color:#fff;font-size:16px;font-weight:800;margin:0 auto 18px}
+.pitem::before{counter-increment:step;content:counter(step);display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:#fff;border:1.5px solid rgba(1,92,253,.25);color:#015CFD;font-size:16px;font-weight:800;margin:0 auto 18px}
 .pitem h4{font-size:16px;font-weight:700;color:#00164D;margin-bottom:8px}
 .pitem p{font-size:13px;color:#6B7280;line-height:1.7}
 @media(max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr)}}

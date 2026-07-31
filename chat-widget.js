@@ -42,7 +42,7 @@
   + '.obee-typing span:nth-child(2){animation-delay:.15s}.obee-typing span:nth-child(3){animation-delay:.3s}'
   + '@keyframes obeeTyp{0%,60%,100%{transform:none;opacity:.5}30%{transform:translateY(-5px);opacity:1}}'
   + '.obee-chips{display:flex;flex-wrap:wrap;gap:7px;align-self:flex-start;animation:obeeMsgIn .25s ease}'
-  + '.obee-chip{background:#fff;color:#015CFD;border:1.5px solid rgba(1,92,253,.35);border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Heebo,sans-serif;transition:all .2s}'
+  + '.obee-chip{background:#fff;color:#015CFD;border:1.5px solid rgba(1,92,253,.35);border-radius:8px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;font-family:Heebo,sans-serif;transition:all .2s}'
   + '.obee-chip:hover{background:#015CFD;color:#fff;border-color:#015CFD}'
   + '.obee-chat-foot{display:flex;gap:8px;padding:12px;border-top:1px solid rgba(1,92,253,.1);background:#fff;flex-shrink:0}'
   + '.obee-chat-input{flex:1;border:1.5px solid rgba(1,92,253,.2);border-radius:12px;padding:10px 14px;font-size:14px;font-family:Heebo,sans-serif;color:#00164D;outline:none;transition:border .2s}'
