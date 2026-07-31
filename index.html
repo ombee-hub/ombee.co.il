@@ -189,9 +189,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 .services{background:#F0F5FF;padding-top:60px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .svc-card{background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;padding:40px 36px 50px;position:relative;overflow:hidden;transition:all .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
-.svc-card::after{content:'';position:absolute;bottom:14px;left:50%;height:2.5px;width:0;background:linear-gradient(90deg,transparent 0%,#015CFD 20%,#0141E7 50%,#015CFD 80%,transparent 100%);border-radius:2px;transform:translateX(-50%);transition:width .4s cubic-bezier(.65,0,.35,1);box-shadow:0 2px 8px rgba(1,92,253,.35)}
-.svc-card:hover{border-color:#015CFD;transform:translateY(-6px);box-shadow:0 24px 60px rgba(1,92,253,.12)}.svc-card:hover::after{width:75%}
-.svc-card:hover::after{transform:scaleX(1)}
+.svc-card:hover{border-color:#015CFD;transform:translateY(-6px);box-shadow:0 24px 60px rgba(1,92,253,.12)}
 .svc-card.feat{background:#015CFD;border-color:transparent}
 .svc-card.feat .svc-num{color:rgba(255,255,255,.6)}
 .svc-card.feat .svc-title{color:#fff}
@@ -238,12 +236,12 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 @media(max-width:768px){.wcard-bg-7{background-size:auto 130%;background-position:center}}
 .wcard-bg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
 
-.wcat{position:absolute;top:20px;right:20px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(1,92,253,.35);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:50px;opacity:0;transform:translateY(-8px);transition:all .3s}
+.wcat{position:absolute;top:20px;right:20px;z-index:3;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(1,92,253,.35);border:1px solid rgba(255,255,255,.3);padding:6px 14px;border-radius:8px;opacity:0;transform:translateY(-8px);transition:all .3s}
 .wcard:hover .wcat{opacity:1;transform:none}
 .wcard-content{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px;z-index:2}
 .wtags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;opacity:0;transform:translateY(8px);transition:all .3s}
 .wcard:hover .wtags{opacity:1;transform:none}
-.wtags span{font-size:11px;font-weight:600;padding:4px 12px;border-radius:50px;background:rgba(1,92,253,.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff}
+.wtags span{font-size:11px;font-weight:600;padding:4px 12px;border-radius:8px;background:rgba(1,92,253,.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff}
 .wcard-content h3{font-size:24px;font-weight:800;color:#fff;letter-spacing:-.02em}
 
 @media(max-width:900px){
@@ -447,12 +445,11 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  100%{opacity:1;transform:scale(1)}
 }
 @keyframes splashOut{to{opacity:0;visibility:hidden;pointer-events:none}}
-body.splash-lock{overflow:hidden}
 @media(max-width:768px){.splash-logo{height:64px}}
 @media(prefers-reduced-motion:reduce){.splash{animation:splashOut .3s ease forwards}.splash-logo{animation:none;opacity:1;transform:none}}
 </style>
 </head>
-<body class="splash-lock">
+<body>
 
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splashScreen" aria-hidden="true">
@@ -728,24 +725,22 @@ body.splash-lock{overflow:hidden}
 (function(){
  var splash = document.getElementById('splashScreen');
  if (!splash) return;
- if (sessionStorage.getItem('ombeeSplashShown')) {
- splash.remove();
- document.body.classList.remove('splash-lock');
- return;
- }
+ var shown = false;
+ try {
+ shown = !!sessionStorage.getItem('ombeeSplashShown');
  sessionStorage.setItem('ombeeSplashShown', '1');
+ } catch(e){}
+ if (shown) { splash.remove(); return; }
  function close(){
+ if (!splash.parentNode) return;
  splash.classList.add('skip');
- setTimeout(function(){
- splash.remove();
- document.body.classList.remove('splash-lock');
- }, 400);
+ setTimeout(function(){ if (splash.parentNode) splash.remove(); }, 400);
  }
  splash.addEventListener('click', close);
- setTimeout(function(){
- document.body.classList.remove('splash-lock');
- if (splash.parentNode) splash.remove();
- }, 3000);
+ window.addEventListener('wheel', close, { passive: true, once: true });
+ window.addEventListener('touchmove', close, { passive: true, once: true });
+ window.addEventListener('keydown', close, { once: true });
+ setTimeout(function(){ if (splash.parentNode) splash.remove(); }, 3000);
 })();
 </script>
 <script src="script.js?v=4"></script>

@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var WHATSAPP = 'https://wa.me/9720523777468';
+  var WHATSAPP = 'https://wa.me/972523777468';
   var PHONE_DISPLAY = '052-377-7468';
   var PHONE_LINK = 'tel:0523777468';
   var EMAIL = 'helloombee@gmail.com';
