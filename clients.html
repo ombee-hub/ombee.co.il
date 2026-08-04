@@ -30,7 +30,6 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .container{max-width:1200px;margin:0 auto;padding:0 28px}
 .cursor{display:none}
 .cursor-f{display:none}
-body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate(-50%,-50%) scale(1.7);background:rgba(1,92,253,.08)}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1)}
 .reveal.visible{opacity:1;transform:none}
 .section{padding:40px 0 70px}
@@ -108,7 +107,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
 
 /* CLIENTS MARQUEE */
 .clients-marquee{background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;overflow:hidden;padding:36px 0;direction:ltr}
-.clients-marquee-track{display:flex;align-items:center;white-space:nowrap;animation:cmq 40s linear infinite;width:max-content;will-change:transform}
+.clients-marquee-track{display:flex;align-items:center;white-space:nowrap;animation:cmq 40s linear infinite;width:max-content}
 .clients-marquee-track img{height:60px;width:auto;padding:0 40px;opacity:.85;vertical-align:middle;display:block;flex-shrink:0;transition:opacity .3s}
 .clients-marquee-track img:hover{opacity:1}
 .clients-marquee-track span.cname{font-size:24px;font-weight:800;color:rgba(0,0,0,.35);padding:0 40px;letter-spacing:.02em;flex-shrink:0;display:flex;align-items:center;height:60px;transition:color .3s}
@@ -442,7 +441,7 @@ body:has(a:hover) .cursor-f,body:has(button:hover) .cursor-f{transform:translate
  </div>
 </footer>
 
-<script src="script.js?v=4"></script>
+<script src="script.js?v=5"></script>
 <script src="accessibility.js?v=11"></script>
 <script src="chat-widget.js?v=1" defer></script>
 </body>

@@ -16,7 +16,7 @@ const cursorFollower = document.getElementById('cursorFollower');
 let mouseX = 0, mouseY = 0;
 let followerX = 0, followerY = 0;
 
-if (cursor && cursorFollower) {
+if (cursor && cursorFollower && getComputedStyle(cursor).display !== 'none') {
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
