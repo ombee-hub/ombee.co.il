@@ -305,7 +305,8 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 ───────────────────────────────────────────── */
 (function () {
   const COOKIE_KEY = 'ombee-cookies-accepted';
-  if (localStorage.getItem(COOKIE_KEY)) return;
+  let cookieSeen=false; try { cookieSeen = !!sessionStorage.getItem(COOKIE_KEY); } catch(e){}
+  if (cookieSeen) return;
 
   const css = document.createElement('style');
   css.textContent = `
@@ -331,14 +332,14 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 .ombee-cookie-text a:hover{opacity:.7}
 .ombee-cookie-actions{display:flex;gap:10px;flex-shrink:0}
 .ombee-cookie-accept{
-  padding:10px 28px;border:none;border-radius:50px;
+  padding:10px 28px;border:none;border-radius:8px;
   background:#015CFD;color:#fff;font-size:14px;font-weight:700;
   font-family:'Heebo',sans-serif;cursor:pointer;transition:all .25s;
   white-space:nowrap;
 }
 .ombee-cookie-accept:hover{background:#014BF0;transform:translateY(-1px)}
 .ombee-cookie-decline{
-  padding:10px 28px;border:1.5px solid #ddd;border-radius:50px;
+  padding:10px 28px;border:1.5px solid #ddd;border-radius:8px;
   background:#fff;color:#666;font-size:14px;font-weight:600;
   font-family:'Heebo',sans-serif;cursor:pointer;transition:all .25s;
   white-space:nowrap;
@@ -359,20 +360,20 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
       לפרטים נוספים ניתן לעיין ב<a href="privacy-policy.html">מדיניות הפרטיות</a>.
     </div>
     <div class="ombee-cookie-actions">
-      <button class="ombee-cookie-accept">קבל</button>
-      <button class="ombee-cookie-decline">ביטול</button>
+      <button class="ombee-cookie-accept">קבל/י</button>
+      <button class="ombee-cookie-decline">דחה/י</button>
     </div>
   `;
   document.body.appendChild(banner);
 
   banner.querySelector('.ombee-cookie-accept').addEventListener('click', () => {
-    localStorage.setItem(COOKIE_KEY, '1');
+    try { sessionStorage.setItem(COOKIE_KEY, '1'); } catch(e){}
     banner.classList.add('hide');
     setTimeout(() => banner.remove(), 350);
   });
 
   banner.querySelector('.ombee-cookie-decline').addEventListener('click', () => {
-    localStorage.setItem(COOKIE_KEY, '0');
+    try { sessionStorage.setItem(COOKIE_KEY, '0'); } catch(e){}
     banner.classList.add('hide');
     setTimeout(() => banner.remove(), 350);
   });
