@@ -13,13 +13,13 @@
 
   /* ── עיצוב ── */
   var css = ''
-  + '.obee-chat-btn{position:fixed;bottom:16px;right:16px;width:56px;height:56px;border-radius:50%;background:#015CFD;color:#fff;border:none;cursor:pointer;z-index:9990;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(1,92,253,.4);transition:all .3s cubic-bezier(.4,0,.2,1)}'
+  + '.obee-chat-btn{position:fixed;bottom:16px;right:16px;width:56px;height:56px;border-radius:50%;background:#015CFD;color:#fff;border:none;cursor:pointer;z-index:10000;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(1,92,253,.4);transition:all .3s cubic-bezier(.4,0,.2,1)}'
   + '.obee-chat-btn:hover{background:#0141E7;transform:translateY(-3px);box-shadow:0 14px 36px rgba(1,92,253,.5)}'
   + '.obee-chat-btn svg{transition:transform .3s}'
   + '.obee-chat-btn.open svg{transform:rotate(90deg)}'
-  + '.obee-chat-hint{position:fixed;bottom:28px;right:84px;background:#fff;color:#00164D;font-size:13px;font-weight:600;padding:10px 16px;border-radius:14px 14px 4px 14px;box-shadow:0 8px 28px rgba(0,22,77,.16);z-index:9990;opacity:0;transform:translateY(6px);transition:all .4s;pointer-events:none;white-space:nowrap}'
+  + '.obee-chat-hint{position:fixed;bottom:28px;right:84px;background:#fff;color:#00164D;font-size:13px;font-weight:600;padding:10px 16px;border-radius:14px 14px 4px 14px;box-shadow:0 8px 28px rgba(0,22,77,.16);z-index:10000;opacity:0;transform:translateY(6px);transition:all .4s;pointer-events:none;white-space:nowrap}'
   + '.obee-chat-hint.show{opacity:1;transform:none}'
-  + '.obee-chat-panel{position:fixed;bottom:84px;right:16px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 64px rgba(0,22,77,.25);z-index:9991;display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;transition:all .3s cubic-bezier(.4,0,.2,1);direction:rtl;font-family:Heebo,sans-serif}'
+  + '.obee-chat-panel{position:fixed;bottom:84px;right:16px;width:360px;max-width:calc(100vw - 32px);height:520px;max-height:calc(100vh - 120px);max-height:calc(100dvh - 120px);background:#fff;border-radius:20px;box-shadow:0 24px 64px rgba(0,22,77,.25);z-index:10001;display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(16px) scale(.97);pointer-events:none;transition:all .3s cubic-bezier(.4,0,.2,1);direction:rtl;font-family:Heebo,sans-serif}'
   + '.obee-chat-panel.open{opacity:1;transform:none;pointer-events:all}'
   + '.obee-chat-head{background:linear-gradient(135deg,#015CFD,#0141E7);color:#fff;padding:16px 20px;display:flex;align-items:center;gap:12px;flex-shrink:0}'
   + '.obee-chat-avatar{width:40px;height:40px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}'
@@ -292,9 +292,9 @@
     function liftAboveCookieBanner() {
       var banner = document.querySelector('.ombee-cookie-banner');
       var h = (banner && !banner.classList.contains('hide')) ? banner.offsetHeight : 0;
-      btn.style.bottom = h ? (h + 12) + 'px' : '';
-      hint.style.bottom = h ? (h + 24) + 'px' : '';
-      panel.style.bottom = h ? (h + 80) + 'px' : '';
+      btn.style.bottom = h ? Math.max(8, Math.round((h - 56) / 2)) + 'px' : '';
+      hint.style.bottom = h ? (h + 16) + 'px' : '';
+      panel.style.bottom = h ? (h + 16) + 'px' : '';
     }
     liftAboveCookieBanner();
     var bannerWatch = new MutationObserver(liftAboveCookieBanner);

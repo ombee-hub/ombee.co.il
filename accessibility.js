@@ -314,8 +314,8 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   position:fixed;bottom:0;left:0;right:0;z-index:9999;
   background:#fff;border-top:1.5px solid rgba(1,92,253,.15);
   box-shadow:0 -4px 24px rgba(0,0,0,.1);
-  padding:18px 28px;
-  display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;
+  padding:18px 96px;
+  display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
   direction:rtl;font-family:'Heebo',sans-serif;
   transform:translateY(100%);
   animation:ombee-cookie-slide .4s ease forwards;
@@ -326,7 +326,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 }
 @keyframes ombee-cookie-hide{to{transform:translateY(100%);opacity:0}}
 .ombee-cookie-text{
-  font-size:14px;color:#444;line-height:1.6;flex:1;min-width:240px;
+  font-size:14px;color:#444;line-height:1.6;min-width:240px;
 }
 .ombee-cookie-text a{color:#015CFD;font-weight:600;text-decoration:underline}
 .ombee-cookie-text a:hover{opacity:.7}
@@ -346,7 +346,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 }
 .ombee-cookie-decline:hover{border-color:#aaa;color:#333}
 @media(max-width:600px){
-  .ombee-cookie-banner{flex-direction:column;text-align:center;padding:16px 20px;gap:12px}
+  .ombee-cookie-banner{flex-direction:column;text-align:center;padding:16px 64px 16px 72px;gap:12px}
   .ombee-cookie-text{min-width:auto}
 }
 `;
