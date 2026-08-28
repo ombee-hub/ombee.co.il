@@ -291,7 +291,7 @@
     /* אם באנר הקוקיז מוצג — מרימים את הכפתור מעליו, ומחזירים כשהוא נסגר */
     function liftAboveCookieBanner() {
       var banner = document.querySelector('.ombee-cookie-banner');
-      var h = (banner && banner.offsetParent !== null) ? banner.offsetHeight : 0;
+      var h = (banner && !banner.classList.contains('hide')) ? banner.offsetHeight : 0;
       btn.style.bottom = h ? (h + 12) + 'px' : '';
       hint.style.bottom = h ? (h + 24) + 'px' : '';
       panel.style.bottom = h ? (h + 80) + 'px' : '';
