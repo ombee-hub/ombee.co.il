@@ -307,6 +307,9 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const COOKIE_KEY = 'ombee-cookies-accepted';
   let cookieSeen=false; try { cookieSeen = !!sessionStorage.getItem(COOKIE_KEY); } catch(e){}
   if (cookieSeen) return;
+  var cookiePath = location.pathname;
+  var isHome = cookiePath === '/' || cookiePath.endsWith('index.html');
+  if (!isHome) return;
 
   const css = document.createElement('style');
   css.textContent = `
@@ -325,6 +328,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   animation:ombee-cookie-hide .3s ease forwards;
 }
 @keyframes ombee-cookie-hide{to{transform:translateY(100%);opacity:0}}
+.ombee-cookie-icon{font-size:28px;line-height:1;flex-shrink:0}
 .ombee-cookie-text{
   font-size:14px;color:#444;line-height:1.6;min-width:240px;
 }
@@ -355,6 +359,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const banner = document.createElement('div');
   banner.className = 'ombee-cookie-banner';
   banner.innerHTML = `
+    <span class="ombee-cookie-icon" aria-hidden="true">🍪</span>
     <div class="ombee-cookie-text">
       אתר זה משתמש בעוגיות (Cookies) כדי לשפר את חוויית הגלישה שלך.
       לפרטים נוספים ניתן לעיין ב<a href="privacy-policy.html">מדיניות הפרטיות</a>.
