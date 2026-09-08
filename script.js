@@ -65,6 +65,11 @@ if (mobOverlay) {
   mobOverlay.addEventListener('click', closeMobileMenu);
 }
 
+const mobClose = document.getElementById('mobClose');
+if (mobClose) {
+  mobClose.addEventListener('click', closeMobileMenu);
+}
+
 mobileLinks.forEach(link => {
   link.addEventListener('click', closeMobileMenu);
 });

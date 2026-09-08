@@ -17,7 +17,7 @@
 <link rel="icon" type="image/png" href="images/icon-ombee-logo.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET ── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,9 +83,13 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:998}
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:1190}
 .mob-overlay.open{opacity:1;pointer-events:all}
-.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:999;overflow-y:auto;padding:90px 32px 40px;display:block}
+.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:1200;overflow-y:auto;padding:22px 28px 40px;display:block}
+.mob-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:1.5px solid rgba(1,92,253,.12)}
+.mob-head img{height:32px;width:auto}
+.mob-close{width:38px;height:38px;border-radius:8px;border:1.5px solid rgba(1,92,253,.2);background:#fff;color:#00164D;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.mob-close:hover{background:#015CFD;color:#fff;border-color:transparent}
 .mob-menu.open{transform:translateX(0)}
 .mob-menu>ul{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .mob-link{font-size:17px;font-weight:700;color:#00164D;transition:color .3s;display:block;padding:14px 0;border-bottom:1px solid #C7D0D6;width:100%}
@@ -197,6 +201,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 
 <div class="mob-overlay" id="mobOverlay"></div>
 <div class="mob-menu" id="mobileMenu">
+ <div class="mob-head">
+ <img src="images/ombee-logo.png" alt="OMBee"/>
+ <button class="mob-close" id="mobClose" aria-label="סגירת תפריט">✕</button>
+ </div>
  <ul>
  <li><a href="about.html" class="mob-link">אודותיי</a></li>
  <li class="mob-dropdown">
@@ -304,7 +312,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="script.js?v=5"></script>
+<script src="script.js?v=6"></script>
 <script src="accessibility.js?v=13"></script>
 <script src="chat-widget.js?v=3" defer></script>
 </body>
