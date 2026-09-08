@@ -84,8 +84,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:1200;overflow-y:auto;padding:22px 28px 40px;display:block}
 .mob-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:1.5px solid rgba(1,92,253,.12)}
 .mob-head img{height:32px;width:auto}
-.mob-close{width:38px;height:38px;border-radius:8px;border:1.5px solid rgba(1,92,253,.2);background:#fff;color:#00164D;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
-.mob-close:hover{background:#015CFD;color:#fff;border-color:transparent}
+.mob-close{background:none;border:none;color:#00164D;font-size:20px;line-height:1;cursor:pointer;padding:6px;transition:color .2s}
+.mob-close:hover{color:#015CFD}
 .mob-menu.open{transform:translateX(0)}
 .mob-menu>ul{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .mob-link{font-size:17px;font-weight:700;color:#00164D;transition:color .3s;display:block;padding:14px 0;border-bottom:1px solid #C7D0D6;width:100%}
@@ -94,7 +94,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .mob-link-drop.open svg{transform:rotate(180deg)}
 .mob-submenu{display:none;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px;padding:6px 0 10px;background:transparent;border-radius:0}
 .mob-submenu.open{display:flex}
-.mob-sub-link{font-size:15px;font-weight:600;color:#6B7280;padding:10px 0;border-bottom:1px solid #DDE3E7}.mob-submenu li:last-child .mob-sub-link{border-bottom:none}
+.mob-sub-link{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#6B7280;padding:10px 0;border-bottom:1px solid #DDE3E7;width:100%}
+.mob-sub-icon{width:32px;height:32px;border-radius:8px;background:rgba(1,92,253,.08);display:flex;align-items:center;justify-content:center;color:#015CFD;flex-shrink:0}.mob-submenu li:last-child .mob-sub-link{border-bottom:none}
 .mob-sub-link:hover{color:#015CFD}
 .mob-cta{background:#015CFD;color:#fff!important;border-radius:8px;padding:14px 28px!important;text-align:center;border-bottom:none!important;margin-top:12px;font-size:16px;transition:all .3s;width:100%;display:block;box-sizing:border-box}
 .mob-cta:hover{background:#009AFE;color:#fff!important}
@@ -251,9 +252,9 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li class="mob-dropdown">
  <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
  <ul class="mob-submenu" id="mobSubmenu">
- <li><a href="website-design.html" class="mob-link mob-sub-link">בניית אתרים</a></li>
- <li><a href="website-redesign.html" class="mob-link mob-sub-link">שיפוץ אתר</a></li>
- <li><a href="app-design.html" class="mob-link mob-sub-link">עיצוב אפליקציה</a></li>
+ <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
+ <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
+ <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
