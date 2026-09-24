@@ -118,7 +118,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 @media(max-width:1024px){.nav{display:none}.hamburger{display:flex}.header-inner{justify-content:flex-start;gap:14px}}
 
 /* ══════════ PAGE HERO ══════════ */
-.page-hero{padding:160px 0 80px;background:#fff;position:relative;overflow:hidden}
+.page-hero{padding:160px 0 80px;background:#fff url('images/hero-bg.webp') center/cover no-repeat;position:relative;overflow:hidden}
+.page-hero-grid,.page-hero-glow{display:none!important}
 .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.07) 0%,transparent 70%);top:-200px;left:-100px;pointer-events:none}
 .page-hero-inner{position:relative;z-index:1;text-align:center}
