@@ -115,6 +115,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 
 /* FILTER TABS */
 .filter-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:56px}
+.works-soon{text-align:center;padding:70px 20px 90px}.works-soon strong{display:block;font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-.03em;background:linear-gradient(135deg,#00164D 30%,#015CFD 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}.works-soon span{font-size:16px;color:#6B7280}
 .ftab{padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:1.5px solid rgba(1,92,253,.2);background:#fff;color:#6B7280;transition:all .3s}
 .ftab:hover,.ftab.active{background:#015CFD;color:#fff;border-color:transparent}
 
@@ -306,6 +307,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <button class="ftab" data-filter="דפי נחיתה">דפי נחיתה</button>
  <button class="ftab" data-filter="פליירים ומודעות">פליירים ומודעות</button>
  </div>
+ <div class="works-soon" id="worksSoon" hidden><strong>בקרוב</strong><span>עבודות חדשות בקטגוריה הזו יעלו ממש בקרוב</span></div>
  <div class="work-grid">
  <a href="project-agrosoft.html" class="wcard reveal" data-cat="אתרים,UI/UX"><div class="wcard-bg wcard-bg-1"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>Figma</span><span>UI/UX</span></div><h3>Agrosoft</h3></div></a>
  <a href="project-hofit.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit Dala</h3></div></a>
@@ -385,14 +387,18 @@ document.querySelectorAll('.ftab').forEach(tab => {
  document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
  tab.classList.add('active');
  const filter = tab.dataset.filter;
+ let shown = 0;
  document.querySelectorAll('.wcard').forEach(card => {
  if (filter === 'all' || (card.dataset.cat && card.dataset.cat.includes(filter))) {
  card.style.display = '';
  card.classList.add('visible');
+ shown++;
  } else {
  card.style.display = 'none';
  }
  });
+ const soon = document.getElementById('worksSoon');
+ if (soon) soon.hidden = shown > 0;
  });
 });
 </script>
