@@ -15,8 +15,7 @@
 <meta property="og:image" content="https://ombee.co.il/images/ombee-logo.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" type="image/webp" href="images/icon-ombee-logo.webp"/>
-<link rel="preload" as="image" href="images/hero-bg.webp" media="(min-width:768px)" fetchpriority="high"/>
-<link rel="preload" as="image" href="images/hero-bg-mobile.webp" media="(max-width:767px)" fetchpriority="high"/>
+<link rel="preload" as="image" href="images/hero-bg.webp" fetchpriority="high"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400..900&display=swap" rel="stylesheet"/>
@@ -124,7 +123,6 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 /* ══════════ HERO ══════════ */
 .hero{background:#fff url('images/hero-bg.webp') center/cover no-repeat;display:flex;align-items:center;position:relative;overflow:hidden;padding:110px 0 30px}
 .hero-grid,.hero-glow,.hero-glow2{display:none}
-@media(max-width:767px){.hero{background-image:url('images/hero-bg-mobile.webp');background-position:center top}}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.08) 0%,transparent 70%);top:-200px;left:-200px;pointer-events:none}
 .hero-glow2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.05) 0%,transparent 70%);bottom:-100px;right:5%;pointer-events:none}
