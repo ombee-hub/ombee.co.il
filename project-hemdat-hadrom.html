@@ -103,6 +103,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 /* PAGE HERO */
 .page-hero{padding:120px 0 10px;background:#fff url('images/hero-bg.webp') center/cover no-repeat;position:relative;overflow:hidden;text-align:center}
 .page-hero-grid,.page-hero-glow{display:none!important}
+.project-logo{display:block;height:120px;width:auto;margin:0 auto 18px;object-fit:contain}@media(max-width:768px){.project-logo{height:86px;margin-bottom:12px}}
 .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
 .breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AEC1E7;margin-bottom:24px}
@@ -127,6 +128,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .project-meta{background:#F0F5FF;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;padding:36px}
 .project-meta h3{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AEC1E7;margin-bottom:24px}
 .project-meta-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(1,92,253,.1)}
+.project-meta-row .meta-logo img{display:block;height:48px;width:auto;max-width:190px;object-fit:contain}
 .project-meta-row:last-child{border-bottom:none}
 .project-meta-row span:first-child{font-size:14px;font-weight:600;color:#6B7280}
 .project-meta-row span:last-child{font-size:14px;font-weight:700;color:#00164D}
@@ -277,7 +279,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="page-hero-grid"></div>
  <div class="page-hero-glow"></div>
  <div class="container" style="position:relative;z-index:1">
- <h1 class="reveal">Hemdat HaDrom Student Union</h1>
+ <h1 class="reveal project-logo-h1"><img class="project-logo" src="images/hemdat-hadarom-logo.webp" alt="Hemdat HaDrom Student Union" fetchpriority="high"/></h1>
  <p class="reveal">עיצוב זהות מותגית ולוגו ייחודי שמשדר חום, מקצועיות ואמינות בתחום ה-NLP והטיפול</p>
  <div class="hero-tags reveal">
  <span class="hero-tag">Logo Design</span>
@@ -306,7 +308,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
  <div class="project-meta reveal">
  <h3>פרטי הפרויקט</h3>
- <div class="project-meta-row"><span>לקוח</span><span>Hemdat HaDrom Student Union</span></div>
+ <div class="project-meta-row"><span>לקוח</span><span class="meta-logo"><img src="images/hemdat-hadarom-logo.webp" alt="Hemdat HaDrom Student Union" loading="lazy" decoding="async"/></span></div>
  <div class="project-meta-row"><span>קטגוריה</span><span>לוגו · מיתוג</span></div>
  <div class="project-meta-row"><span>שנה</span><span>2023</span></div>
  <div class="project-meta-row"><span>תחום</span><span>חינוך אקדמי</span></div>
