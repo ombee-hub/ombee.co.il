@@ -178,7 +178,7 @@
     panel.setAttribute('aria-label', 'צ\'אט שירות של OMBee');
     panel.innerHTML = ''
       + '<div class="obee-chat-head">'
-      + '<div class="obee-chat-avatar"><img src="images/icon-ombee-logo.png" alt=""/></div>'
+      + '<div class="obee-chat-avatar"><img src="images/icon-ombee-logo.webp" alt=""/></div>'
       + '<div><div class="obee-chat-title">העוזר של OMBee</div><div class="obee-chat-status">זמין עכשיו</div></div>'
       + '<button class="obee-chat-close" aria-label="סגירת הצ\'אט">✕</button>'
       + '</div>'
