@@ -121,6 +121,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 /* ══════════ PAGE HERO ══════════ */
 .page-hero{padding:120px 0 10px;background:#fff url('images/hero-bg.webp') center/cover no-repeat;position:relative;overflow:hidden;text-align:center}
 .page-hero-grid,.page-hero-glow{display:none!important}
+.project-logo{display:block;height:64px;width:auto;margin:0 auto 18px;object-fit:contain}.project-logo-h1 .project-logo{height:80px;margin-bottom:10px}@media(max-width:768px){.project-logo,.project-logo-h1 .project-logo{height:56px;margin-bottom:10px}}
 .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
 .page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
 .breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AEC1E7;margin-bottom:24px}
@@ -297,12 +298,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="page-hero-grid"></div>
  <div class="page-hero-glow"></div>
  <div class="container" style="position:relative;z-index:1">
- <div class="breadcrumb reveal">
- <a href="/">דף הבית</a><span class="breadcrumb-sep">/</span>
- <a href="portfolio.html">עבודות</a><span class="breadcrumb-sep">/</span>
- <span>AgroSmart</span>
- </div>
- <h1 class="reveal">AgroSmart</h1>
+ <h1 class="reveal project-logo-h1"><img class="project-logo" src="images/agrosoft-logo.webp" alt="Agrosoft" fetchpriority="high"/>AgroSmart</h1>
  <p class="reveal">עיצוב אפליקציית מסופונים לבית האריזה</p>
  <div class="hero-tags reveal">
  <span>Figma</span>
