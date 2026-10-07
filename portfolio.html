@@ -225,6 +225,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  .footer-links{grid-template-columns:repeat(2,1fr)}
  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
 }
+
+/* dynamic bento layout by visible order */
+.work-grid .wcard.w7{grid-column:span 7;height:auto}.work-grid .wcard.w5{grid-column:span 5;height:auto}.work-grid .wcard.w12{grid-column:span 12;height:auto}
+@media(max-width:900px){.work-grid .wcard.w7,.work-grid .wcard.w5,.work-grid .wcard.w12{grid-column:span 1}}
 </style>
 </head>
 <body>
@@ -395,6 +399,17 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 <script src="accessibility.js?v=13"></script>
 <script src="chat-widget.js?v=4" defer></script>
 <script>
+// Bento layout: size cards by their position among the visible ones
+function layoutWorks(){
+ const vis=[...document.querySelectorAll('.wcard')].filter(c=>c.style.display!=='none');
+ vis.forEach((c,i)=>{
+ c.classList.remove('w7','w5','w12');
+ let cls=(i%4===0||i%4===3)?'w7':'w5';
+ if(i===vis.length-1&&i%2===0)cls='w12';
+ c.classList.add(cls);
+ });
+}
+layoutWorks();
 // Filter tabs
 document.querySelectorAll('.ftab').forEach(tab => {
  tab.addEventListener('click', () => {
@@ -413,6 +428,7 @@ document.querySelectorAll('.ftab').forEach(tab => {
  });
  const soon = document.getElementById('worksSoon');
  if (soon) soon.hidden = shown > 0;
+ layoutWorks();
  });
 });
 </script>
