@@ -335,6 +335,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 .ombee-cookie-text a{color:#015CFD;font-weight:600;text-decoration:underline}
 .ombee-cookie-text a:hover{opacity:.7}
 .ombee-cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.ombee-cookie-actions button{min-width:110px;text-align:center}
 .ombee-cookie-accept{
   padding:10px 28px;border:none;border-radius:8px;
   background:#015CFD;color:#fff;font-size:14px;font-weight:700;
@@ -365,8 +366,8 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
       לפרטים נוספים ניתן לעיין ב<a href="privacy-policy.html">מדיניות הפרטיות</a>.
     </div>
     <div class="ombee-cookie-actions">
-      <button class="ombee-cookie-accept">קבל/י</button>
-      <button class="ombee-cookie-decline">דחה/י</button>
+      <button class="ombee-cookie-accept">מאשר/ת</button>
+      <button class="ombee-cookie-decline">ביטול</button>
     </div>
   `;
   document.body.appendChild(banner);
