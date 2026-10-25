@@ -1,6 +1,7 @@
 # Builds OMBee-Web-Site.zip for upload: *.html, robots.txt, sitemap.xml, js/*.js, images/*.webp (forward-slash paths)
-# Run from the project folder:  powershell -NoProfile -ExecutionPolicy Bypass -File build-zip.ps1
-$root = (Get-Location).Path
+# Run:  powershell -NoProfile -ExecutionPolicy Bypass -File js\build-zip.ps1
+$root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Set-Location $root
 $zip = Join-Path $root "OMBee-Web-Site.zip"
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
