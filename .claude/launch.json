@@ -6,7 +6,7 @@
       "runtimeExecutable": "cmd.exe",
       "runtimeArgs": [
         "/c",
-        "C:\\My Files\\Omri Ben Eliyahu - Graphic Designer\\OMBee Web\\serve.cmd"
+        "C:\\My Files\\Omri Ben Eliyahu - Graphic Designer\\OMBee Web\\js\\serve.cmd"
       ],
       "port": 9123,
       "autoPort": false
