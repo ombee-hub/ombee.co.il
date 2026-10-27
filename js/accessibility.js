@@ -351,11 +351,11 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 }
 .ombee-cookie-decline:hover{border-color:#aaa;color:#333}
 @media(max-width:600px){
-  .ombee-cookie-banner{left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:46px 1fr;align-items:center;gap:14px;padding:18px;border:1.5px solid rgba(1,92,253,.15);border-radius:20px;box-shadow:0 14px 40px rgba(0,22,77,.18);text-align:right;transform:translateY(120%)}
-  .ombee-cookie-icon{width:46px;height:46px}
-  .ombee-cookie-text{min-width:0;font-size:13.5px;line-height:1.55}
-  .ombee-cookie-actions{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .ombee-cookie-actions button{min-width:0;padding:12px 10px;font-size:15px;border-radius:10px}
+  .ombee-cookie-banner{left:12px;right:12px;bottom:12px;display:block;padding:20px 18px 14px;border:1.5px solid rgba(1,92,253,.15);border-radius:20px;box-shadow:0 14px 40px rgba(0,22,77,.18);text-align:right;transform:translateY(120%)}
+  .ombee-cookie-icon{position:absolute;top:-22px;left:18px;width:50px;height:50px;transform:rotate(-14deg)}
+  .ombee-cookie-text{min-width:0;font-size:13.5px;line-height:1.55;padding-left:50px;margin-bottom:14px}
+  .ombee-cookie-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 62px}
+  .ombee-cookie-actions button{min-width:0;padding:11px 6px;font-size:15px;border-radius:10px}
 }
 `;
   document.head.appendChild(css);
@@ -378,8 +378,11 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const a11yBtn = document.querySelector('.ombee-a11y-btn');
   function liftA11y(){
     if (!a11yBtn) return;
-    const show = banner.isConnected && !banner.classList.contains('hide') && window.innerWidth <= 600;
-    a11yBtn.style.bottom = show ? (banner.offsetHeight + 24) + 'px' : '';
+    const show = banner.isConnected && !banner.classList.contains('hide');
+    if (!show) { a11yBtn.style.bottom = ''; return; }
+    const act = banner.querySelector('.ombee-cookie-actions');
+    const fromBannerBottom = banner.offsetHeight - (act.offsetTop + act.offsetHeight / 2);
+    a11yBtn.style.bottom = Math.round(parseFloat(getComputedStyle(banner).bottom) + fromBannerBottom - a11yBtn.offsetHeight / 2) + 'px';
   }
   requestAnimationFrame(liftA11y);
   window.addEventListener('resize', liftA11y);

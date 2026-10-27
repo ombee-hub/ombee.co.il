@@ -294,7 +294,12 @@
       var h = (banner && !banner.classList.contains('hide')) ? banner.offsetHeight : 0;
       var mobile = window.innerWidth <= 600;
       /* במובייל הבאנר הוא כרטיס צף — הכפתור עולה מעליו; במחשב הוא יושב על הפס */
-      btn.style.bottom = h ? (mobile ? (h + 24) : Math.max(8, Math.round((h - 56) / 2))) + 'px' : '';
+      var mobileBottom = 0;
+      if (h && mobile) {
+        var act = banner.querySelector('.ombee-cookie-actions');
+        mobileBottom = Math.round(parseFloat(getComputedStyle(banner).bottom) + banner.offsetHeight - (act.offsetTop + act.offsetHeight / 2) - 28);
+      }
+      btn.style.bottom = h ? (mobile ? mobileBottom : Math.max(8, Math.round((h - 56) / 2))) + 'px' : '';
       hint.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
       panel.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
     }
