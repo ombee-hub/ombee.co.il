@@ -327,8 +327,8 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 .ombee-cookie-banner.hide{
   animation:ombee-cookie-hide .3s ease forwards;
 }
-@keyframes ombee-cookie-hide{to{transform:translateY(100%);opacity:0}}
-.ombee-cookie-icon{font-size:28px;line-height:1;flex-shrink:0}
+@keyframes ombee-cookie-hide{to{transform:translateY(120%);opacity:0}}
+.ombee-cookie-icon{width:38px;height:38px;flex-shrink:0;display:block;filter:drop-shadow(0 3px 6px rgba(184,118,50,.25))}
 .ombee-cookie-text{
   font-size:14px;color:#444;line-height:1.6;min-width:240px;
 }
@@ -351,8 +351,11 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 }
 .ombee-cookie-decline:hover{border-color:#aaa;color:#333}
 @media(max-width:600px){
-  .ombee-cookie-banner{flex-direction:column;text-align:center;padding:16px 64px 16px 72px;gap:12px}
-  .ombee-cookie-text{min-width:auto}
+  .ombee-cookie-banner{left:12px;right:12px;bottom:12px;display:grid;grid-template-columns:46px 1fr;align-items:center;gap:14px;padding:18px;border:1.5px solid rgba(1,92,253,.15);border-radius:20px;box-shadow:0 14px 40px rgba(0,22,77,.18);text-align:right;transform:translateY(120%)}
+  .ombee-cookie-icon{width:46px;height:46px}
+  .ombee-cookie-text{min-width:0;font-size:13.5px;line-height:1.55}
+  .ombee-cookie-actions{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .ombee-cookie-actions button{min-width:0;padding:12px 10px;font-size:15px;border-radius:10px}
 }
 `;
   document.head.appendChild(css);
@@ -360,7 +363,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   const banner = document.createElement('div');
   banner.className = 'ombee-cookie-banner';
   banner.innerHTML = `
-    <span class="ombee-cookie-icon" aria-hidden="true">🍪</span>
+    <svg class="ombee-cookie-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4A28 28 0 1 0 60 32A7 7 0 0 1 51 23A7 7 0 0 1 42 13A7 7 0 0 1 32 4Z" fill="#E3A857" stroke="#B87632" stroke-width="2.5" stroke-linejoin="round"/><path d="M14 40a20 20 0 0 0 22 14" fill="none" stroke="#F2C98A" stroke-width="3" stroke-linecap="round" opacity=".7"/><circle cx="22" cy="21" r="3.4" fill="#6B3B1E"/><circle cx="17" cy="35" r="3" fill="#6B3B1E"/><circle cx="31" cy="31" r="3.6" fill="#6B3B1E"/><circle cx="41" cy="44" r="3.2" fill="#6B3B1E"/><circle cx="27" cy="47" r="2.6" fill="#6B3B1E"/><circle cx="47" cy="34" r="2.4" fill="#6B3B1E"/><circle cx="56" cy="15" r="1.8" fill="#E3A857"/><circle cx="50" cy="8" r="1.3" fill="#E3A857"/></svg>
     <div class="ombee-cookie-text">
       אתר זה משתמש בעוגיות (Cookies) כדי לשפר את חוויית הגלישה שלך.
       לפרטים נוספים ניתן לעיין ב<a href="privacy-policy.html">מדיניות הפרטיות</a>.
@@ -372,15 +375,26 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   `;
   document.body.appendChild(banner);
 
+  const a11yBtn = document.querySelector('.ombee-a11y-btn');
+  function liftA11y(){
+    if (!a11yBtn) return;
+    const show = banner.isConnected && !banner.classList.contains('hide') && window.innerWidth <= 600;
+    a11yBtn.style.bottom = show ? (banner.offsetHeight + 24) + 'px' : '';
+  }
+  requestAnimationFrame(liftA11y);
+  window.addEventListener('resize', liftA11y);
+
   banner.querySelector('.ombee-cookie-accept').addEventListener('click', () => {
     try { sessionStorage.setItem(COOKIE_KEY, '1'); } catch(e){}
     banner.classList.add('hide');
+    liftA11y();
     setTimeout(() => banner.remove(), 350);
   });
 
   banner.querySelector('.ombee-cookie-decline').addEventListener('click', () => {
     try { sessionStorage.setItem(COOKIE_KEY, '0'); } catch(e){}
     banner.classList.add('hide');
+    liftA11y();
     setTimeout(() => banner.remove(), 350);
   });
 })();

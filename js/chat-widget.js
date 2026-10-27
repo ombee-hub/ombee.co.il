@@ -292,9 +292,11 @@
     function liftAboveCookieBanner() {
       var banner = document.querySelector('.ombee-cookie-banner');
       var h = (banner && !banner.classList.contains('hide')) ? banner.offsetHeight : 0;
-      btn.style.bottom = h ? Math.max(8, Math.round((h - 56) / 2)) + 'px' : '';
-      hint.style.bottom = h ? (h + 16) + 'px' : '';
-      panel.style.bottom = h ? (h + 16) + 'px' : '';
+      var mobile = window.innerWidth <= 600;
+      /* במובייל הבאנר הוא כרטיס צף — הכפתור עולה מעליו; במחשב הוא יושב על הפס */
+      btn.style.bottom = h ? (mobile ? (h + 24) : Math.max(8, Math.round((h - 56) / 2))) + 'px' : '';
+      hint.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
+      panel.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
     }
     liftAboveCookieBanner();
     var bannerWatch = new MutationObserver(liftAboveCookieBanner);
