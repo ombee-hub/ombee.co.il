@@ -318,7 +318,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
   css.textContent = `
 .ombee-cookie-banner{
   position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:#fff;border-top:1.5px solid rgba(1,92,253,.15);
+  background:#fff url("images/hero-bg.webp") center 40%/cover no-repeat;border-top:1.5px solid rgba(1,92,253,.18);
   box-shadow:0 -4px 24px rgba(0,0,0,.1);
   padding:18px 96px;
   display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;
@@ -333,7 +333,7 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 @keyframes ombee-cookie-hide{to{transform:translateY(120%);opacity:0}}
 .ombee-cookie-icon{width:38px;height:38px;flex-shrink:0;display:block;filter:drop-shadow(0 3px 6px rgba(184,118,50,.25))}
 .ombee-cookie-text{
-  font-size:14px;color:#444;line-height:1.6;min-width:240px;
+  font-size:14px;color:#00164D;font-weight:500;line-height:1.6;min-width:240px;
 }
 .ombee-cookie-text a{color:#015CFD;font-weight:600;text-decoration:underline}
 .ombee-cookie-text a:hover{opacity:.7}
@@ -348,13 +348,13 @@ html.a11y-textAlign,html.a11y-textAlign *{text-align:right!important}
 .ombee-cookie-accept:hover{background:#014BF0;transform:translateY(-1px)}
 .ombee-cookie-decline{
   padding:10px 28px;border:1.5px solid #ddd;border-radius:8px;
-  background:#fff;color:#666;font-size:14px;font-weight:600;
+  background:#fff;color:#015CFD;font-size:14px;font-weight:700;border-color:rgba(1,92,253,.35)!important;
   font-family:'Heebo',sans-serif;cursor:pointer;transition:all .25s;
   white-space:nowrap;
 }
 .ombee-cookie-decline:hover{border-color:#aaa;color:#333}
 @media(max-width:1100px){
-  .ombee-cookie-banner{left:12px;right:12px;bottom:12px;max-width:640px;margin:0 auto;display:grid;grid-template-columns:40px 1fr;align-items:start;gap:0 12px;padding:16px 18px 14px;border:1.5px solid rgba(1,92,253,.15);border-radius:20px;box-shadow:0 14px 40px rgba(0,22,77,.18);text-align:right;transform:translateY(120%)}
+  .ombee-cookie-banner{left:12px;right:12px;bottom:12px;max-width:640px;margin:0 auto;display:grid;grid-template-columns:40px 1fr;align-items:start;gap:0 12px;padding:16px 18px 14px;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;box-shadow:0 14px 40px rgba(0,22,77,.18);background-position:center;text-align:right;transform:translateY(120%)}
   .ombee-cookie-icon{width:40px;height:40px;margin-top:2px}
   .ombee-cookie-text{min-width:0;font-size:13.5px;line-height:1.55;margin-bottom:14px;align-self:center}
   .ombee-cookie-actions{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 62px}
