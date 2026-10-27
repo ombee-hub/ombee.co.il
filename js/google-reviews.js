@@ -14,6 +14,8 @@
 
   var css = document.createElement('style');
   css.textContent = [
+    '.greviews{margin-top:44px}',
+    '.greviews[data-no-header]{margin-top:0}',
     '.greviews-summary{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin:-6px 0 34px}',
     '.greviews-g{width:30px;height:30px;flex-shrink:0}',
     '.greviews-score{font-size:34px;font-weight:900;color:#00164D;line-height:1}',
@@ -59,10 +61,12 @@
     var mapsUrl = place.googleMapsURI || ('https://www.google.com/maps/place/?q=place_id:' + PLACE_ID);
     var writeUrl = 'https://search.google.com/local/writereview?placeid=' + encodeURIComponent(PLACE_ID);
 
-    var wrap = el('div', 'container');
-    wrap.innerHTML =
-      '<div class="section-header reveal visible"><p class="eyebrow">ביקורות בגוגל</p>' +
-      '<h2 class="section-title">מה כתבו עליי <span class="title-out">בגוגל</span></h2></div>';
+    var wrap = el('div');
+    if (!root.dataset.noHeader) {
+      wrap.innerHTML =
+        '<div class="section-header reveal visible"><p class="eyebrow">ביקורות בגוגל</p>' +
+        '<h2 class="section-title">מה כתבו עליי <span class="title-out">בגוגל</span></h2></div>';
+    }
 
     var sum = el('div', 'greviews-summary');
     sum.innerHTML = G_LOGO;
@@ -116,7 +120,11 @@
 
     root.innerHTML = '';
     root.appendChild(wrap);
-    root.className = 'section greviews';
+    root.className = 'greviews';
+    /* Google reviews take the place of the on-site testimonials */
+    if (root.dataset.replace) {
+      document.querySelectorAll(root.dataset.replace).forEach(function (n) { n.style.display = 'none'; });
+    }
   }
 
   function load() {
