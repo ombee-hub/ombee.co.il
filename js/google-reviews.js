@@ -7,10 +7,13 @@
 (function () {
   /* ── הגדרות: למלא כאן את המפתח ומזהה העסק ── */
   var API_KEY  = '';   // Google Maps JavaScript API key (restricted to ombee.co.il)
-  var PLACE_ID = '';   // Google Place ID of the business
+  var PLACE_ID = '';   // Google Place ID (ChIJ...) — optional; if empty it is looked up once by name+location and cached
+  var PLACE_QUERY = 'OMBee-Grahpics Desiger and UI/UX';        // the business name as it appears on Google Maps
+  var PLACE_LOC   = { lat: 31.9107414, lng: 35.0114023 };      // business pin
+  var MAPS_URL    = 'https://maps.app.goo.gl/YvQXDfdnwJtFSmN67';
 
   var root = document.getElementById('googleReviews');
-  if (!root || !API_KEY || !PLACE_ID) return;
+  if (!root || !API_KEY) return;
 
   var css = document.createElement('style');
   css.textContent = [
@@ -58,8 +61,8 @@
     var reviews = (place.reviews || []).filter(function (r) { return r.text; });
     if (!reviews.length) return;
 
-    var mapsUrl = place.googleMapsURI || ('https://www.google.com/maps/place/?q=place_id:' + PLACE_ID);
-    var writeUrl = 'https://search.google.com/local/writereview?placeid=' + encodeURIComponent(PLACE_ID);
+    var mapsUrl = place.googleMapsURI || MAPS_URL;
+    var writeUrl = 'https://search.google.com/local/writereview?placeid=' + encodeURIComponent(place.id);
 
     var wrap = el('div');
     if (!root.dataset.noHeader) {
@@ -127,12 +130,29 @@
     }
   }
 
+  /* מוצא את מזהה העסק פעם אחת לפי שם ומיקום ושומר אותו בדפדפן */
+  function resolveId(lib) {
+    if (PLACE_ID) return Promise.resolve(PLACE_ID);
+    var KEY = 'ombee-place-id';
+    try { var c = localStorage.getItem(KEY); if (c) return Promise.resolve(c); } catch (e) {}
+    return lib.Place.searchByText({ textQuery: PLACE_QUERY, fields: ['id'], locationBias: PLACE_LOC, maxResultCount: 1 })
+      .then(function (r) {
+        var id = r.places && r.places[0] && r.places[0].id;
+        if (!id) throw new Error('place not found');
+        try { localStorage.setItem(KEY, id); } catch (e) {}
+        if (window.console) console.info('Google reviews: Place ID =', id);
+        return id;
+      });
+  }
+
   function load() {
     window.__ombeeGReviews = function () {
       google.maps.importLibrary('places').then(function (lib) {
-        var place = new lib.Place({ id: PLACE_ID, requestedLanguage: 'he' });
+        return resolveId(lib).then(function (id) {
+        var place = new lib.Place({ id: id, requestedLanguage: 'he' });
         return place.fetchFields({ fields: ['displayName', 'rating', 'userRatingCount', 'reviews', 'googleMapsURI'] })
           .then(function () { render(place); });
+        });
       }).catch(function (e) { if (window.console) console.warn('Google reviews:', e); });
     };
     var s = document.createElement('script');
