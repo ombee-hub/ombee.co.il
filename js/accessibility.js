@@ -28,6 +28,9 @@
   const style = document.createElement('style');
   style.textContent = `
 /* ── A11y Floating Button ── */
+.ombee-a11y-btn::before{
+  content:"";position:absolute;inset:5px;border:2px solid #fff;border-radius:50%;pointer-events:none;
+}
 .ombee-a11y-btn{
   position:fixed;bottom:24px;left:24px;z-index:10000;
   width:46px;height:46px;border-radius:50%;border:none;
