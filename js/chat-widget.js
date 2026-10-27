@@ -292,16 +292,16 @@
     function liftAboveCookieBanner() {
       var banner = document.querySelector('.ombee-cookie-banner');
       var h = (banner && !banner.classList.contains('hide')) ? banner.offsetHeight : 0;
-      var mobile = window.innerWidth <= 600;
-      /* במובייל הבאנר הוא כרטיס צף — הכפתור עולה מעליו; במחשב הוא יושב על הפס */
-      var mobileBottom = 0;
-      if (h && mobile) {
+      var card = window.innerWidth <= 1100;
+      /* הכפתור מיושר לגובה שורת הכפתורים של הבאנר בכל רוחב מסך */
+      if (h) {
         var act = banner.querySelector('.ombee-cookie-actions');
-        mobileBottom = Math.round(parseFloat(getComputedStyle(banner).bottom) + banner.offsetHeight - (act.offsetTop + act.offsetHeight / 2) - 28);
+        btn.style.bottom = Math.round(parseFloat(getComputedStyle(banner).bottom) + banner.offsetHeight - (act.offsetTop + act.offsetHeight / 2) - 28) + 'px';
+      } else {
+        btn.style.bottom = '';
       }
-      btn.style.bottom = h ? (mobile ? mobileBottom : Math.max(8, Math.round((h - 56) / 2))) + 'px' : '';
-      hint.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
-      panel.style.bottom = h ? (h + (mobile ? 92 : 16)) + 'px' : '';
+      hint.style.bottom = h ? (h + (card ? 92 : 16)) + 'px' : '';
+      panel.style.bottom = h ? (h + (card ? 92 : 16)) + 'px' : '';
     }
     liftAboveCookieBanner();
     var bannerWatch = new MutationObserver(liftAboveCookieBanner);
