@@ -4,13 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>OMBee - יצירת קשר | בואו נדבר</title>
-<meta name="description" content="בואו נדבר על הפרויקט הבא שלכם — טופס יצירת קשר, טלפון, אימייל ווואטסאפ. מענה מהיר ואישי."/>
+<meta name="description" content="בואו נדבר על הפרויקט הבא שלכם — טופס יצירת קשר, טלפון, דוא&quot;ל ווואטסאפ. מענה מהיר ואישי."/>
 <link rel="canonical" href="https://ombee.co.il/contact.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="OMBee"/>
 <meta property="og:locale" content="he_IL"/>
 <meta property="og:title" content="OMBee - יצירת קשר | בואו נדבר"/>
-<meta property="og:description" content="בואו נדבר על הפרויקט הבא שלכם — טופס יצירת קשר, טלפון, אימייל ווואטסאפ. מענה מהיר ואישי."/>
+<meta property="og:description" content="בואו נדבר על הפרויקט הבא שלכם — טופס יצירת קשר, טלפון, דוא&quot;ל ווואטסאפ. מענה מהיר ואישי."/>
 <meta property="og:url" content="https://ombee.co.il/contact.html"/>
 <meta property="og:image" content="https://ombee.co.il/images/ombee-logo.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -73,6 +73,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 
 /* DROPDOWN */
 .nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
@@ -168,16 +169,32 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .cform > p{font-size:15px;color:#6B7280;margin-bottom:8px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fg{display:flex;flex-direction:column;gap:9px}
-.fg label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#AEC1E7}
-.fg input,.fg textarea,.fg select{padding:14px 18px;background:#F0F5FF;border:1.5px solid rgba(1,92,253,.18);border-radius:14px;font-size:15px;color:#00164D;outline:none;transition:border-color .3s;resize:none}
-.fg input::placeholder,.fg textarea::placeholder{color:#AEC1E7}
-.fg input:focus,.fg textarea:focus{border-color:#015CFD;background:#fff}
+.fg label{font-size:13px;font-weight:700;letter-spacing:0;color:#00164D}
+.fg input,.fg textarea,.fg select{padding:10px 2px 12px;background:transparent;border:0;border-bottom:1.5px solid rgba(1,92,253,.25);border-radius:0;font-size:15px;color:#00164D;outline:none;transition:border-color .3s;resize:none}
+.fg input::placeholder,.fg textarea::placeholder{color:#8A94A6}
+.fg input[type=tel],.fg input[type=email]{direction:ltr;text-align:right}
+.fg input:focus,.fg textarea:focus{border-color:#015CFD;background:transparent}
+.fg .file-pick{letter-spacing:0;text-transform:none;font-weight:400;color:inherit}
+.file-pick{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:18px 14px;border:1.5px dashed rgba(1,92,253,.35);border-radius:14px;flex:1;cursor:pointer;transition:border-color .3s}
+.file-pick:hover,.file-pick:focus-within{border-color:#015CFD}
+.file-pick input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
+.file-name{font-size:15px;color:#6B7280;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.file-pick.has-file .file-name{color:#00164D;font-weight:600}
+.file-pick:hover,.file-pick:focus-within{background:rgba(1,92,253,.03)}
+.file-name{max-width:100%;font-size:14px}
+.file-hint{font-size:12px;color:#8A94A6;line-height:1.6}
+.brief-row{grid-template-columns:1.6fr 1fr;align-items:stretch}
+.brief-row .fg{display:flex;flex-direction:column}
+.brief-row .fg>label:first-child{text-align:center}
+.fg textarea#message{border:1.5px solid rgba(1,92,253,.25);border-radius:14px;padding:14px 16px;min-height:150px;flex:1}
+.fg textarea#message:focus{border-color:#015CFD}
+.file-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#015CFD;white-space:nowrap;flex-shrink:0}
 .select-wrap{position:relative}
 .select-wrap select{width:100%}
-.select-wrap::after{content:"";position:absolute;left:18px;top:50%;transform:translateY(-50%);width:14px;height:9px;background:url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23015CFD' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;pointer-events:none;transition:transform .3s}
+.select-wrap::after{content:"";position:absolute;left:4px;top:50%;transform:translateY(-50%);width:14px;height:9px;background:url("data:image/svg+xml,%3Csvg width='14' height='9' viewBox='0 0 14 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L7 7L13 1' stroke='%23015CFD' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;pointer-events:none;transition:transform .3s}
 .select-wrap:focus-within::after{transform:translateY(-50%) rotate(180deg)}
-.fg select{appearance:none;-webkit-appearance:none;cursor:pointer;color:#6B7280;padding-left:44px}
-.fg select:focus{border-color:#015CFD;background-color:#fff}
+.fg select{appearance:none;-webkit-appearance:none;cursor:pointer;color:#6B7280;padding-left:28px}
+.fg select:focus{border-color:#015CFD;background-color:transparent}
 
 @media(max-width:1024px){.contact-inner{grid-template-columns:1fr;gap:48px}.form-row{grid-template-columns:1fr}.cform{padding:32px}}
 
@@ -205,8 +222,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  .cform{padding:26px 22px;border-radius:22px;gap:18px}
  .cform h2{font-size:24px}
  .cform > p{font-size:14px}
- .fg input,.fg textarea,.fg select{padding:13px 16px;font-size:15px;border-radius:12px}
- .fg select{padding-left:40px}
+ .fg input,.fg textarea,.fg select{padding:10px 2px 12px;font-size:15px;border-radius:0}
+ .fg select{padding-left:28px}
  .form-row{gap:14px}
  .avail{padding:50px 0}
  .avail-inner{gap:16px}
@@ -283,6 +300,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
  <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
  </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -309,6 +334,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -389,25 +416,62 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="fg"><label for="name">שם מלא</label><input type="text" id="name" name="שם מלא" placeholder="ישראל ישראלי" required/></div>
  <div class="fg"><label for="phone">טלפון</label><input type="tel" id="phone" name="טלפון" placeholder="05X-XXX-XXXX"/></div>
  </div>
- <div class="fg"><label for="email">אימייל</label><input type="email" id="email" name="אימייל" placeholder="you@example.com" required/></div>
+ <div class="fg"><label for="email">דוא"ל</label><input type="email" id="email" name="דוא&quot;ל" placeholder="you@example.com" required/></div>
  <div class="form-row">
  <div class="fg"><label for="company">שם החברה / העסק</label><input type="text" id="company" name="שם העסק" placeholder="שם העסק שלך"/></div>
- <div class="fg"><label for="company-id">ח.פ / ע.מ</label><input type="text" id="company-id" name="ח.פ / ע.מ" placeholder="מספר חברה או עוסק מורשה"/></div>
+ <div class="fg"><label for="company-id">ח.פ / ע.מ / ת.ז</label><input type="text" id="company-id" name="ח.פ / ע.מ / ת.ז" placeholder="מספר חברה, עוסק או תעודת זהות"/></div>
  </div>
+ <div class="form-row">
  <div class="fg"><label for="service">סוג שירות</label>
  <div class="select-wrap">
  <select id="service" name="סוג שירות">
  <option value="">בחר/י שירות...</option>
- <option value="logo">לוגו ומיתוג</option>
+ <option value="logo">לוגו</option>
+ <option value="branding">מיתוג</option>
  <option value="website">אתר אינטרנט (AI)</option>
  <option value="redesign">שיפוץ אתר קיים</option>
- <option value="uiux">UI/UX Design</option>
- <option value="app">עיצוב אפליקציה</option>
- <option value="other">אחר</option>
+ <option value="app">עיצוב אפליקציות</option>
+ <option value="flyers">פליירים ומודעות</option>
+ <option value="eshop">חנות אינטרנטית</option>
  </select>
  </div>
  </div>
+ <div class="fg"><label for="budget">תקציב</label>
+ <div class="select-wrap">
+ <select id="budget" name="תקציב">
+ <option value="">בחר/י תקציב...</option>
+ <option value="upto-1000">עד ₪1,000</option>
+ <option value="1000-2500">₪1,000 – ₪2,500</option>
+ <option value="2500-5000">₪2,500 – ₪5,000</option>
+ <option value="5000+">מעל ₪5,000</option>
+ <option value="unknown">עדיין לא יודע/ת</option>
+ </select>
+ </div>
+ </div>
+ </div>
+ <div class="fg"><label for="start">מתי תרצו להתחיל?</label>
+ <div class="select-wrap">
+ <select id="start" name="מתי להתחיל">
+ <option value="">בחר/י מועד...</option>
+ <option value="now">כמה שיותר מהר</option>
+ <option value="month">בחודש הקרוב</option>
+ <option value="1-3">בעוד 1–3 חודשים</option>
+ <option value="later">בעוד יותר מ-3 חודשים</option>
+ <option value="unknown">עדיין לא יודע/ת</option>
+ </select>
+ </div>
+ </div>
+ <div class="form-row brief-row">
  <div class="fg"><label for="message">תאר/י את הפרויקט</label><textarea id="message" name="תיאור הפרויקט" rows="5" placeholder="ספר/י לי על הפרויקט, המטרה, קהל היעד..."></textarea></div>
+ <div class="fg"><label for="brief">צרף קובץ או בריף (אופציונלי)</label>
+ <label class="file-pick" for="brief">
+ <input type="file" id="brief" name="brief" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png,.webp"/>
+ <span class="file-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></svg>בחירת קובץ</span>
+ <span class="file-name" id="briefName">לא נבחר קובץ</span>
+ <span class="file-hint">קבצי PDF, Word ותמונות<br/>עד 2MB</span>
+ </label>
+ </div>
+ </div>
  <button type="submit" class="btn btn-cy btn-full">שלח/י הודעה <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform:scaleX(-1)"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
  </form>
 
@@ -445,7 +509,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="footer-inner">
  <div class="footer-brand">
  <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
- <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
  </div>
  <div class="footer-links">
  <div class="footer-col"><h4>שירותים</h4><ul><li><a href="/#services">גרפיקה ומיתוג</a></li><li><a href="/#services">עיצוב אתרים</a></li><li><a href="/#services">UI/UX</a></li></ul></div>
@@ -478,8 +542,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
   };
   if (window.emailjs) { emailjs.init({ publicKey: window.EMAILJS_CONFIG.publicKey }); }
 </script>
-<script src="js/script.js?v=7"></script>
-<script src="js/accessibility.js?v=20"></script>
-<script src="js/chat-widget.js?v=7" defer></script>
+<script src="js/script.js?v=10"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=8" defer></script>
 </body>
 </html>

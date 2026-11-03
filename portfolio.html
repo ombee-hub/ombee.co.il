@@ -58,6 +58,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .nav-cta{background:#015CFD;color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px}.nav-cta::after{display:none!important}
 .nav-cta:hover{background:#009AFE;box-shadow:0 8px 24px rgba(1,92,253,.3);transform:translateY(-1px)}
 .nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
@@ -262,6 +263,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
  <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
  </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -288,6 +297,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -321,43 +332,43 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
  <div class="works-soon" id="worksSoon" hidden><strong>בקרוב</strong><span>עבודות חדשות בקטגוריה הזו יעלו ממש בקרוב</span></div>
  <div class="work-grid">
- <a href="project-agrosoft.html" class="wcard reveal" data-cat="אתרים,UI/UX"><div class="wcard-bg wcard-bg-1"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>Figma</span><span>UI/UX</span></div><h3>Agrosoft</h3></div></a>
- <a href="project-hofit.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit Dala</h3></div></a>
- <a href="project-yevulei-hakfar.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>WooCommerce</h3></div></a>
- <a href="project-shave-kesef-logo.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-37"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Logo</span><span>Brand</span></div><h3>שווה כסף</h3></div></a>
- <a href="project-oren.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Oren Repairs</h3></div></a>
- <a href="project-agrotalk.html" class="wcard reveal" data-cat="אפליקציות,UI/UX"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk</h3></div></a>
- <a href="project-dj-or.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-6"></div><div class="wcat">לוגו</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>זהות</span></div><h3>DJ Or Baumstein</h3></div></a>
- <a href="project-source-music.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-7"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Source Music</h3></div></a>
- <a href="project-nimrod-grisaru.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-8"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Dr. Nimrod Grisaru</h3></div></a>
- <a href="project-colorful-heart.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-9"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Shay Reshef</h3></div></a>
- <a href="project-agrosmart.html" class="wcard reveal" data-cat="אפליקציות"><div class="wcard-bg wcard-bg-10"></div><div class="wcat">אפליקציה</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Figma</span></div><h3>AgroSmart</h3></div></a>
- <a href="project-agrosoft-service-calls.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-11"></div><div class="wcat">אתר</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>UI/UX</span></div><h3>Agrosoft Service Calls</h3></div></a>
- <a href="project-dog-training.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-19"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Logo</span></div><h3>Dog Training Workshop</h3></div></a>
- <a href="project-hemdat-hadrom.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-12"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hemdat HaDrom Student Union</h3></div></a>
- <a href="project-buzz.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-13"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Buzzz Cycle</h3></div></a>
- <a href="project-motis-house.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-14"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Moti's House</h3></div></a>
- <a href="project-obvious-stutterer.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-15"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Obvious Stutterer</h3></div></a>
- <a href="project-female-approach.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-16"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Female Approach</h3></div></a>
- <a href="project-family-history.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-17"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Family History</h3></div></a>
- <a href="project-ziva.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-18"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Ziva Events</h3></div></a>
- <a href="project-good-chocolate.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-20"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>UI/UX</span></div><h3>Good Chocolate</h3></div></a>
- <a href="project-flyer-baby-products.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-21"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מיזם למוצרי תינוקות</h3></div></a>
- <a href="project-flyer-social-partnership.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-22"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פלייר תדמית לעמותה</h3></div></a>
- <a href="project-flyer-dear-public.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-23"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מודעה לציבור</h3></div></a>
- <a href="project-flyer-hungry-babies.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-24"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>קמפיין תינוקות רעבים</h3></div></a>
- <a href="project-flyer-competing-together.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-25"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פרויקט מתחרים יחד</h3></div></a>
- <a href="project-flyer-economic-rehab.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-26"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פרויקט שיקום כלכלי</h3></div></a>
- <a href="project-flyer-social-security.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-27"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מודעת זכויות ביטוח לאומי</h3></div></a>
- <a href="project-flyer-wrapped-in-love.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-28"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>עטופים באהבה</h3></div></a>
- <a href="project-friendly-catalog.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-29"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>קטלוג</span></div><h3>קטלוג מוצרים — Friendly</h3></div></a>
- <a href="project-shave-kesef-metals.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-30"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית מתכות ואלקטרוניקה</h3></div></a>
- <a href="project-shave-kesef-office.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-31"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>פינוי ציוד משרדים</h3></div></a>
- <a href="project-shave-kesef-moving.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-32"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>הובלות קטנות בנתניה</h3></div></a>
- <a href="project-shave-kesef-silver.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-33"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית כלי כסף ותכשיטים</h3></div></a>
- <a href="project-shave-kesef-bottles.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-34"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>בקבוקים ופחיות</h3></div></a>
- <a href="project-shave-kesef-buys-all.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-35"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>חיים קונה הכל</h3></div></a>
- <a href="project-shave-kesef-ac.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-36"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית מזגנים</h3></div></a>
+ <a href="agrosoft.html" class="wcard reveal" data-cat="אתרים,UI/UX"><div class="wcard-bg wcard-bg-1"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>Figma</span><span>UI/UX</span></div><h3>Agrosoft</h3></div></a>
+ <a href="hofit-dala.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-2"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hofit Dala</h3></div></a>
+ <a href="yevulei-hakfar.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-3"></div><div class="wcat">e-Commerce</div><div class="wcard-content"><div class="wtags"><span>WooCommerce</span><span>UX</span></div><h3>WooCommerce</h3></div></a>
+ <a href="shave-kesef-logo.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-37"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Logo</span><span>Brand</span></div><h3>שווה כסף</h3></div></a>
+ <a href="oren-repairs.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-4"></div><div class="wcat">זהות מותגית</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Oren Repairs</h3></div></a>
+ <a href="agrotalk.html" class="wcard reveal" data-cat="אפליקציות,UI/UX"><div class="wcard-bg wcard-bg-5"></div><div class="wcat">אפליקציה · UX</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Prototype</span><span>Figma</span></div><h3>AgroTalk</h3></div></a>
+ <a href="dj-or.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-6"></div><div class="wcat">לוגו</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>זהות</span></div><h3>DJ Or Baumstein</h3></div></a>
+ <a href="source-music.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-7"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Source Music</h3></div></a>
+ <a href="nimrod-grisaru.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-8"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Dr. Nimrod Grisaru</h3></div></a>
+ <a href="colorful-heart.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-9"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Shay Reshef</h3></div></a>
+ <a href="agrosmart.html" class="wcard reveal" data-cat="אפליקציות"><div class="wcard-bg wcard-bg-10"></div><div class="wcat">אפליקציה</div><div class="wcard-content"><div class="wtags"><span>App Design</span><span>Figma</span></div><h3>AgroSmart</h3></div></a>
+ <a href="agrosoft-service-calls.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-11"></div><div class="wcat">אתר</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>UI/UX</span></div><h3>Agrosoft Service Calls</h3></div></a>
+ <a href="dog-training.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-19"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Logo</span></div><h3>Dog Training Workshop</h3></div></a>
+ <a href="hemdat-hadrom.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-12"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Hemdat HaDrom Student Union</h3></div></a>
+ <a href="buzz.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-13"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Buzzz Cycle</h3></div></a>
+ <a href="motis-house.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-14"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Moti's House</h3></div></a>
+ <a href="obvious-stutterer.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-15"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Obvious Stutterer</h3></div></a>
+ <a href="female-approach.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-16"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Female Approach</h3></div></a>
+ <a href="family-history.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-17"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>לוגו</span><span>מיתוג</span></div><h3>Family History</h3></div></a>
+ <a href="ziva-events.html" class="wcard reveal" data-cat="לוגו ומיתוג"><div class="wcard-bg wcard-bg-18"></div><div class="wcat">לוגו · מיתוג</div><div class="wcard-content"><div class="wtags"><span>Brand</span><span>Print</span></div><h3>Ziva Events</h3></div></a>
+ <a href="good-chocolate.html" class="wcard reveal" data-cat="אתרים"><div class="wcard-bg wcard-bg-20"></div><div class="wcat">אתר · UI/UX</div><div class="wcard-content"><div class="wtags"><span>AI</span><span>UI/UX</span></div><h3>Good Chocolate</h3></div></a>
+ <a href="flyer-baby-products.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-21"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מיזם למוצרי תינוקות</h3></div></a>
+ <a href="flyer-social-partnership.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-22"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פלייר תדמית לעמותה</h3></div></a>
+ <a href="flyer-dear-public.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-23"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מודעה לציבור</h3></div></a>
+ <a href="flyer-hungry-babies.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-24"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>קמפיין תינוקות רעבים</h3></div></a>
+ <a href="flyer-competing-together.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-25"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פרויקט מתחרים יחד</h3></div></a>
+ <a href="flyer-economic-rehab.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-26"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>פרויקט שיקום כלכלי</h3></div></a>
+ <a href="flyer-social-security.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-27"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>מודעת זכויות ביטוח לאומי</h3></div></a>
+ <a href="flyer-wrapped-in-love.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-28"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>שותפות חברתית</span></div><h3>עטופים באהבה</h3></div></a>
+ <a href="friendly-catalog.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-29"></div><div class="wcat">פלייר · מודעה</div><div class="wcard-content"><div class="wtags"><span>פלייר</span><span>קטלוג</span></div><h3>קטלוג מוצרים — Friendly</h3></div></a>
+ <a href="shave-kesef-metals.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-30"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית מתכות ואלקטרוניקה</h3></div></a>
+ <a href="shave-kesef-office.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-31"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>פינוי ציוד משרדים</h3></div></a>
+ <a href="shave-kesef-moving.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-32"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>הובלות קטנות בנתניה</h3></div></a>
+ <a href="shave-kesef-silver.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-33"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית כלי כסף ותכשיטים</h3></div></a>
+ <a href="shave-kesef-bottles.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-34"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>בקבוקים ופחיות</h3></div></a>
+ <a href="shave-kesef-buys-all.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-35"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>חיים קונה הכל</h3></div></a>
+ <a href="shave-kesef-ac.html" class="wcard reveal" data-cat="פליירים ומודעות"><div class="wcard-bg wcard-bg-36"></div><div class="wcat">מודעה</div><div class="wcard-content"><div class="wtags"><span>מודעה</span><span>שווה כסף</span></div><h3>קניית מזגנים</h3></div></a>
  </div>
  </div>
 </section>
@@ -378,10 +389,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="footer-inner">
  <div class="footer-brand">
  <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
- <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
  </div>
  <div class="footer-links">
- <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li><li><a href="web-accessibility.html">נגישות אתרים</a></li><li><a href="maintenance-support.html">תחזוקה ותמיכה</a></li></ul></div>
  <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">אודותיי</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
  <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
  </div>
@@ -397,9 +408,9 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="js/script.js?v=7"></script>
-<script src="js/accessibility.js?v=20"></script>
-<script src="js/chat-widget.js?v=7" defer></script>
+<script src="js/script.js?v=10"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=8" defer></script>
 <script>
 // Bento layout: size cards by their position among the visible ones
 function layoutWorks(){

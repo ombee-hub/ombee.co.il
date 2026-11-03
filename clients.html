@@ -59,6 +59,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .nav-cta{background:#015CFD;color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px}.nav-cta::after{display:none!important}
 .nav-cta:hover{background:#009AFE;box-shadow:0 8px 24px rgba(1,92,253,.3);transform:translateY(-1px)}
 .nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
@@ -214,6 +215,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
  <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
  </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -240,6 +249,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -465,10 +476,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="footer-inner">
  <div class="footer-brand">
  <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
- <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
  </div>
  <div class="footer-links">
- <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li><li><a href="web-accessibility.html">נגישות אתרים</a></li><li><a href="maintenance-support.html">תחזוקה ותמיכה</a></li></ul></div>
  <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">אודותיי</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
  <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
  </div>
@@ -484,9 +495,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="js/script.js?v=7"></script>
-<script src="js/accessibility.js?v=20"></script>
-<script src="js/chat-widget.js?v=7" defer></script>
-<script src="js/google-reviews.js?v=3" defer></script>
+<script src="js/script.js?v=10"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=8" defer></script>
+<script src="js/google-config.js?v=1" defer></script>
+<script src="js/google-reviews.js?v=4" defer></script>
 </body>
 </html>

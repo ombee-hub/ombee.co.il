@@ -61,6 +61,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .nav-cta{background:#015CFD;color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px}.nav-cta::after{display:none!important}
 .nav-cta:hover{background:#009AFE;box-shadow:0 8px 24px rgba(1,92,253,.3);transform:translateY(-1px)}
 .nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
@@ -120,21 +121,11 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 
 /* INTRO */
 .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.phone-mock{width:220px;height:400px;background:#fff;border-radius:36px;margin:0 auto;position:relative;overflow:hidden;border:6px solid #E3ECFF;box-shadow:0 30px 70px rgba(1,92,253,.18)}
-.phone-mock::before{display:none}
-.phone-notch{width:80px;height:20px;background:#E3ECFF;border-radius:0 0 12px 12px;margin:0 auto 20px;position:relative;z-index:1}
-.phone-content{padding:0 16px;position:relative;z-index:1;display:flex;flex-direction:column;gap:10px}
-.phone-bar{height:8px;background:rgba(1,92,253,.14);border-radius:4px}
-.phone-bar.short{width:60%}
-.phone-bar.mid{width:80%}
-.phone-card{background:#F0F5FF;border-radius:12px;padding:12px;border:1px solid rgba(1,92,253,.12)}
-.phone-card-line{height:6px;background:rgba(1,92,253,.16);border-radius:3px;margin-bottom:6px}
-.phone-card-line.s{width:50%}
 .intro-txt p{font-size:16px;color:#6B7280;line-height:1.9;margin-bottom:16px}
 .check-list{margin:24px 0 32px;display:flex;flex-direction:column;gap:12px}
 .check-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#00164D;font-weight:500}
 .check-list li::before{content:'✓';width:22px;height:22px;background:#015CFD;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;margin-top:2px}
-@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:48px}.phone-mock{width:180px;height:320px}}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:48px}}
 
 /* DELIVERABLES */
 .del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -199,6 +190,13 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  .footer-links{grid-template-columns:repeat(2,1fr)}
  .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
 }
+/* intro mockup */
+.intro-visual{background:none;border-radius:24px;aspect-ratio:3/4;width:100%;max-width:460px;margin:0 auto;position:relative;overflow:hidden;box-shadow:0 30px 70px rgba(0,22,77,.18)}
+.intro-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.intro-badge{position:absolute;bottom:18px;left:18px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-radius:14px;padding:10px 16px;box-shadow:0 8px 24px rgba(0,22,77,.12);display:flex;flex-direction:column;line-height:1.3}
+.intro-badge strong{font-size:15px;font-weight:800;color:#00164D}
+.intro-badge span{font-size:12px;color:#6B7280}
+@media(max-width:560px){.intro-badge{bottom:12px;left:12px}}
 </style>
 </head>
 <body>
@@ -231,6 +229,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
  <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
  </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -257,6 +263,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -286,25 +294,9 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 <!-- INTRO -->
 <section class="section" style="background:#F0F5FF">
  <div class="container intro-grid">
- <div class="reveal" style="display:flex;justify-content:center">
- <div class="phone-mock">
- <div class="phone-notch"></div>
- <div class="phone-content">
- <div class="phone-bar short"></div>
- <div class="phone-bar mid"></div>
- <div class="phone-bar"></div>
- <div class="phone-card">
- <div class="phone-card-line"></div>
- <div class="phone-card-line s"></div>
- </div>
- <div class="phone-card">
- <div class="phone-card-line mid"></div>
- <div class="phone-card-line s"></div>
- </div>
- <div class="phone-bar short"></div>
- <div class="phone-bar mid"></div>
- </div>
- </div>
+ <div class="intro-visual reveal">
+ <img src="images/Mockup_Agrosoft_AgtoTalk%202026.webp" alt="אפליקציית AgroTalk של Agrosoft — מוקאפ" decoding="async"/>
+ <div class="intro-badge"><strong>AgroTalk</strong><span>Agrosoft · עיצוב אפליקציה · 2026</span></div>
  </div>
  <div class="intro-txt reveal">
  <p class="eyebrow">למה UI/UX חשוב</p>
@@ -417,10 +409,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="footer-inner">
  <div class="footer-brand">
  <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
- <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
  </div>
  <div class="footer-links">
- <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li><li><a href="web-accessibility.html">נגישות אתרים</a></li><li><a href="maintenance-support.html">תחזוקה ותמיכה</a></li></ul></div>
  <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">אודותיי</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
  <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
  </div>
@@ -436,8 +428,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="js/script.js?v=7"></script>
-<script src="js/accessibility.js?v=20"></script>
-<script src="js/chat-widget.js?v=7" defer></script>
+<script src="js/script.js?v=10"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=8" defer></script>
 </body>
 </html>

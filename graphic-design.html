@@ -61,6 +61,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .nav-cta{background:#015CFD;color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px}.nav-cta::after{display:none!important}
 .nav-cta:hover{background:#009AFE;box-shadow:0 8px 24px rgba(1,92,253,.3);transform:translateY(-1px)}
 .nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
 .nav-link-drop{display:flex;align-items:center;gap:6px}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
@@ -168,21 +169,28 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .price-card{background:#fff url('images/hero-bg.webp') center/cover no-repeat;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;padding:40px 32px;text-align:center;transition:all .3s;position:relative;display:flex;flex-direction:column}
 .price-card .btn{margin-top:auto}
 .price-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(1,92,253,.1)}
-.price-card.featured{background:#015CFD;border-color:transparent;color:#fff}
+.price-card.featured{background:#fff url('images/hero-bg.webp') center/cover no-repeat;border:2px solid #015CFD;color:#00164D;overflow:visible}
 .price-card .btn-out{background:#fff}.price-card .btn-out:hover{background:#015CFD}
-.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#00164D;color:#fff;font-size:12px;font-weight:700;padding:6px 18px;border-radius:8px;white-space:nowrap}
-.price-name{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AEC1E7;margin-bottom:16px}
-.price-card.featured .price-name{color:rgba(255,255,255,.7)}
+.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#015CFD;color:#fff;box-shadow:0 6px 18px rgba(0,22,77,.25);font-size:12px;font-weight:700;padding:6px 18px;border-radius:8px;white-space:nowrap}
+.price-name{font-size:20px;font-weight:800;color:#00164D;margin-bottom:18px}
+.price-card.featured .price-name{color:#015CFD}
 .price-num{font-size:48px;font-weight:900;color:#00164D;letter-spacing:-.04em;line-height:1;margin-bottom:6px}
-.price-card.featured .price-num{color:#fff}
-.price-note{font-size:13px;color:#6B7280;margin-bottom:28px}
-.price-card.featured .price-note{color:rgba(255,255,255,.7)}
+.price-card.featured .price-num{color:#00164D}
+.price-note{font-size:14px;color:#4B5563;padding-bottom:24px;margin-bottom:24px;border-bottom:1.5px solid rgba(1,92,253,.12)}
+.price-card.featured .price-note{color:#4B5563;border-color:rgba(1,92,253,.12)}
 .price-features{text-align:right;margin-bottom:32px;display:flex;flex-direction:column;gap:10px}
-.price-features li{font-size:14px;color:#6B7280;display:flex;align-items:center;gap:8px}
-.price-card.featured .price-features li{color:rgba(255,255,255,.85)}
-.price-features li::before{content:'✓';color:#015CFD;font-weight:800}
-.price-card.featured .price-features li::before{color:#fff}
-@media(max-width:900px){.pricing-grid{grid-template-columns:1fr}}
+.price-features li{font-size:15px;color:#374151;display:flex;align-items:center;gap:10px}
+.price-card.featured .price-features li{color:#374151;font-weight:500}
+.price-features li::before{content:'✓';flex-shrink:0;width:22px;height:22px;border-radius:50%;background:rgba(1,92,253,.1);color:#015CFD;font-size:12px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.price-card.featured .price-features li::before{background:#015CFD;color:#fff}
+.price-num small{font-size:16px;font-weight:700;letter-spacing:0}
+.price-num .cur{font-size:.55em;font-weight:800;margin-inline-start:4px}
+.price-card.featured{transform:scale(1.04);box-shadow:0 24px 60px rgba(1,92,253,.35);z-index:1}
+.price-card.featured .price-name{font-size:22px}
+.price-card.featured .price-num{font-size:56px}
+.price-card.featured:hover{transform:scale(1.04) translateY(-4px)}
+.pricing-grid{align-items:stretch;padding-top:14px}
+@media(max-width:900px){.pricing-grid{grid-template-columns:1fr}.price-card.featured,.price-card.featured:hover{transform:none}}
 
 /* CTA STRIP */
 .cta-strip{background:#00164D url('images/footer-bg.webp') center bottom/cover no-repeat;padding:80px 0;text-align:center}
@@ -266,6 +274,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
  <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
  </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -292,6 +308,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -392,39 +410,39 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <h2 class="section-title">לוגואים <span class="title-out">שעיצבתי</span></h2>
  </div>
  <div class="lw-grid">
- <a href="project-shave-kesef-logo.html" class="lw-card reveal">
+ <a href="shave-kesef-logo.html" class="lw-card reveal">
  <img src="images/mockup-shave-kesef-2026.webp" alt="שווה כסף — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>שווה כסף</strong><span>2026</span></div>
  </a>
- <a href="project-oren.html" class="lw-card reveal">
+ <a href="oren-repairs.html" class="lw-card reveal">
  <img src="images/Mockup_Oren.webp" alt="אורן תיקונים — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>אורן תיקונים</strong><span>2023</span></div>
  </a>
- <a href="project-nimrod-grisaru.html" class="lw-card reveal">
+ <a href="nimrod-grisaru.html" class="lw-card reveal">
  <img src="images/Mockup_NimrodGrisaru.webp" alt="ד&quot;ר נמרוד גריסרו — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>ד"ר נמרוד גריסרו</strong><span>2023</span></div>
  </a>
- <a href="project-colorful-heart.html" class="lw-card reveal">
+ <a href="colorful-heart.html" class="lw-card reveal">
  <img src="images/Mockup_Shay%20Reshef%202023.webp" alt="Colorful Heart — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>Colorful Heart</strong><span>2023</span></div>
  </a>
- <a href="project-buzz.html" class="lw-card reveal">
+ <a href="buzz.html" class="lw-card reveal">
  <img src="images/Mockup_Buzzz%20Cycle%20-%20Wings%20Preparatory%20School%20South%20Sderot.webp" alt="מחזור באזז — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>מחזור באזז</strong><span>2023</span></div>
  </a>
- <a href="project-hofit.html" class="lw-card reveal">
+ <a href="hofit-dala.html" class="lw-card reveal">
  <img src="images/Mockup_Hofit%20Dala%202022.webp" alt="חופית דלה — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>חופית דלה</strong><span>2022</span></div>
  </a>
- <a href="project-ziva.html" class="lw-card reveal">
+ <a href="ziva-events.html" class="lw-card reveal">
  <img src="images/Mockup_Ziva%20Events%202022.webp" alt="זיוה — השכרת ציוד לאירועים — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>זיוה — השכרת ציוד לאירועים</strong><span>2022</span></div>
  </a>
- <a href="project-dj-or.html" class="lw-card reveal">
+ <a href="dj-or.html" class="lw-card reveal">
  <img src="images/Mockup_Or_Logo.webp" alt="DJ Or Baumstein — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>DJ Or Baumstein</strong><span>2022</span></div>
  </a>
- <a href="project-source-music.html" class="lw-card reveal">
+ <a href="source-music.html" class="lw-card reveal">
  <img src="images/Mockup_Source%20Music%20Rebranding%202022.webp" alt="מקור המוזיקה — לוגו ומיתוג" loading="lazy" decoding="async"/>
  <div class="lw-info"><strong>מקור המוזיקה</strong><span>2022</span></div>
  </a>
@@ -458,44 +476,39 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="pricing-grid">
  <div class="price-card reveal">
  <div class="price-name">לוגו</div>
- <div class="price-num">₪590</div>
- <div class="price-note">לוגו ראשוני לעסק חדש</div>
+ <div class="price-num">750<span class="cur">₪</span></div>
+ <div class="price-note">עיצוב לוגו לעסק</div>
  <ul class="price-features">
- <li>3 כיווני עיצוב</li>
- <li>2 סבבי תיקונים</li>
- <li>קבצים ב-PNG, SVG, PDF</li>
- <li>גרסה לבנה ושחורה</li>
- <li>זכויות שימוש מלאות</li>
+ <li>2 כיוונים ראשוניים לבחירה</li>
+ <li>2 סבבי תיקונים לכיוון הנבחר</li>
+ <li>קובצי SVG, PDF</li>
+ <li>PNG שקוף ו-JPG</li>
  </ul>
  <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card featured reveal">
  <div class="price-badge">הכי פופולרי</div>
- <div class="price-name">מיתוג מלא</div>
- <div class="price-num">₪1,290</div>
- <div class="price-note">חבילת מיתוג מקצועית</div>
+ <div class="price-name">מיתוג עסקי</div>
+ <div class="price-num">1,650<span class="cur">₪</span></div>
+ <div class="price-note">חבילת מיתוג מלאה</div>
  <ul class="price-features">
- <li>לוגו ראשי + וריאציות</li>
- <li>פלטת צבעים</li>
- <li>טיפוגרפיה</li>
- <li>Brand Guidelines (PDF)</li>
- <li>כרטיס ביקור מעוצב</li>
- <li>קבצים בכל הפורמטים</li>
- <li>3 סבבי תיקונים</li>
+ <li>עיצוב לוגו</li>
+ <li>בחירת צבעים ופונטים</li>
+ <li>מדריך מותג עד 4 עמודים</li>
+ <li>כרטיס ביקור דו־צדדי</li>
+ <li>3 תבניות לרשתות החברתיות</li>
  </ul>
- <a href="contact.html" class="btn btn-white" style="width:100%;justify-content:center">התחל/י עכשיו</a>
+ <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
  <div class="price-card reveal">
- <div class="price-name">פרימיום</div>
- <div class="price-num">₪2,290</div>
- <div class="price-note">מיתוג + חומרי שיווק</div>
+ <div class="price-name">פלייר</div>
+ <div class="price-num"><small>החל מ-</small>250<span class="cur">₪</span></div>
+ <div class="price-note">חד־צדדי ₪250 · דו־צדדי ₪400</div>
  <ul class="price-features">
- <li>כל מה שכלול במיתוג מלא</li>
- <li>תבניות לרשתות חברתיות</li>
- <li>פלייר / חוברת מעוצבת</li>
- <li>חתימת מייל</li>
- <li>תבנית מצגת</li>
- <li>סבבי תיקונים ללא הגבלה</li>
+ <li>גודל אחד עד A4</li>
+ <li>דו־צדדי בקו עיצובי אחיד</li>
+ <li>2 סבבי תיקונים</li>
+ <li>PDF לדפוס ו-JPG לשיתוף</li>
  </ul>
  <a href="contact.html" class="btn btn-out" style="width:100%;justify-content:center">התחל/י עכשיו</a>
  </div>
@@ -519,10 +532,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <div class="footer-inner">
  <div class="footer-brand">
  <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
- <p>סטודיו OMBee הוקם בשנת 2014 ע"י עמרי בן אליהו<br/>עיצוב לוגו, מיתוג עסקי, אפייון אתרים ואפליקציות בניית אתרים במערכת AI</p>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
  </div>
  <div class="footer-links">
- <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li></ul></div>
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li><li><a href="web-accessibility.html">נגישות אתרים</a></li><li><a href="maintenance-support.html">תחזוקה ותמיכה</a></li></ul></div>
  <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">אודותיי</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
  <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
  </div>
@@ -538,8 +551,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="js/script.js?v=7"></script>
-<script src="js/accessibility.js?v=20"></script>
-<script src="js/chat-widget.js?v=7" defer></script>
+<script src="js/script.js?v=10"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=8" defer></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 ───────────────────────────────────────────── */
 (function () {
   /* ── הגדרות: למלא כאן את המפתח ומזהה העסק ── */
-  var API_KEY  = '';   // Google Maps JavaScript API key (restricted to ombee.co.il)
+  var API_KEY  = window.OMBEE_GOOGLE_API_KEY || '';   // set in js/google-config.js (kept out of git)
   var PLACE_ID = '';   // Google Place ID (ChIJ...) — optional; if empty it is looked up once by name+location and cached
   var PLACE_QUERY = 'OMBee-Grahpics Desiger and UI/UX';        // the business name as it appears on Google Maps
   var PLACE_LOC   = { lat: 31.9107414, lng: 35.0114023 };      // business pin

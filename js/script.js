@@ -2,6 +2,13 @@
    OMBee Studio — script.js
 ───────────────────────────────────────────── */
 
+/* ── LOCAL PREVIEW ─────────────────────────────
+   כשפותחים את האתר מהמחשב (file://), הקישור "/" של הלוגו מוביל לשורש הכונן.
+   מפנים אותו ל-index.html רק במצב הזה; באתר החי הכתובת נשארת "/" */
+if (location.protocol === 'file:') {
+  document.querySelectorAll('a[href="/"]').forEach(a => a.setAttribute('href', 'index.html'));
+}
+
 /* ── FAILSAFE ────────────────────────────────────
    מבטיח שהתוכן לעולם לא יישאר מוסתר (opacity:0) גם אם משהו אחר
    בסקריפט נכשל. נקבע ראשון, לפני כל קוד שעלול לזרוק שגיאה. */
@@ -195,6 +202,24 @@ if (form) {
     return el.value.trim();
   };
 
+  // קובץ / בריף מצורף (אופציונלי) — מציגים את שם הקובץ שנבחר
+  const briefEl = document.getElementById('brief');
+  const briefName = document.getElementById('briefName');
+  const MAX_BRIEF = 2 * 1024 * 1024;
+  const showBrief = () => {
+    if (!briefEl || !briefName) return;
+    const f = briefEl.files[0];
+    briefName.textContent = f ? f.name : 'לא נבחר קובץ';
+    briefName.parentElement.classList.toggle('has-file', !!f);
+  };
+  if (briefEl) briefEl.addEventListener('change', showBrief);
+  const readFile = f => new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(f);
+  });
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
     const btn = form.querySelector('button[type="submit"]');
@@ -221,6 +246,14 @@ if (form) {
       return;
     }
 
+    const file = briefEl && briefEl.files[0];
+    if (file && file.size > MAX_BRIEF) {
+      btn.innerHTML = '✗ הקובץ גדול מ-2MB';
+      btn.style.background = '#e23b3b';
+      setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; }, 3500);
+      return;
+    }
+
     // פרמטרים שנשלחים לתבנית המעוצבת ב-EmailJS
     const params = {
       name:       val('name')       || '—',
@@ -229,6 +262,9 @@ if (form) {
       company:    val('company')    || '—',
       company_id: val('company-id') || '—',
       service:    val('service')    || '—',
+      budget:     val('budget')     || '—',
+      start:      val('start')      || '—',
+      brief_name: file ? file.name : '—',
       message:    val('message')    || '—',
       subject:    'פנייה חדשה מאתר OMBee' + (val('name') ? ' — ' + val('name') : ''),
       reply_to:   val('email'),
@@ -239,10 +275,23 @@ if (form) {
     btn.innerHTML = 'שולח…';
 
     try {
-      await emailjs.send(cfg.serviceId, cfg.templateId, params);
+      if (file) {
+        // הקובץ נשלח כצרופה (Variable Attachment בשם brief בתבנית EmailJS).
+        // אם השליחה עם הקובץ נכשלת (למשל מגבלת גודל), שולחים בלעדיו כדי שהפנייה לא תאבד.
+        try {
+          await emailjs.send(cfg.serviceId, cfg.templateId, Object.assign({}, params, { brief: await readFile(file) }));
+        } catch (attachErr) {
+          console.warn('שליחה עם קובץ נכשלה, שולח בלי הקובץ:', attachErr);
+          params.brief_name = file.name + ' (הקובץ לא צורף — לבקש מהלקוח לשלוח במייל)';
+          await emailjs.send(cfg.serviceId, cfg.templateId, params);
+        }
+      } else {
+        await emailjs.send(cfg.serviceId, cfg.templateId, params);
+      }
       btn.innerHTML = '✓ נשלח בהצלחה!';
       btn.style.background = '#28c840';
       form.reset();
+      showBrief();
       setTimeout(() => {
         btn.innerHTML = original;
         btn.style.background = '';

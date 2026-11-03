@@ -4,3 +4,9 @@
 # Local dev / editor
 .DS_Store
 Thumbs.db
+
+# API keys (deployed via the ZIP only)
+js/google-config.js
+
+# Claude Code local settings
+.claude/
