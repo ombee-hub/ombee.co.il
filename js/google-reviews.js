@@ -25,7 +25,7 @@
     '.greviews-stars{color:#FBBC04;font-size:20px;letter-spacing:2px;line-height:1}',
     '.greviews-count{font-size:14px;color:#6B7280}',
     '.greviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}',
-    '.greview{background:#fff url("images/hero-bg.webp") center/cover no-repeat;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}',
+    '.greview{background:#fff url("images/ombee-background.webp") center/cover no-repeat;border:1.5px solid rgba(1,92,253,.18);border-radius:24px;padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}',
     '.greview-head{display:flex;align-items:center;gap:12px}',
     '.greview-av{width:44px;height:44px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#015CFD}',
     '.greview-av.ph{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}',

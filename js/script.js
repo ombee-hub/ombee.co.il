@@ -92,11 +92,13 @@ window.addEventListener('resize', () => {
 const mobToggle = document.getElementById('mobSolutionsToggle');
 const mobSubmenu = document.getElementById('mobSubmenu');
 if (mobToggle && mobSubmenu) {
+  // The word "פתרונות" links to solutions.html; the arrow button toggles the sub-menu
   mobToggle.addEventListener('click', e => {
     e.preventDefault();
-    // Tapping anywhere on the row toggles the sub-menu
-    mobToggle.classList.toggle('open');
-    mobSubmenu.classList.toggle('open');
+    const open = !mobSubmenu.classList.contains('open');
+    mobToggle.classList.toggle('open', open);
+    mobSubmenu.classList.toggle('open', open);
+    mobToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 }
 

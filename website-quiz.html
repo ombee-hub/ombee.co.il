@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>OMBee - שאלון התאמת אתר | איזה אתר מתאים לעסק שלך?</title>
+<meta name="description" content="חמש שאלות קצרות שיעזרו לך להבין איזה אתר מתאים לעסק שלך — דף נחיתה, אתר תדמית, חנות אונליין או שיפוץ אתר קיים."/>
+<link rel="canonical" href="https://ombee.co.il/website-quiz.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="OMBee"/>
+<meta property="og:locale" content="he_IL"/>
+<meta property="og:title" content="OMBee - שאלון התאמת אתר | איזה אתר מתאים לעסק שלך?"/>
+<meta property="og:description" content="חמש שאלות קצרות שיעזרו לך להבין איזה אתר מתאים לעסק שלך — דף נחיתה, אתר תדמית, חנות אונליין או שיפוץ אתר קיים."/>
+<meta property="og:url" content="https://ombee.co.il/website-quiz.html"/>
+<meta property="og:image" content="https://ombee.co.il/images/ombee-logo.webp"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" type="image/webp" href="images/icon-ombee-logo.webp"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400..900&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Heebo',sans-serif;background:#fff;color:#00164D;direction:rtl;overflow-x:hidden;line-height:1.7;cursor:auto}
+@media(max-width:768px){body{cursor:auto}}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+ul{list-style:none}
+input,textarea,select,button{font-family:'Heebo',sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+.cursor{display:none}
+.cursor-f{display:none}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.section{padding:40px 0 70px}
+.section-header{text-align:center;margin-bottom:30px}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:clamp(18px,2.2vw,26px);font-weight:900;letter-spacing:-.02em;text-transform:none;background:linear-gradient(135deg,#00164D 30%,#0021A3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:0;line-height:.9;padding-bottom:0}.eyebrow::before,.eyebrow::after{content:'';width:50px;height:2px;background:linear-gradient(90deg,transparent,#015CFD);border-radius:2px;-webkit-text-fill-color:initial;flex-shrink:0}.eyebrow::after{background:linear-gradient(90deg,#015CFD,transparent)}
+
+.section-title{font-size:clamp(26px,4vw,44px);font-weight:900;line-height:1;letter-spacing:-.035em;background:linear-gradient(135deg,#00164D 30%,#0021A3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 4px 24px rgba(0,22,77,.06)}
+.title-out{font-weight:900;background:linear-gradient(90deg,#015CFD,#0141E7,#015CFD,#009AFE);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;display:inline-block;animation:titleShine 4s linear infinite}.title-out::after{content:'';position:absolute;left:5%;right:5%;bottom:-6px;height:3px;background:linear-gradient(90deg,transparent,#015CFD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .3s;white-space:nowrap}
+.btn-cy{background:#015CFD;color:#fff}
+.btn-cy:hover{background:#009AFE;transform:translateY(-3px);box-shadow:0 16px 40px rgba(1,92,253,.3)}
+.btn-out{background:transparent;color:#015CFD;border:2px solid #015CFD}
+.btn-out:hover{background:#015CFD;color:#fff;transform:translateY(-3px)}
+.btn-white{background:#fff;color:#015CFD;border:none}
+.btn-white:hover{background:#F0F5FF;transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;background:#fff;border-bottom:1px solid rgba(1,92,253,.12);transition:all .3s}
+.header.scrolled{box-shadow:0 4px 24px rgba(1,92,253,.1)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.header-logo-nav{display:flex;align-items:center;gap:28px}
+@media(min-width:1025px){.header-logo-nav{flex:1}.header-logo-nav .nav{flex:1}.nav-list li:has(>.nav-cta){margin-inline-start:auto}}
+
+
+.logo img{height:38px;width:auto}
+.nav-list{display:flex;align-items:center;gap:24px}
+.nav-link{font-size:14px;font-weight:600;color:#6B7280;padding:8px 4px 12px;position:relative;transition:color .35s cubic-bezier(.4,0,.2,1)}.nav-link::after{content:'';position:absolute;bottom:0;left:50%;height:2.5px;width:0;background:linear-gradient(90deg,transparent 0%,#015CFD 20%,#0141E7 50%,#015CFD 80%,transparent 100%);border-radius:2px;transform:translateX(-50%);transition:width .4s cubic-bezier(.65,0,.35,1);box-shadow:0 2px 8px rgba(1,92,253,.35)}
+.nav-link:hover,.nav-link.active{color:#015CFD}.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-cta{background:#015CFD;color:#fff!important;font-weight:700;padding:10px 22px;border-radius:8px}.nav-cta::after{display:none!important}
+.nav-cta:hover{background:#009AFE;box-shadow:0 8px 24px rgba(1,92,253,.3);transform:translateY(-1px)}
+.nav-dropdown{position:static}
+.nav-list>li>a{display:inline-flex;align-items:center}
+.nav-link-drop{display:flex;align-items:center;gap:6px}
+.nav-link-drop svg{transition:transform .3s}
+.nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
+.dropdown-menu::before{content:"";position:absolute;top:-30px;left:0;right:0;height:30px}
+.dropdown-menu{position:absolute;top:100%;left:28px;right:28px;background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:20px;display:flex;justify-content:center;gap:6px;box-shadow:0 16px 48px rgba(1,92,253,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateY(0)}
+.dropdown-menu{visibility:hidden;pointer-events:all;transition:opacity .25s ease .35s,transform .25s ease .35s,visibility 0s linear .6s}
+.nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{visibility:visible;opacity:1;transform:translateY(0);transition-delay:0s,0s,0s}
+.dropdown-header{font-size:13px;font-weight:700;color:#AEC1E7;padding:16px 22px;border-left:1.5px solid rgba(1,92,253,.15);display:flex;align-items:center;white-space:nowrap;order:-1}
+.dropdown-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 10px 24px;min-width:0;position:relative;transition:all .35s cubic-bezier(.4,0,.2,1);color:#00164D;text-align:center;flex:1;max-width:260px}.dropdown-item::after{content:'';position:absolute;bottom:8px;left:50%;height:2.5px;width:0;background:linear-gradient(90deg,transparent 0%,#015CFD 20%,#0141E7 50%,#015CFD 80%,transparent 100%);border-radius:2px;transform:translateX(-50%);transition:width .4s cubic-bezier(.65,0,.35,1);box-shadow:0 2px 8px rgba(1,92,253,.35)}
+.dropdown-item:hover{color:#015CFD;transform:translateY(-2px)}.dropdown-item:hover::after{width:80%}
+.dropdown-item:hover .dropdown-icon{background:none;color:#015CFD}
+.dropdown-icon{width:48px;height:48px;border-radius:14px;background:none;display:flex;align-items:center;justify-content:center;color:#015CFD;flex-shrink:0;transition:all .2s}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px;white-space:nowrap}
+.dropdown-item span{font-size:12px;color:#6B7280}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px;white-space:nowrap}
+.hamburger{display:none;flex-direction:column;gap:7px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:24px;height:2px;background:#00164D;border-radius:2px;display:block;transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){transform:translateY(-4.5px) rotate(-45deg)}
+
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:1190}
+.mob-overlay.open{opacity:1;pointer-events:all}
+.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff url('images/ombee-background.webp') center/cover no-repeat;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:1200;overflow-y:auto;padding:22px 28px 40px;display:block}
+.mob-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:1.5px solid rgba(1,92,253,.12)}
+.mob-head img{height:32px;width:auto}
+.mob-close{background:none;border:none;color:#00164D;font-size:20px;line-height:1;cursor:pointer;padding:6px;transition:color .2s}
+.mob-close:hover{color:#015CFD}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu>ul{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.mob-link{font-size:17px;font-weight:700;color:#00164D;transition:color .3s;display:block;padding:14px 0;border-bottom:1px solid #C7D0D6;width:100%}
+.mob-link:hover{color:#015CFD}
+.mob-link-drop{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
+.mob-link-drop.open svg{transform:rotate(180deg)}
+.mob-drop-label{flex:1;color:inherit}
+.mob-drop-btn{background:#F0F5FF;border:none;border-radius:8px;width:38px;height:34px;margin:-6px 0;display:flex;align-items:center;justify-content:center;color:#00164D;cursor:pointer;flex-shrink:0}
+.mob-drop-btn svg{transition:transform .3s}
+.mob-drop-btn.open svg{transform:rotate(180deg)}
+.mob-submenu{display:none;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px;padding:6px 0 10px;background:transparent;border-radius:0}
+.mob-submenu.open{display:flex}
+.mob-sub-link{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#6B7280;padding:10px 0;border-bottom:1px solid #DDE3E7;width:100%}
+.mob-sub-icon{width:32px;height:32px;border-radius:8px;background:none;display:flex;align-items:center;justify-content:center;color:#015CFD;flex-shrink:0}.mob-submenu li:last-child .mob-sub-link{border-bottom:none}
+.mob-sub-link:hover{color:#015CFD}
+.mob-cta{background:#015CFD;color:#fff!important;border-radius:8px;padding:14px 28px!important;text-align:center;border-bottom:none!important;margin-top:12px;font-size:16px;transition:all .3s;width:100%;display:block;box-sizing:border-box}
+.mob-cta:hover{background:#009AFE;color:#fff!important}
+@media(max-width:1024px){.nav{display:none}.hamburger{display:flex}.header-inner{justify-content:flex-start;gap:14px}}
+@media(min-width:1025px){.mob-menu,.mob-overlay{display:none!important}}
+
+/* PAGE HERO */
+.page-hero{padding:160px 0 90px;background:#fff url('images/ombee-background.webp') center/cover no-repeat;position:relative;overflow:hidden;text-align:center}
+.page-hero-grid,.page-hero-glow{display:none!important}
+.page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.page-hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(1,92,253,.08) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.breadcrumb{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#AEC1E7;margin-bottom:24px}
+.breadcrumb a{color:#015CFD}
+.breadcrumb-sep{opacity:.4}
+.page-hero h1{font-size:clamp(32px,5vw,56px);font-weight:900;line-height:1.1;letter-spacing:-.04em;background:linear-gradient(135deg,#00164D 30%,#0021A3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;text-wrap:balance}.page-hero h1 .cy{font-weight:900;background:linear-gradient(135deg,#015CFD 0%,#0141E7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.page-hero h1 .out{font-weight:900;background:linear-gradient(90deg,#015CFD,#0141E7,#015CFD,#009AFE);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShine 4s linear infinite;position:relative;display:inline-block}.page-hero h1 .out::after{content:'';position:absolute;left:5%;right:5%;bottom:-4px;height:5px;background:linear-gradient(90deg,transparent,#015CFD 50%,transparent);border-radius:2px}@keyframes titleShine{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+.page-hero p{font-size:17px;color:#6B7280;line-height:1.85;max-width:560px;margin:0 auto 36px}
+.hero-tags{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.hero-tag{padding:8px 18px;background:rgba(1,92,253,.08);border:1px solid rgba(1,92,253,.25);border-radius:8px;font-size:13px;font-weight:600;color:#015CFD}
+
+/* BEFORE AFTER */
+.ba-section{background:#F0F5FF}
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:60px}
+.ba-card{border-radius:20px;padding:40px;position:relative;overflow:hidden}
+.ba-card.before{background:#fff;border:1.5px solid rgba(0,0,0,.08)}
+.ba-card.after{background:#015CFD;border:1.5px solid transparent}
+.ba-label{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:20px}
+.ba-card.before .ba-label{color:#AEC1E7}
+.ba-card.after .ba-label{color:rgba(255,255,255,.7)}
+.ba-item{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:15px}
+.ba-card.before .ba-item{color:#6B7280;text-decoration:line-through;opacity:.7}
+.ba-card.after .ba-item{color:#fff}
+.ba-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:14px}
+.ba-card.before .ba-icon{background:none}
+.ba-card.after .ba-icon{background:none}
+@media(max-width:768px){.ba-grid{grid-template-columns:1fr}}
+
+/* SIGNS */
+.signs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sign-card{background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:28px;transition:all .3s}
+.sign-card:hover{border-color:#015CFD;transform:translateY(-3px);box-shadow:0 12px 32px rgba(1,92,253,.1)}
+.sign-num{font-size:40px;font-weight:900;color:#015CFD;letter-spacing:-.04em;line-height:1;margin-bottom:8px}
+.sign-card h3{font-size:17px;font-weight:800;color:#00164D;margin-bottom:6px}
+.sign-card p{font-size:14px;color:#6B7280;line-height:1.6}
+@media(max-width:900px){.signs-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.signs-grid{grid-template-columns:1fr}}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
+.pitem{position:relative;background:#F0F5FF;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:36px 28px;text-align:center;transition:all .3s}
+.pitem:hover{border-color:#015CFD;transform:translateY(-4px);box-shadow:0 16px 40px rgba(1,92,253,.1)}
+.pnum{width:70px;height:70px;background:#fff;border:1.5px solid rgba(1,92,253,.25);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#015CFD;margin:0 auto 24px;position:relative;z-index:1;transition:all .3s}
+.pitem h3{font-size:17px;font-weight:800;color:#00164D;margin-bottom:10px}
+.pitem p{font-size:14px;color:#6B7280;line-height:1.75}
+@media(max-width:900px){
+ .process-grid{grid-template-columns:1fr;gap:28px}
+ .process-grid::before{display:none}
+ .pitem{display:grid;grid-template-columns:70px 1fr;text-align:right;align-items:start;gap:0 20px;padding:24px 20px}
+ .pitem:last-child{border-bottom:none}
+ .pnum{margin:0;grid-row:1/3}
+ .pitem h3{grid-column:2}
+ .pitem p{grid-column:2}
+}
+
+/* FAQ */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1.5px solid rgba(1,92,253,.18);border-radius:16px;overflow:hidden}
+.faq-q{padding:20px 24px;font-size:16px;font-weight:700;color:#00164D;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.faq-q:hover{background:#F0F5FF}
+.faq-q svg{flex-shrink:0;transition:transform .3s;color:#015CFD}
+.faq-item.open .faq-q svg{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.4,0,.2,1)}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a p{padding:0 24px 20px;font-size:15px;color:#6B7280;line-height:1.75}
+
+/* CTA STRIP */
+.cta-strip{background:#00164D url('images/footer-bg.webp') center bottom/cover no-repeat;padding:80px 0;text-align:center}
+@media(max-width:768px){.cta-strip{background-size:auto 165%}}
+.cta-strip h2{font-size:clamp(24px,3.2vw,36px);font-weight:900;color:#fff;letter-spacing:-.03em;margin-bottom:16px}
+.cta-strip p{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:36px}
+
+/* FOOTER */
+.footer{background:#fff}
+.footer-top{padding:50px 0 0;text-align:center;background:linear-gradient(180deg,rgba(1,92,253,.04),transparent);position:relative}
+.footer-sitemap-title{display:inline-flex;align-items:center;gap:14px;font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-.02em;background:linear-gradient(135deg,#00164D 30%,#0021A3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative}
+.footer-sitemap-title::before,.footer-sitemap-title::after{content:'';width:60px;height:2px;background:linear-gradient(90deg,transparent,#015CFD);border-radius:2px;-webkit-text-fill-color:initial}
+.footer-sitemap-title::after{background:linear-gradient(90deg,#015CFD,transparent)}
+.footer-sitemap-title .accent{font-weight:900;background:linear-gradient(90deg,#015CFD,#0141E7,#015CFD,#009AFE);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleShine 4s linear infinite}
+.footer-inner{display:grid;grid-template-columns:1.2fr 2fr;gap:60px;padding:20px 0 56px}
+.footer-brand img{height:34px;width:auto;margin-bottom:14px}
+.footer-brand p{font-size:14px;color:#6B7280;line-height:1.8}
+.footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.footer-col h4{font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#015CFD;margin-bottom:20px;position:relative;padding-bottom:10px}.footer-col h4::after{content:'';position:absolute;right:0;bottom:0;width:24px;height:2px;background:#015CFD;border-radius:2px;opacity:.4}
+.footer-col ul{display:flex;flex-direction:column;gap:12px}
+.footer-col a{font-size:14px;color:#6B7280;transition:all .3s;position:relative;display:inline-block}
+.footer-col a:hover{color:#015CFD;transform:translateX(-4px)}
+.footer-bottom{margin:0 calc(50% - 50vw);padding:230px 0 28px;background:linear-gradient(180deg,transparent 55%,rgba(0,22,77,.75)),#00164D url('images/footer-bg.webp') center 12%/cover no-repeat}
+.footer-bottom .container{padding:0 20px!important}.footer-bottom bdi{white-space:nowrap}@media(min-width:769px){.footer-bottom .container{display:grid!important;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}.footer-bottom .container>span:first-child{justify-self:start}.footer-bottom .container>span:nth-child(2){justify-self:center;text-align:center}.footer-bottom .container>span:last-child{justify-self:end}}.footer-legal{text-align:center;font-size:12px;color:#D6E4FF;opacity:.8;margin-top:14px;padding:0 20px}.footer-bottom span,.footer-bottom a{color:#D6E4FF!important}.footer-bottom a:hover{color:#fff!important}
+@media(max-width:768px){.footer-bottom{padding-top:110px;padding-bottom:84px}}
+.footer-bottom .container{display:flex;justify-content:space-between;align-items:center}
+.footer-bottom span{font-size:13px;color:#AEC1E7}
+@media(max-width:768px){
+ .footer-inner{grid-template-columns:1fr;gap:36px;padding:20px 0 36px}
+ .footer-links{grid-template-columns:repeat(2,1fr)}
+ .footer-bottom .container{flex-direction:column;gap:8px;text-align:center}
+}
+
+.quiz-sec{background:#F0F5FF url('images/ombee-background.webp') center/cover no-repeat;padding-top:60px}
+.quiz-card{max-width:760px;margin:0 auto;background:#fff;border:1.5px solid rgba(1,92,253,.14);border-radius:24px;padding:36px 40px;box-shadow:0 18px 50px rgba(1,92,253,.10)}
+.quiz-card[hidden]{display:none}
+.quiz-card{scroll-margin-top:110px}
+.quiz-top{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.quiz-step{font-size:14px;font-weight:700;color:#015CFD}
+.quiz-bar{height:6px;border-radius:6px;background:#E6EEFF;overflow:hidden}
+.quiz-bar span{display:block;height:100%;width:20%;background:linear-gradient(90deg,#015CFD,#009AFE);border-radius:6px;transition:width .35s}
+.quiz-q{border:none;padding:0;margin:0}
+.quiz-q legend{font-size:clamp(21px,2.6vw,27px);font-weight:900;color:#00164D;letter-spacing:-.02em;line-height:1.3;margin-bottom:6px}
+.quiz-hint{font-size:14px;color:#6B7280;margin-bottom:4px}
+.quiz-opts{display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.quiz-opt{display:flex;align-items:center;gap:14px;width:100%;text-align:right;background:#fff;border:1.5px solid rgba(1,92,253,.2);border-radius:14px;padding:16px 18px;font-size:16px;font-weight:600;color:#00164D;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.quiz-opt:hover{border-color:#015CFD;background:#F7FAFF}
+.quiz-opt:focus-visible{outline:3px solid #009AFE;outline-offset:2px}
+.quiz-opt.on{border-color:#015CFD;background:#EEF4FF;box-shadow:0 6px 18px rgba(1,92,253,.12)}
+.quiz-mark{width:22px;height:22px;border-radius:50%;border:2px solid #9DB8F5;flex-shrink:0;position:relative;transition:all .2s}
+.quiz-mark.sq{border-radius:6px}
+.quiz-opt.on .quiz-mark{border-color:#015CFD;background:#015CFD}
+.quiz-opt.on .quiz-mark::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/13px no-repeat}
+.quiz-nav{display:flex;align-items:center;justify-content:space-between;margin-top:28px}
+.quiz-back{background:none;border:none;font-size:15px;font-weight:700;color:#6B7280;cursor:pointer;padding:10px 4px}
+.quiz-back:hover{color:#015CFD}
+.btn-primary{background:#015CFD;color:#fff;box-shadow:0 8px 22px rgba(1,92,253,.25)}
+.btn-primary:hover{background:#0141E7;transform:translateY(-2px)}
+.btn-primary:disabled{background:#B9CBF5;box-shadow:none;cursor:not-allowed;transform:none}
+.quiz-btn-out{background:#fff;color:#015CFD;border:2px solid #015CFD}
+.quiz-btn-out:hover{background:#015CFD;color:#fff}
+.quiz-result{text-align:center}
+.quiz-result-eyebrow{font-size:15px;font-weight:700;color:#015CFD}
+.quiz-result-title{font-size:clamp(30px,4.4vw,44px);font-weight:900;color:#00164D;letter-spacing:-.03em;line-height:1.15;margin:6px 0 8px;outline:none}
+.quiz-result-price{display:inline-block;font-size:17px;font-weight:800;color:#015CFD;background:#EEF4FF;border-radius:10px;padding:8px 16px}
+.quiz-result-text{font-size:16px;color:#374151;line-height:1.8;max-width:560px;margin:18px auto 0}
+.quiz-extras{display:flex;flex-direction:column;gap:10px;max-width:560px;margin:22px auto 0;text-align:right}
+.quiz-extras:empty{display:none}
+.quiz-extras-title{font-size:15px;font-weight:800;color:#00164D}
+.quiz-extra{display:flex;flex-direction:column;gap:2px;border:1.5px solid rgba(1,92,253,.16);border-radius:12px;padding:12px 16px;transition:border-color .2s}
+.quiz-extra:hover{border-color:#015CFD}
+.quiz-extra strong{font-size:15px;color:#00164D}
+.quiz-extra span{font-size:14px;color:#6B7280}
+.quiz-result-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:28px}
+.quiz-again{background:none;border:none;margin-top:18px;font-size:14px;font-weight:700;color:#6B7280;cursor:pointer;text-decoration:underline}
+.quiz-again:hover{color:#015CFD}
+@media(max-width:640px){.quiz-card{padding:26px 18px;border-radius:20px}.quiz-opt{font-size:15px;padding:14px 14px}.quiz-result-btns .btn{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-f" id="cursorFollower"></div>
+
+<!-- HEADER -->
+<header class="header" id="header">
+ <div class="container header-inner">
+ <button class="hamburger" id="hamburger" aria-label="תפריט"><span></span><span></span></button>
+ <div class="header-logo-nav">
+ <a href="/" class="logo"><img src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
+ <nav class="nav">
+ <ul class="nav-list">
+ <li><a href="about.html" class="nav-link">אודותיי</a></li>
+ <li class="nav-dropdown">
+ <a href="solutions.html" class="nav-link nav-link-drop active">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+ <div class="dropdown-menu">
+ <div class="dropdown-header">איך אוכל לעזור לך?</div>
+ <a href="website-design.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+ <div><strong>בניית אתרים</strong><span>AI & Figma — מהרעיון לאוויר</span></div>
+ </a>
+ <a href="website-redesign.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+ <div><strong>שיפוץ אתר</strong><span>עיצוב מחדש לאתר קיים</span></div>
+ </a>
+ <a href="app-design.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div>
+ <div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div>
+ </a>
+ <a href="web-accessibility.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div>
+ <div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div>
+ </a>
+ <a href="maintenance-support.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div>
+ <div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div>
+ </a>
+ <a href="website-quiz.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11l1.5 1.5L13.5 9.5M9 16.5h6"/></svg></div>
+ <div><strong>שאלון התאמת אתר</strong><span>איזה אתר מתאים לך?</span></div>
+ </a>
+ </div>
+ </li>
+ <li><a href="services.html" class="nav-link">שירותים</a></li>
+ <li><a href="portfolio.html" class="nav-link">עבודות</a></li>
+ <li><a href="clients.html" class="nav-link">לקוחות</a></li>
+ <li><a href="contact.html" class="nav-link nav-cta">יצירת קשר <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-inline-start:6px;transform:scaleX(-1)"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a></li>
+ </ul>
+ </nav>
+ </div>
+ </div>
+</header>
+
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-menu" id="mobileMenu">
+ <div class="mob-head">
+ <a href="/" class="mob-logo" aria-label="דף הבית"><img src="images/ombee-logo.webp" alt="OMBee"/></a>
+ <button class="mob-close" id="mobClose" aria-label="סגירת תפריט">✕</button>
+ </div>
+ <ul>
+ <li><a href="about.html" class="mob-link">אודותיי</a></li>
+ <li class="mob-dropdown">
+ <div class="mob-link mob-link-drop"><a href="solutions.html" class="mob-drop-label">פתרונות</a><button type="button" class="mob-drop-btn" id="mobSolutionsToggle" aria-expanded="false" aria-controls="mobSubmenu" aria-label="פתיחת רשימת הפתרונות"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+ <ul class="mob-submenu" id="mobSubmenu">
+ <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
+ <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
+ <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
+ <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
+ <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
+ <li><a href="website-quiz.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11l1.5 1.5L13.5 9.5M9 16.5h6"/></svg></span>שאלון התאמת אתר</a></li>
+ </ul>
+ </li>
+ <li><a href="services.html" class="mob-link">שירותים</a></li>
+ <li><a href="portfolio.html" class="mob-link">עבודות</a></li>
+ <li><a href="clients.html" class="mob-link">לקוחות</a></li>
+ <li><a href="contact.html" class="mob-link mob-cta">יצירת קשר <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-inline-start:6px;transform:scaleX(-1)"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a></li>
+ </ul>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+ <div class="page-hero-grid"></div>
+ <div class="page-hero-glow"></div>
+ <div class="container" style="position:relative;z-index:1">
+ <h1 class="reveal">שאלון <span class="cy">התאמת אתר</span></h1>
+ <p class="reveal">חמש שאלות קצרות, פחות מדקה — ותקבל/י המלצה על סוג האתר שהכי מתאים לעסק שלך</p>
+ </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section quiz-sec">
+ <div class="container">
+ <div class="quiz-card reveal" id="quiz">
+ <div class="quiz-top">
+ <span class="quiz-step" id="quizStep" aria-live="polite">שאלה 1 מתוך 5</span>
+ <div class="quiz-bar" aria-hidden="true"><span id="quizBar"></span></div>
+ </div>
+ <div id="quizBody"></div>
+ <div class="quiz-nav">
+ <button type="button" class="quiz-back" id="quizBack">הקודם</button>
+ <button type="button" class="btn btn-primary quiz-next" id="quizNext" disabled>הבא</button>
+ </div>
+ </div>
+
+ <div class="quiz-card quiz-result" id="quizResult" hidden>
+ <p class="quiz-result-eyebrow">ההמלצה שלי בשבילך</p>
+ <h2 class="quiz-result-title" id="resTitle"></h2>
+ <div class="quiz-result-price" id="resPrice"></div>
+ <p class="quiz-result-text" id="resText"></p>
+ <div class="quiz-extras" id="resExtras"></div>
+ <div class="quiz-result-btns">
+ <a class="btn btn-primary" id="resWa" href="https://wa.me/972523777468" target="_blank" rel="noopener">שליחת התשובות בוואטסאפ</a>
+ <a class="btn quiz-btn-out" id="resMore" href="website-design.html">לפרטים נוספים</a>
+ </div>
+ <button type="button" class="quiz-again" id="quizAgain">למילוי השאלון מחדש</button>
+ </div>
+ </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-strip">
+ <div class="container">
+ <h2 class="reveal">מעדיף/ה לדבר ישירות?</h2>
+ <p class="reveal">ספר/י לי על העסק שלך ונמצא יחד את האתר שמתאים לך</p>
+ <a href="contact.html" class="btn btn-white reveal">יצירת קשר עכשיו <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform:scaleX(-1)"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></a>
+ </div>
+</section>
+
+<script>
+(function () {
+  var Q = [
+    { id: 'site', q: 'יש לך היום אתר?', opts: [
+      ['none', 'עדיין אין לי אתר'],
+      ['old', 'יש לי אתר, אבל הוא נראה ישן או לא עובד טוב'],
+      ['good', 'יש לי אתר והוא עובד טוב']
+    ]},
+    { id: 'goal', q: 'מה המטרה העיקרית של האתר?', opts: [
+      ['leads', 'להביא פניות ולקוחות חדשים'],
+      ['show', 'להציג את העסק, השירותים והעבודות'],
+      ['sell', 'למכור מוצרים אונליין']
+    ]},
+    { id: 'pages', q: 'כמה עמודים צריך באתר?', opts: [
+      ['one', 'עמוד אחד מספיק'],
+      ['few', '2–5 עמודים'],
+      ['many', 'יותר מ-5 עמודים'],
+      ['unknown', 'עוד לא יודע/ת']
+    ]},
+    { id: 'extras', q: 'מה עוד חשוב לך?', multi: true, hint: 'אפשר לבחור כמה תשובות', opts: [
+      ['a11y', 'שהאתר יהיה נגיש לפי התקן'],
+      ['maint', 'שמישהו ידאג לתחזוקה ולעדכונים'],
+      ['social', 'ניהול פייסבוק ואינסטגרם'],
+      ['nothing', 'שום דבר מאלה']
+    ]},
+    { id: 'when', q: 'מתי תרצה/י להתחיל?', opts: [
+      ['now', 'כמה שיותר מהר'],
+      ['soon', 'בחודש-חודשיים הקרובים'],
+      ['look', 'רק בודק/ת אפשרויות']
+    ]}
+  ];
+  var A = {}, i = 0;
+  var body = document.getElementById('quizBody'), next = document.getElementById('quizNext'),
+      back = document.getElementById('quizBack'), step = document.getElementById('quizStep'),
+      bar = document.getElementById('quizBar'), card = document.getElementById('quiz'),
+      res = document.getElementById('quizResult');
+
+  function label(qi, v) { var o = Q[qi].opts; for (var k = 0; k < o.length; k++) if (o[k][0] === v) return o[k][1]; return v; }
+
+  function render() {
+    var q = Q[i], sel = A[q.id] || (q.multi ? [] : null);
+    step.textContent = 'שאלה ' + (i + 1) + ' מתוך ' + Q.length;
+    bar.style.width = ((i + 1) / Q.length * 100) + '%';
+    var h = '<fieldset class="quiz-q"><legend>' + q.q + '</legend>' + (q.hint ? '<p class="quiz-hint">' + q.hint + '</p>' : '') + '<div class="quiz-opts">';
+    q.opts.forEach(function (o) {
+      var on = q.multi ? sel.indexOf(o[0]) > -1 : sel === o[0];
+      h += '<button type="button" class="quiz-opt' + (on ? ' on' : '') + '" data-v="' + o[0] + '" aria-pressed="' + on + '"><span class="quiz-mark' + (q.multi ? ' sq' : '') + '" aria-hidden="true"></span>' + o[1] + '</button>';
+    });
+    body.innerHTML = h + '</div></fieldset>';
+    back.style.visibility = i ? 'visible' : 'hidden';
+    next.textContent = i === Q.length - 1 ? 'לתוצאה' : 'הבא';
+    next.disabled = q.multi ? !sel.length : !sel;
+  }
+
+  body.addEventListener('click', function (e) {
+    var b = e.target.closest('.quiz-opt'); if (!b) return;
+    var q = Q[i], v = b.getAttribute('data-v');
+    if (q.multi) {
+      var s = (A[q.id] || []).slice();
+      if (v === 'nothing') s = s.indexOf('nothing') > -1 ? [] : ['nothing'];
+      else { s = s.filter(function (x) { return x !== 'nothing'; }); var p = s.indexOf(v); p > -1 ? s.splice(p, 1) : s.push(v); }
+      A[q.id] = s; render();
+    } else {
+      A[q.id] = v; render();
+      setTimeout(function () { if (i < Q.length - 1) { i++; render(); focusQ(); } }, 260);
+    }
+  });
+  function focusQ() { var f = body.querySelector('.quiz-opt'); if (f) f.focus({ preventScroll: true }); }
+  next.addEventListener('click', function () { if (i < Q.length - 1) { i++; render(); focusQ(); } else show(); });
+  back.addEventListener('click', function () { if (i) { i--; render(); focusQ(); } });
+  document.getElementById('quizAgain').addEventListener('click', function () {
+    A = {}; i = 0; res.hidden = true; card.hidden = false; render();
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  function show() {
+    var t, p, txt, more = 'website-design.html', ex = A.extras || [];
+    if (A.site === 'old') {
+      t = 'שיפוץ אתר'; p = 'המחיר נקבע לפי היקף האתר הקיים';
+      txt = 'כבר יש לך בסיס — נחדש את העיצוב, נשפר את המהירות ונתאים את האתר לטלפון, בלי לאבד את התוכן והדירוג בגוגל.';
+      more = 'website-redesign.html';
+    } else if (A.goal === 'sell') {
+      t = 'חנות אונליין'; p = 'המחיר נקבע לפי מספר המוצרים והאפשרויות';
+      txt = 'חנות שמציגה את המוצרים בצורה מושכת, עם תשלום מאובטח וניהול הזמנות פשוט — מותאמת לטלפון.';
+    } else if (A.site === 'good') {
+      var real = ex.filter(function (x) { return x !== 'nothing'; });
+      t = 'שדרוג לאתר הקיים'; p = real.length ? 'לפי השירותים שבחרת' : 'לפי הצורך';
+      txt = real.length
+        ? 'האתר שלך עובד, אז אין צורך לבנות חדש. אפשר להתמקד במה שיחזק אותו: ' + real.map(function (x) { return label(3, x); }).join(', ') + '.'
+        : 'האתר שלך עובד, אז אין צורך לבנות חדש. אפשר לחזק אותו עם תחזוקה שוטפת והנגשה לפי התקן — כדי שימשיך לעבוד טוב ולהביא לקוחות.';
+      more = 'solutions.html';
+    } else if (A.pages === 'one' || (A.goal === 'leads' && A.pages === 'unknown')) {
+      t = 'דף נחיתה'; p = '₪1,500';
+      txt = 'עמוד אחד ממוקד שמוביל את הגולש לפעולה אחת — להשאיר פרטים או לשלוח וואטסאפ. מתאים במיוחד לקמפיינים ולשירות מרכזי אחד.';
+    } else if (A.pages === 'many') {
+      t = 'אתר תדמית מורחב'; p = 'מחיר לפי הצעה (אתר תדמית עד 5 עמודים: ₪2,900)';
+      txt = 'אתר עם הרבה תוכן — שירותים, עבודות ומידע — בניווט ברור שעוזר לגולש למצוא מהר את מה שהוא מחפש.';
+    } else {
+      t = 'אתר תדמית'; p = '₪2,900';
+      txt = 'עד 5 עמודים שמציגים את העסק במלואו — מי את/ה, מה את/ה מציע/ה ולמה לבחור בך — עם טופס יצירת קשר וכפתור וואטסאפ.';
+    }
+    document.getElementById('resTitle').textContent = t;
+    document.getElementById('resPrice').textContent = p;
+    document.getElementById('resText').textContent = txt;
+    document.getElementById('resMore').href = more;
+
+    var X = { a11y: ['נגישות אתרים', 'הנגשה לפי ת״י 5568 ותו נגישות', 'web-accessibility.html'],
+              maint: ['תחזוקה ותמיכה', 'עדכונים, אבטחה וגיבויים שוטפים', 'maintenance-support.html'],
+              social: ['ניהול פייסבוק ואינסטגרם', '₪1,250 לחודש לשתי הרשתות · ₪850 לרשת אחת', 'website-design.html'] };
+    var eh = '';
+    if (t !== 'שדרוג לאתר הקיים') ex.forEach(function (x) { if (X[x]) eh += '<a class="quiz-extra" href="' + X[x][2] + '"><strong>+ ' + X[x][0] + '</strong><span>' + X[x][1] + '</span></a>'; });
+    document.getElementById('resExtras').innerHTML = eh ? '<p class="quiz-extras-title">מומלץ להוסיף</p>' + eh : '';
+
+    var msg = 'היי עמרי, מילאתי את שאלון התאמת האתר באתר OMBee.\n' +
+      Q.map(function (q, k) { var v = A[q.id]; return q.q + ' ' + (q.multi ? v.map(function (x) { return label(k, x); }).join(', ') : label(k, v)); }).join('\n') +
+      '\nההמלצה: ' + t;
+    document.getElementById('resWa').href = 'https://wa.me/972523777468?text=' + encodeURIComponent(msg);
+
+    card.hidden = true; res.hidden = false;
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('resTitle').setAttribute('tabindex', '-1');
+    document.getElementById('resTitle').focus({ preventScroll: true });
+  }
+  render();
+})();
+</script>
+
+<!-- FOOTER -->
+<footer class="footer">
+ <div class="container">
+ <div class="footer-top"><h2 class="footer-sitemap-title">מפת <span class="accent">האתר</span></h2></div>
+ <div class="footer-inner">
+ <div class="footer-brand">
+ <a href="/"><img loading="lazy" decoding="async" src="images/ombee-logo.webp" alt="OMBee Studio"/></a>
+ <p>סטודיו OMBee לעיצוב גרפי ו-UI/UX, בהובלת עמרי בן אליהו מאז 2014.<br/>לוגו ומיתוג עסקי, איפיון ובניית אפליקציות ובניית אתרים עם AI</p>
+ </div>
+ <div class="footer-links">
+ <div class="footer-col"><h4>פתרונות</h4><ul><li><a href="website-design.html">בניית אתרים</a></li><li><a href="website-redesign.html">שיפוץ אתר</a></li><li><a href="app-design.html">עיצוב אפליקציה</a></li><li><a href="web-accessibility.html">נגישות אתרים</a></li><li><a href="maintenance-support.html">תחזוקה ותמיכה</a></li></ul></div>
+ <div class="footer-col"><h4>ניווט</h4><ul><li><a href="portfolio.html">עבודות</a></li><li><a href="clients.html">לקוחות</a></li><li><a href="about.html">אודותיי</a></li><li><a href="contact.html">יצירת קשר</a></li></ul></div>
+ <div class="footer-col"><h4>יצירת קשר</h4><ul><li><a href="tel:0523777468">052-377-7468</a></li><li><a href="mailto:helloombee@gmail.com">helloombee@gmail.com</a></li><li><a href="accessibility-statement.html">הצהרת נגישות</a></li><li><a href="privacy-policy.html">מדיניות פרטיות</a></li></ul></div>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <div class="container" style="padding:0">
+ <span>© 2014-2026 כל הזכויות שמורות ל-<bdi>OMBee Graphic Design And UI/UX</bdi></span>
+ <span>OMBee • עוסק פטור • רשום ברשות המסים בישראל</span>
+ <span><a href="accessibility-statement.html" style="color:#AEC1E7;transition:color .3s" onmouseover="this.style.color='#015CFD'" onmouseout="this.style.color='#AEC1E7'">הצהרת נגישות</a> · <a href="privacy-policy.html" style="color:#AEC1E7;transition:color .3s" onmouseover="this.style.color='#015CFD'" onmouseout="this.style.color='#AEC1E7'">מדיניות פרטיות</a></span>
+ </div>
+ <p class="footer-legal">עיצוב ובנייה ע"י OMBee - Graphic Design And UI/UX</p>
+ </div>
+ </div>
+</footer>
+
+<script src="js/script.js?v=11"></script>
+<script src="js/accessibility.js?v=32"></script>
+<script src="js/chat-widget.js?v=19" defer></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q => {
+ q.addEventListener('click', () => {
+ const item = q.parentElement;
+ const isOpen = item.classList.contains('open');
+ document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+ if (!isOpen) item.classList.add('open');
+ });
+});
+</script>
+</body>
+</html>

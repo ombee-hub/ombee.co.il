@@ -65,7 +65,7 @@
   --a11y-w:280px;--a11y-icon:28px;--a11y-label:13px;--a11y-card:104px;
   position:fixed;top:0;bottom:0;left:0;z-index:10001;
   width:var(--a11y-w);max-width:100vw;overflow-y:auto;overscroll-behavior:contain;
-  background:#EEF4FF url('images/hero-bg.webp') center/cover no-repeat fixed;border-radius:0 18px 18px 0;
+  background:#EEF4FF url('images/ombee-background.webp') center/cover no-repeat fixed;border-radius:0 18px 18px 0;
   box-shadow:8px 0 40px rgba(0,0,0,.18);
   transform:translateX(-105%);visibility:hidden;
   transition:transform .35s cubic-bezier(.4,0,.2,1),visibility 0s linear .35s,width .25s ease;
@@ -302,7 +302,7 @@ html.a11y-textAlign body>:not(.ombee-a11y-root) *{text-align:right!important}
   css.textContent = `
 .ombee-cookie-banner{
   position:fixed;bottom:0;left:0;right:0;z-index:9999;
-  background:#fff url("images/hero-bg.webp") center 40%/cover no-repeat;border-top:1.5px solid rgba(1,92,253,.18);
+  background:#fff url("images/ombee-background.webp") center 40%/cover no-repeat;border-top:1.5px solid rgba(1,92,253,.18);
   box-shadow:0 -4px 24px rgba(0,0,0,.1);
   padding:18px 96px;
   display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;

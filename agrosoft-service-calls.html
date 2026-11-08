@@ -62,18 +62,18 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .nav-link-drop svg{transition:transform .3s}
 .nav-dropdown:hover .nav-link-drop svg{transform:rotate(180deg)}
 .dropdown-menu::before{content:"";position:absolute;top:-30px;left:0;right:0;height:30px}
-.dropdown-menu{position:absolute;top:100%;left:28px;right:28px;background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:20px;display:flex;justify-content:center;gap:16px;box-shadow:0 16px 48px rgba(1,92,253,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
+.dropdown-menu{position:absolute;top:100%;left:28px;right:28px;background:#fff;border:1.5px solid rgba(1,92,253,.18);border-radius:20px;padding:20px;display:flex;justify-content:center;gap:6px;box-shadow:0 16px 48px rgba(1,92,253,.15);opacity:0;pointer-events:none;transform:translateY(10px);transition:all .25s cubic-bezier(.4,0,.2,1);z-index:100}
 .nav-dropdown:hover .dropdown-menu{opacity:1;pointer-events:all;transform:translateY(0)}
 .dropdown-menu{visibility:hidden;pointer-events:all;transition:opacity .25s ease .35s,transform .25s ease .35s,visibility 0s linear .6s}
 .nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{visibility:visible;opacity:1;transform:translateY(0);transition-delay:0s,0s,0s}
-.dropdown-header{font-size:13px;font-weight:700;color:#AEC1E7;padding:16px 28px;border-left:1.5px solid rgba(1,92,253,.15);display:flex;align-items:center;white-space:nowrap;order:-1}
-.dropdown-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 32px 24px;position:relative;transition:all .35s cubic-bezier(.4,0,.2,1);color:#00164D;text-align:center;flex:1;max-width:260px}.dropdown-item::after{content:'';position:absolute;bottom:8px;left:50%;height:2.5px;width:0;background:linear-gradient(90deg,transparent 0%,#015CFD 20%,#0141E7 50%,#015CFD 80%,transparent 100%);border-radius:2px;transform:translateX(-50%);transition:width .4s cubic-bezier(.65,0,.35,1);box-shadow:0 2px 8px rgba(1,92,253,.35)}
+.dropdown-header{font-size:13px;font-weight:700;color:#AEC1E7;padding:16px 22px;border-left:1.5px solid rgba(1,92,253,.15);display:flex;align-items:center;white-space:nowrap;order:-1}
+.dropdown-item{display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 10px 24px;min-width:0;position:relative;transition:all .35s cubic-bezier(.4,0,.2,1);color:#00164D;text-align:center;flex:1;max-width:260px}.dropdown-item::after{content:'';position:absolute;bottom:8px;left:50%;height:2.5px;width:0;background:linear-gradient(90deg,transparent 0%,#015CFD 20%,#0141E7 50%,#015CFD 80%,transparent 100%);border-radius:2px;transform:translateX(-50%);transition:width .4s cubic-bezier(.65,0,.35,1);box-shadow:0 2px 8px rgba(1,92,253,.35)}
 .dropdown-item:hover{color:#015CFD;transform:translateY(-2px)}.dropdown-item:hover::after{width:80%}
 .dropdown-item:hover .dropdown-icon{background:none;color:#015CFD}
 .dropdown-icon{width:48px;height:48px;border-radius:14px;background:none;display:flex;align-items:center;justify-content:center;color:#015CFD;flex-shrink:0;transition:all .2s}
-.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px;white-space:nowrap}
 .dropdown-item span{font-size:12px;color:#6B7280}
-.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px}
+.dropdown-item strong{display:block;font-size:14px;font-weight:700;margin-bottom:2px;white-space:nowrap}
 .hamburger{display:none;flex-direction:column;gap:7px;background:none;border:none;cursor:pointer;padding:6px}
 .hamburger span{width:24px;height:2px;background:#00164D;border-radius:2px;display:block;transition:all .3s}
 .hamburger.open span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
@@ -81,7 +81,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 
 .mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:1190}
 .mob-overlay.open{opacity:1;pointer-events:all}
-.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:1200;overflow-y:auto;padding:22px 28px 40px;display:block}
+.mob-menu{position:fixed;top:0;right:0;width:280px;height:100vh;background:#fff url('images/ombee-background.webp') center/cover no-repeat;box-shadow:-4px 0 24px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);z-index:1200;overflow-y:auto;padding:22px 28px 40px;display:block}
 .mob-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;padding-bottom:18px;border-bottom:1.5px solid rgba(1,92,253,.12)}
 .mob-head img{height:32px;width:auto}
 .mob-close{background:none;border:none;color:#00164D;font-size:20px;line-height:1;cursor:pointer;padding:6px;transition:color .2s}
@@ -92,6 +92,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 .mob-link:hover{color:#015CFD}
 .mob-link-drop{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
 .mob-link-drop.open svg{transform:rotate(180deg)}
+.mob-drop-label{flex:1;color:inherit}
+.mob-drop-btn{background:#F0F5FF;border:none;border-radius:8px;width:38px;height:34px;margin:-6px 0;display:flex;align-items:center;justify-content:center;color:#00164D;cursor:pointer;flex-shrink:0}
+.mob-drop-btn svg{transition:transform .3s}
+.mob-drop-btn.open svg{transform:rotate(180deg)}
 .mob-submenu{display:none;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px;padding:6px 0 10px;background:transparent;border-radius:0}
 .mob-submenu.open{display:flex}
 .mob-sub-link{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#6B7280;padding:10px 0;border-bottom:1px solid #DDE3E7;width:100%}
@@ -103,7 +107,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
 @media(min-width:1025px){.mob-menu,.mob-overlay{display:none!important}}
 
 /* PAGE HERO */
-.page-hero{padding:120px 0 10px;background:#fff url('images/hero-bg.webp') center/cover no-repeat;position:relative;overflow:hidden;text-align:center}
+.page-hero{padding:120px 0 10px;background:#fff url('images/ombee-background.webp') center/cover no-repeat;position:relative;overflow:hidden;text-align:center}
 .page-hero-grid,.page-hero-glow{display:none!important}
 .project-logo{display:block;height:64px;width:auto;margin:0 auto 18px;object-fit:contain}.project-logo-h1 .project-logo{height:80px;margin-bottom:10px}.project-logo-h1 .project-sublogo{height:130px;margin-top:6px}@media(max-width:768px){.project-logo,.project-logo-h1 .project-logo{height:56px;margin-bottom:10px}.project-logo-h1 .project-sublogo{height:96px}}
 .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(1,92,253,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(1,92,253,.05) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
@@ -247,7 +251,7 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <ul class="nav-list">
  <li><a href="about.html" class="nav-link">אודותיי</a></li>
  <li class="nav-dropdown">
- <a href="services.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+ <a href="solutions.html" class="nav-link nav-link-drop">פתרונות <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
  <div class="dropdown-menu">
  <div class="dropdown-header">איך אוכל לעזור לך?</div>
  <a href="website-design.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div><strong>בניית אתרים</strong><span>AI & Figma — מהרעיון לאוויר</span></div></a>
@@ -255,6 +259,10 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <a href="app-design.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></div><div><strong>עיצוב אפליקציה</strong><span>UI/UX לאפליקציות ופלטפורמות</span></div></a>
  <a href="web-accessibility.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></div><div><strong>נגישות אתרים</strong><span>הנגשה לפי התקן ותו נגישות</span></div></a>
  <a href="maintenance-support.html" class="dropdown-item"><div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></div><div><strong>תחזוקה ותמיכה</strong><span>עדכונים, אבטחה וגיבויים</span></div></a>
+ <a href="website-quiz.html" class="dropdown-item">
+ <div class="dropdown-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11l1.5 1.5L13.5 9.5M9 16.5h6"/></svg></div>
+ <div><strong>שאלון התאמת אתר</strong><span>איזה אתר מתאים לך?</span></div>
+ </a>
  </div>
  </li>
  <li><a href="services.html" class="nav-link">שירותים</a></li>
@@ -277,13 +285,14 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  <ul>
  <li><a href="about.html" class="mob-link">אודותיי</a></li>
  <li class="mob-dropdown">
- <a href="#" class="mob-link mob-link-drop" id="mobSolutionsToggle">פתרונות <svg width="14" height="14" viewBox="0 0 12 12" fill="none" style="vertical-align:middle;transition:transform .3s"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+ <div class="mob-link mob-link-drop"><a href="solutions.html" class="mob-drop-label">פתרונות</a><button type="button" class="mob-drop-btn" id="mobSolutionsToggle" aria-expanded="false" aria-controls="mobSubmenu" aria-label="פתיחת רשימת הפתרונות"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
  <ul class="mob-submenu" id="mobSubmenu">
  <li><a href="website-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>בניית אתרים</a></li>
  <li><a href="website-redesign.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></span>שיפוץ אתר</a></li>
  <li><a href="app-design.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1"/></svg></span>עיצוב אפליקציה</a></li>
  <li><a href="web-accessibility.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M5 9l7 1.5L19 9M12 10.5V15l-3 6M12 15l3 6"/></svg></span>נגישות אתרים</a></li>
  <li><a href="maintenance-support.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>תחזוקה ותמיכה</a></li>
+ <li><a href="website-quiz.html" class="mob-link mob-sub-link"><span class="mob-sub-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 11l1.5 1.5L13.5 9.5M9 16.5h6"/></svg></span>שאלון התאמת אתר</a></li>
  </ul>
  </li>
  <li><a href="services.html" class="mob-link">שירותים</a></li>
@@ -525,8 +534,8 @@ input,textarea,select,button{font-family:'Heebo',sans-serif}
  </div>
 </footer>
 
-<script src="js/script.js?v=10"></script>
+<script src="js/script.js?v=11"></script>
 <script src="js/accessibility.js?v=32"></script>
-<script src="js/chat-widget.js?v=8" defer></script>
+<script src="js/chat-widget.js?v=19" defer></script>
 </body>
 </html>
